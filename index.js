@@ -17,7 +17,6 @@ client.on("message", msg => {
       commandFile.run(client, msg, args, config);
       msg.react("✅");
     } catch (err) {
-      console.log(err);
       msg.react("❓");
     };
 });
