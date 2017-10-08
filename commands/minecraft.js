@@ -77,7 +77,7 @@ exports.run = (client, msg, args) => {
                     value: "Search for a user's skin\nUsage: `"+process.env.PREFIX+"minecraft -user Notch`"
                 },{
                     name: "`-server`",
-                    value: "Search for a server's status\nUsge: `"+process.env.PREFIX+"minecraft -server mc.hypixel.net`"
+                    value: "Search for a server's status\nUsage: `"+process.env.PREFIX+"minecraft -server mc.hypixel.net`"
                 }
             ],
             footer: {

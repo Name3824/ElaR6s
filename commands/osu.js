@@ -14,15 +14,24 @@ exports.run = (client, msg, args) => {
     }
     if(user.endsWith("-osusig") || user.startsWith("-osusig")) {
         username = user.replace('-osusig', '').trim();
+        if(!username) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Cookiezi`");
         var url = 'https://lemmmy.pw/osusig/sig.php?uname=' + encodeURI(username);
+        msg.channel.startTyping();
         msg.channel.send({embed: {
             color: 0xEA5F9C,
             image: {
                 url: url
+            },
+            footer: {
+                icon_url: msg.author.avatarURL,
+                text: `${msg.author.tag}`
             }
-        }})
-    } else {
-    osuApi.getUser({u: args.join(" ")}).then(user => {
+        }});
+        msg.channel.stopTyping();
+    } else if(user.endsWith("-stats") || user.startsWith("-stats")){
+    username = user.replace('-stats', '').trim();
+    if(!username) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Cookiezi`");
+    osuApi.getUser({u: user}).then(user => {
         const pais = user.country;
         msg.channel.startTyping();
         msg.channel.send({embed:{
@@ -80,5 +89,31 @@ exports.run = (client, msg, args) => {
         }});
         msg.channel.stopTyping();
     })
+    } else if(!args[0]) {
+        msg.channel.startTyping();
+        msg.channel.send({embed: {
+            color: 0xEA5F9C,
+            author: {
+                name: "osu! Commands",
+                icon_url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png"
+            },
+            thumbnail: {
+                url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png"
+            },
+            fields: [
+                {
+                    name: "`-stats`",
+                    value: "Search for a user's stats\nUsage: `"+process.env.PREFIX+"osu -stats Cookiezi`"
+                },{
+                    name: "`-osusig`",
+                    value: "Search for a user's osu!sig\nUsage: `"+process.env.PREFIX+"osu -osusig Cookiezi`"
+                }
+            ],
+            footer: {
+                icon_url: msg.author.avatarURL,
+                text: `${msg.author.tag}`
+            },
+        }});
+        msg.channel.stopTyping();
     }
 }
