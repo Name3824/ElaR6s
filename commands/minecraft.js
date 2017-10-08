@@ -30,7 +30,7 @@ exports.run = (client, msg, args) => {
                         value: data.players.online+" out of "+data.players.max
                     }
                 ],
-                image: {
+                thumbnail: {
                     url: url
                 },
                 footer: {
