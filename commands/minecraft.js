@@ -66,10 +66,10 @@ exports.run = (client, msg, args) => {
             color: 0x44FC37,
             author: {
                 name: "Minecraft Commands",
-                icon_url: "https://i2.wp.com/3.bp.blogspot.com/-wr3jmJ9A9ho/UNHj_QLxkWI/AAAAAAAAA9M/10yn-83BKvQ/s1600/minecraft_logo.png"
+                icon_url: "https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png"
             },
             thumbnail: {
-                url: "https://i2.wp.com/3.bp.blogspot.com/-wr3jmJ9A9ho/UNHj_QLxkWI/AAAAAAAAA9M/10yn-83BKvQ/s1600/minecraft_logo.png"
+                url: "https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png"
             },
             fields: [
                 {
