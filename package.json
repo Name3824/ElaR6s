@@ -13,6 +13,7 @@
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.2.1",
     "dotenv": "^4.0.0",
+    "mc-hermes": "^0.1.5",
     "node-osu": "^1.3.0",
     "request": "^2.83.0"
   }

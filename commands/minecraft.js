@@ -1,19 +1,90 @@
 exports.run = (client, msg, args) => {
-    if(args[1] || args[2] || args[3] || args[4]) return msg.channel.send("That's not a valid IP. Try with a valid one, for example ``mc.hypixel.net``");
-    msg.channel.startTyping();
-    msg.channel.send({embed: {
-        color: 0x426830,
-        author: {
-            name: "Server banner for "+args[0],
-            icon_url: "https://use.gameapis.net/mc/query/icon/"+args[0]
-        },
-        image: {
-            url: "https://use.gameapis.net/mc/query/banner/"+args[0]
-        },
-        footer: {
-            icon_url: msg.author.avatarURL,
-            text: `${msg.author.tag}`
-        }
-    }});
-    msg.channel.stopTyping();
+    if (!String.prototype.trim) {
+        String.prototype.trim = function () {
+          return this.toString().replace(/^\s+|\s+$/g, '');
+        };
+    }
+    const query = args.join(" ");
+    const ping = require('mc-hermes');
+    if(query.startsWith("-server") || query.endsWith("-server")) {
+        ip = query.replace('-server', '').trim();
+        if(!ip) return msg.channel.send("That's not a valid server. Try with a valid one, for example `mc.hypixel.net`");
+        var url = 'https://mcapi.de/api/image/favicon/'+ip
+        ping.pc({ server: ip }).then((data) => {
+            msg.channel.startTyping();
+            msg.channel.send({embed: {
+                color: 0x44FC37,
+                author: {
+                    name: "Information about "+ip,
+                    icon_url: url
+                },
+                fields: [
+                    {
+                        name: "Version:",
+                        value: data.version.name
+                    },{
+                        name: "Protocol:",
+                        value: data.version.protocol
+                    },{
+                        name: "Players:",
+                        value: data.players.online+" out of "+data.players.max
+                    }
+                ],
+                image: {
+                    url: url
+                },
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: `${msg.author.tag}`
+                }
+            }});
+            msg.channel.stopTyping();
+        })
+        .catch(console.error);
+    } else if(query.startsWith("-user") || query.endsWith("-user")) {
+        user = query.replace('-user', '').trim();
+        if(!user) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Notch`");
+        msg.channel.startTyping();
+        msg.channel.send({embed: {
+            color: 0x44FC37,
+            author: {
+                name: user+"'s Skin",
+                icon_url: "http://minecraft-skin-viewer.net/3d.php?layers=true&aa=true&a=0&w=0&wt=0&abg=0&abd=0&ajg=0&ajd=0&ratio=13&format=png&login="+user+"&headOnly=true&displayHairs=true&randomness=384"
+            },
+            image: {
+                url: "http://minecraft-skin-viewer.net/3d.php?layers=true&aa=true&a=0&w=0&wt=0&abg=0&abd=0&ajg=0&ajd=0&ratio=13&format=png&login="+user+"&headOnly=false&displayHairs=true&randomness=384"
+            },
+            footer: {
+                icon_url: msg.author.avatarURL,
+                text: `${msg.author.tag}`
+            }
+        }});
+        msg.channel.stopTyping();
+    } else if(!args[0] || !args.startsWith("-user") || !args.startsWith("-server") || !args.endsWith("-user") || !args.endsWith("-server")) {
+        msg.channel.startTyping();
+        msg.channel.send({embed: {
+            color: 0x44FC37,
+            author: {
+                name: "Minecraft Commands",
+                icon_url: "https://i2.wp.com/3.bp.blogspot.com/-wr3jmJ9A9ho/UNHj_QLxkWI/AAAAAAAAA9M/10yn-83BKvQ/s1600/minecraft_logo.png"
+            },
+            thumbnail: {
+                url: "https://i2.wp.com/3.bp.blogspot.com/-wr3jmJ9A9ho/UNHj_QLxkWI/AAAAAAAAA9M/10yn-83BKvQ/s1600/minecraft_logo.png"
+            },
+            fields: [
+                {
+                    name: "`-user`",
+                    value: "Search for a user's skin\nUsage: `"+process.env.PREFIX+"minecraft -user Notch`"
+                },{
+                    name: "`-server`",
+                    value: "Search for a server's status\nUsge: `"+process.env.PREFIX+"minecraft -server mc.hypixel.net`"
+                }
+            ],
+            footer: {
+                icon_url: msg.author.avatarURL,
+                text: `${msg.author.tag}`
+            },
+        }});
+        msg.channel.stopTyping();
+    }
 }
