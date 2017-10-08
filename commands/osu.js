@@ -31,7 +31,7 @@ exports.run = (client, msg, args) => {
     } else if(user.endsWith("-stats") || user.startsWith("-stats")){
     username = user.replace('-stats', '').trim();
     if(!username) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Cookiezi`");
-    osuApi.getUser({u: user}).then(user => {
+    osuApi.getUser({u: username}).then(user => {
         const pais = user.country;
         msg.channel.startTyping();
         msg.channel.send({embed:{
