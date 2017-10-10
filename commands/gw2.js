@@ -4,7 +4,7 @@ exports.run = (client, msg, args) => {
     const api = new gw2.gw2();
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
-    if(quest.startsWith('-daily') || quest.endsWith('-daily')) {
+    if(quest.startsWith('-daily')) {
         api.getDailyAchievements().then(function (res) {
             if (!res.pve) {
                 return;

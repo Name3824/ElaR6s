@@ -6,7 +6,7 @@ exports.run = (client, msg, args) => {
     }
     const query = args.join(" ");
     const ping = require('mc-hermes');
-    if(query.startsWith("-server") || query.endsWith("-server")) {
+    if(query.startsWith("-server")) {
         ip = query.replace('-server', '').trim();
         if(!ip) return msg.channel.send("That's not a valid server. Try with a valid one, for example `mc.hypixel.net`");
         var url = 'https://mcapi.de/api/image/favicon/'+ip
@@ -41,7 +41,7 @@ exports.run = (client, msg, args) => {
             msg.channel.stopTyping();
         })
         .catch(console.error);
-    } else if(query.startsWith("-user") || query.endsWith("-user")) {
+    } else if(query.startsWith("-user")) {
         user = query.replace('-user', '').trim();
         if(!user) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Notch`");
         msg.channel.startTyping();
@@ -60,7 +60,7 @@ exports.run = (client, msg, args) => {
             }
         }});
         msg.channel.stopTyping();
-    } else if(!args[0] || !args.startsWith("-user") || !args.startsWith("-server") || !args.endsWith("-user") || !args.endsWith("-server")) {
+    } else if(!args[0]) {
         msg.channel.startTyping();
         msg.channel.send({embed: {
             color: 0x44FC37,

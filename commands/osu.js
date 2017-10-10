@@ -12,7 +12,7 @@ exports.run = (client, msg, args) => {
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     }
-    if(user.endsWith("-osusig") || user.startsWith("-osusig")) {
+    if(user.startsWith("-osusig")) {
         username = user.replace('-osusig', '').trim();
         if(!username) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Cookiezi`");
         var url = 'https://lemmmy.pw/osusig/sig.php?uname=' + encodeURI(username);
@@ -28,7 +28,7 @@ exports.run = (client, msg, args) => {
             }
         }});
         msg.channel.stopTyping();
-    } else if(user.endsWith("-stats") || user.startsWith("-stats")){
+    } else if(user.startsWith("-stats")){
     username = user.replace('-stats', '').trim();
     if(!username) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Cookiezi`");
     osuApi.getUser({u: username}).then(user => {
