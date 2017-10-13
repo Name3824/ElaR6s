@@ -4,18 +4,6 @@ exports.run = (client, msg, args) => {
     const api = new gw2.gw2();
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
-    function separator(str,sep) {
-        var output = '';
-        for (var i = str.length; i > 0; i-=2) {
-            var ii = i-1;
-            if(output) {
-                output = str.charAt(ii-1)+str.charAt(ii)+sep+output;
-            } else {
-                output = str.charAt(ii-1)+str.charAt(ii);
-            }            
-        }
-        return output;
-    }
     if(argu.startsWith('-daily')) {
         api.getDailyAchievements().then(function (res) {
             if (!res.pve) {
