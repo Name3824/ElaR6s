@@ -22,7 +22,11 @@ exports.run = (client, msg, args) => {
                         name: "Output",
                         value: "```"+clean(evaled)+"```"
                     }
-                ]
+                ],
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: `${msg.author.tag}`
+                }
             }});
           } catch (err) {
             const code = args.join(" ");
@@ -37,7 +41,11 @@ exports.run = (client, msg, args) => {
                         name: "Output",
                         value: "```"+clean(err)+"```"
                     }
-                ]
+                ],
+                footer: {
+                    icon_url: msg.author.avatarURL,
+                    text: `${msg.author.tag}`
+                }
             }})
           }
 }
