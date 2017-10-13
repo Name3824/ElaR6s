@@ -1,10 +1,22 @@
 exports.run = (client, msg, args) => {
-    const quest = args.join(" ");
+    const argu = args.join(" ");
     const gw2 = require('gw2-api');
     const api = new gw2.gw2();
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
-    if(quest.startsWith('-daily')) {
+    function separator(str,sep) {
+        var output = '';
+        for (var i = str.length; i > 0; i-=2) {
+            var ii = i-1;
+            if(output) {
+                output = str.charAt(ii-1)+str.charAt(ii)+sep+output;
+            } else {
+                output = str.charAt(ii-1)+str.charAt(ii);
+            }            
+        }
+        return output;
+    }
+    if(argu.startsWith('-daily')) {
         api.getDailyAchievements().then(function (res) {
             if (!res.pve) {
                 return;
@@ -25,8 +37,17 @@ exports.run = (client, msg, args) => {
             msg.channel.send({embed});
             msg.channel.stopTyping();
         });
-    }
-    if(!args[0]) {
+    } else if(argu.startsWith('-exchange')) {
+        api.getCommerceExchange('coins', '30000').then(function (res) {
+            msg.channel.startTyping();
+            embed.setAuthor("GW2 Currency Exchange", "https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png");
+            embed.setFooter(msg.author.tag, msg.author.avatarURL);
+            embed.setColor(0x951111);
+            embed.addField("1 <:gw2_gem:368419887447670785>", "**"+res.coins_per_gem+"** <:gw2_copper_coin:368411814557384713>");
+            msg.channel.send({embed});
+            msg.channel.stopTyping();
+        });
+    } else if(!args[0]) {
         msg.channel.startTyping();
         msg.channel.send({embed: {
             color: 0x951111,
@@ -41,6 +62,9 @@ exports.run = (client, msg, args) => {
                 {
                     name: "`-quests`",
                     value: "Search for GW2 Daily Quests\nUsage: `"+process.env.PREFIX+"gw2 -quests`"
+                },{
+                    name: "`-exchange`",
+                    value: "See the exchange value from coins to gems\nUsage: `"+process.env.PREFIX+"gw2 -exchange`"
                 }
             ],
             footer: {
