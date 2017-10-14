@@ -25,6 +25,7 @@ exports.run = (client, msg, args) => {
                 for (i = 0; i < rotation.length; i++) {
                     emb.addField(rotation[i], `___________________________`, true)
                 }
+                emb.setFooter(msg.author.tag, msg.author.avatarURL);
                 msg.channel.send({embed:emb});
                 msg.channel.stopTyping();
         });
