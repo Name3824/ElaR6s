@@ -4,6 +4,7 @@ exports.run = (client, msg, args) => {
     const api = new gw2.gw2();
     const Discord = require('discord.js');
     const embed = new Discord.RichEmbed();
+    const emb = new Discord.RichEmbed();
     if(argu.startsWith('-daily')) {
         api.getDailyAchievements().then(function (res) {
             if (!res.pve) {
@@ -19,7 +20,7 @@ exports.run = (client, msg, args) => {
             embed.setFooter(msg.author.tag, msg.author.avatarURL);
             embed.setColor(0x951111);
             for (var i = 0, len = res.length; i < len; i++) {
-                embed.addField("‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏", res[i].name);
+                embed.addField("‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏‏", res[i].name, true);
             }
             msg.channel.startTyping();
             msg.channel.send({embed});
@@ -28,11 +29,11 @@ exports.run = (client, msg, args) => {
     } else if(argu.startsWith('-exchange')) {
         api.getCommerceExchange('coins', '30000').then(function (res) {
             msg.channel.startTyping();
-            embed.setAuthor("GW2 Currency Exchange", "https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png");
-            embed.setFooter(msg.author.tag, msg.author.avatarURL);
-            embed.setColor(0x951111);
-            embed.addField("1 <:gw2_gem:368419887447670785>", "**"+res.coins_per_gem+"** <:gw2_copper_coin:368411814557384713>");
-            msg.channel.send({embed});
+            emb.setAuthor("GW2 Currency Exchange", "https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png");
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            emb.setColor(0x951111);
+            emb.addField("1 <:gw2_gem:368419887447670785>", "**"+res.coins_per_gem+"** <:gw2_copper_coin:368411814557384713>");
+            msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         });
     } else if(!args[0]) {
