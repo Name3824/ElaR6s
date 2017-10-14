@@ -2,6 +2,4 @@ language: node_js
 node_js:
   - "8"
 notifications:
-webhooks:
-urls:
-- https://krake.one/travis-ci/360345342019108865/QUlDggJjWmFTW4f2-6EOwrTHXRxQcV1xBMju5LEY3TozpP_xjtYl4FUkVi8uvyaJR_es
+webhooks: http://hebwook.herokuapp.com/webhook
