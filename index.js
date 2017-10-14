@@ -10,6 +10,7 @@ client.on('ready', () => {
 
 client.on("message", msg => {
     if(!msg.guild || msg.author.bot || msg.content.indexOf(process.env.PREFIX) !== 0) return;
+    if(!client.user.bot && msg.author.id !== "216901800899510272") return;
     const args = msg.content.split(/\s+/g);
     const command = args.shift().slice(process.env.PREFIX.length).toLowerCase();
     try {
