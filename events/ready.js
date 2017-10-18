@@ -4,11 +4,6 @@ exports.run = (client) => {
     pastebin = new PastebinAPI(process.env.PASTEBIN);
     console.log('Preparing...');
     client.user.setGame(" | g?help");
-    snekfetch.post(`https://discordbots.org/api/bots/${client.user.id}/stats`)
-    .set('Authorization', process.env.DISCORDBOTLIST)
-    .send({ server_count: client.guilds.size })
-    .then(console.log('https://discordbots.org server count was successfully updated.'))
-    .catch(e => console.warn('https://discordbots.org server count wasnt successfully updated.\nPlease, contact a DBL administrator.'));
     pastebin.createPaste(client.guilds.map(g => g.name+" ("+g.id+")").join("\n"), "SERVER_LIST").then(function (data) {
         client.users.get(process.env.OWNER).send(data);
     }).fail(function (err) {
