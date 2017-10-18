@@ -1,11 +1,16 @@
 const Discord = require("discord.js");
+const fs = require('fs');
 const client = new Discord.Client();
 require('dotenv').config()
 client.login(process.env.LOGIN);
 
-client.on('ready', () => {
-    console.log("Roady.");
-    client.user.setGame(" | g?help");
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    let eventFunction = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, (...args) => eventFunction.run(client, ...args));
+  });
 });
 
 client.on("message", msg => {
