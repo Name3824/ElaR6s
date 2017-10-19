@@ -8,3 +8,5 @@ I'm built with [node.js](https://nodejs.org), [discord.js](https://discord.js.or
 If you want to add me to your guild to suite your gaming needs, click [here](https://discordapp.com/oauth2/authorize?client_id=357164743489880074&scope=bot&permissions=281664) to invite me!
 
 *__[You need the `MANAGE_SERVER` permission to add me to a guild of your choice]__*
+
+If you like what i'm doing, please consider [giving my developer a coffee](https://ko-fi.com/pillgp). VPS costs are high, and we need all the support so that I can be online. ❤
