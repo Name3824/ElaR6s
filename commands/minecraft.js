@@ -6,6 +6,10 @@ exports.run = (client, msg, args) => {
     }
     const query = args.join(" ");
     const ping = require('mc-hermes');
+    const request = require('request');
+    const statuses = require('statuses');
+    const Discord = require('discord.js');
+    const emb = new Discord.RichEmbed();
     if(query.startsWith("-server")) {
         ip = query.replace('-server', '').trim();
         if(!ip) return msg.channel.send("That's not a valid server. Try with a valid one, for example `mc.hypixel.net`");
