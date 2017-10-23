@@ -91,5 +91,6 @@ exports.run = (client, msg, args) => {
                 text: `${msg.author.tag}`
             }
         }});
+        msg.channel.stopTyping();
     }
 }
