@@ -5,5 +5,5 @@ exports.run = (client, guild) => {
     .set('Authorization', process.env.DISCORDBOTLIST)
     .send({ server_count: client.guilds.size })
     .then(console.log('https://discordbots.org server count was successfully updated.'))
-    .catch(e => console.warn('https://discordbots.org server count wasnt successfully updated.\nPlease, contact a DBL administrator.'));
+    .catch(e => console.warn('https://discordbots.org server count wasnt successfully updated.\nPlease, contact a DBL administrator.\nError: '+e));
 }
