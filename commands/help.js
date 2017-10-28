@@ -1,4 +1,4 @@
-exports.run = (client, msg, args) => {
+exports.run = (client, msg) => {
     msg.channel.startTyping();
     msg.channel.send({embed: {
         color: 0x75C0AC,

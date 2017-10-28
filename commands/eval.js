@@ -29,7 +29,6 @@ exports.run = (client, msg, args) => {
                 }
             }});
           } catch (err) {
-            const code = args.join(" ");
             msg.channel.send({embed: {
                 color: 0xA22665,
                 title: "Eval | Error",

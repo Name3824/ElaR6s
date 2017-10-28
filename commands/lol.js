@@ -9,7 +9,7 @@ exports.run = (client, msg, args) => {
         request('http://leagueoflegends.wikia.com/wiki/Free_champion_rotation', function (error, response, html) {
             if (!error && response.statusCode == 200) {
                 var $ = cheerio.load(html);
-                $('span.champion-icon').each(function (i, element) {
+                $('span.champion-icon').each(function (i) {
                     var a = $(this).children()[1]
                         if (i < 10) {
                             rotation.push(a.children[0].attribs.title);

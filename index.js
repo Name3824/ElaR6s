@@ -25,5 +25,5 @@ client.on("message", msg => {
     } catch (err) {
       console.log(err);
       msg.react("❓");
-    };
+    }
 });
