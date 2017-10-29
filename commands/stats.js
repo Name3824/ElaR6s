@@ -9,6 +9,7 @@ exports.run = (client, msg) => {
         else if(platform === 'win32') return 'Windows';
     };
     msg.channel.startTyping();
+    embed.setColor("#75C0AC");
     embed.setAuthor('Stats of '+client.user.tag, client.user.avatarURL);
     embed.addField('Servers:', client.guilds.size, true);
     embed.addField('Channels:', client.channels.size, true);
