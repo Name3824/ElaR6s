@@ -6,4 +6,9 @@ exports.run = (client, guild) => {
     .send({ server_count: client.guilds.size })
     .then(console.log('https://discordbots.org server count was successfully updated.'))
     .catch(e => console.warn('https://discordbots.org server count wasnt successfully updated.\nPlease, contact a DBL administrator.\nError: '+e));
+    snekfetch.post(`https://botlist.space/api/bots/${client.user.id}`)
+    .set('Authorization', process.env.BOTLISTSPACE)
+    .send({ count: client.guilds.size })
+    .then(console.log('https://botlist.space server count was successfully updated.'))
+    .catch(e => console.warn('https://botlist.space server count wasnt successfully updated.\nPlease, contact a BLS administrator.\nError: '+e));
 }
