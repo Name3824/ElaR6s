@@ -20,10 +20,8 @@ client.on("message", msg => {
     const command = args.shift().slice(process.env.PREFIX.length).toLowerCase();
     try {
       let commandFile = require(`./commands/${command}.js`);
-      commandFile.run(client, msg, args, process.env);
-      msg.react("✅");
+      commandFile.run(client, msg, args);
     } catch (err) {
-      console.log(err);
-      msg.react("❓");
+      client.users.get(process.env.OWNER).send("<:tickNo:315009174163685377> **Error**\n```"+err+"```");
     }
 });
