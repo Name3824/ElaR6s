@@ -1,50 +1,40 @@
 exports.run = (client, msg, args) => {
+    const Discord = require('discord.js');
+    const emb = new Discord.RichEmbed();
     function clean(text) {
         if (typeof(text) === "string")
           return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
         else
             return text;
-      }
-      if(msg.author.id !== "216901800899510272") return;
+    }
+    function emoji(emo) {
+        delete require.cache[require.resolve(`../resources/emoji.js`)];
+        let emojia = require("../resources/emoji.js");
+        if (emojia[emo] === undefined) return "🅱";
+        return emojia[emo];
+    }
+      if(msg.author.id !== process.env.OWNER) return;
           try {
             const code = args.join(" ");
             let evaled = eval(code);
             if (typeof evaled !== "string")
               evaled = require("util").inspect(evaled);
-            msg.channel.send({embed:{
-                color: 0x41B589,
-                title: "Eval | Success",
-                fields: [
-                    {
-                        name: "Input",
-                        value: "```"+args.join(" ")+"```"
-                    },{
-                        name: "Output",
-                        value: "```"+clean(evaled)+"```"
-                    }
-                ],
-                footer: {
-                    icon_url: msg.author.avatarURL,
-                    text: `${msg.author.tag}`
-                }
-            }});
+              msg.channel.startTyping();
+              emb.setColor('#41B589');
+              emb.setTitle('Eval | '+emoji(tickYes));
+              emb.addField('Input', '```'+args.join(" ")+'```');
+              emb.addField('Output', '```'+clean(evaled)+'```');
+              emb.setFooter(msg.author.tag, msg.author.avatarURL);
+              msg.channel.send({embed:emb});
+              msg.channel.stopTyping();
           } catch (err) {
-            msg.channel.send({embed: {
-                color: 0xA22665,
-                title: "Eval | Error",
-                fields: [
-                    {
-                        name: "Input",
-                        value: "```"+args.join(" ")+"```"
-                    },{
-                        name: "Output",
-                        value: "```"+clean(err)+"```"
-                    }
-                ],
-                footer: {
-                    icon_url: msg.author.avatarURL,
-                    text: `${msg.author.tag}`
-                }
-            }})
+              msg.channel.startTyping();
+              emb.setColor('#A22665');
+              emb.setTitle('Eval | '+emoji(tickNo));
+              emb.addField('Input', '```'+args.join(" ")+'```');
+              emb.addField('Output', '```'+clean(err)+'```');
+              emb.setFooter(msg.author.tag, msg.author.avatarURL);
+              msg.channel.send({embed:emb});
+              msg.channel.stopTyping();
           }
 }

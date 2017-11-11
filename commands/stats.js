@@ -1,6 +1,6 @@
 exports.run = (client, msg) => {
     const Discord = require('discord.js');
-    const embed = new Discord.RichEmbed();
+    const emb = new Discord.RichEmbed();
     function platform(platform) {
         if(platform === 'darwin') return 'Darwin';
         else if(platform === 'freebsd') return 'FreeBSD';
@@ -9,16 +9,16 @@ exports.run = (client, msg) => {
         else if(platform === 'win32') return 'Windows';
     }
     msg.channel.startTyping();
-    embed.setColor("#75C0AC");
-    embed.setAuthor('Stats of '+client.user.tag, client.user.avatarURL);
-    embed.addField('Servers:', client.guilds.size, true);
-    embed.addField('Channels:', client.channels.size, true);
-    embed.addField('Users:', client.users.size, true);
-    embed.addField('Discord.js Version:', Discord.version, true);
-    embed.addField('Node.js Version', process.version, true);
-    embed.addField('PID', process.pid, true);
-    embed.addField('Process Platform', platform(process.platform), true);
-    embed.setThumbnail(client.user.avatarURL);
-    msg.channel.send({embed});
+    emb.setColor("#75C0AC");
+    emb.setAuthor('Stats of '+client.user.tag, client.user.avatarURL, 'https://g-bot.tk');
+    emb.addField('Servers', client.guilds.size, true);
+    emb.addField('Channels', client.channels.size, true);
+    emb.addField('Users', client.users.size, true);
+    emb.addField('Discord.js Version', Discord.version, true);
+    emb.addField('Node.js Version', process.version, true);
+    emb.addField('PID', process.pid, true);
+    emb.addField('Process Platform', platform(process.platform), true);
+    emb.setThumbnail(client.user.avatarURL);
+    msg.channel.send({embed:emb});
     msg.channel.stopTyping();
 }

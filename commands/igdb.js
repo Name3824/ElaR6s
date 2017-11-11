@@ -29,7 +29,12 @@ exports.run = (client, msg, args) => {
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         }).catch(error => {
-            throw error;
+            msg.channel.startTyping();
+            emb.setColor('#F03A17');
+            emb.addField('Game not found', 'Try with a valid one, for example `Halo 4`');
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.send({embed:emb});
+            msg.channel.stopTyping(true);
         });
     } else if(query.startsWith('-platform')) {
         platform = query.replace('-platform', '').trim();
@@ -51,33 +56,22 @@ exports.run = (client, msg, args) => {
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         }).catch(error => {
-            throw error;
+            msg.channel.startTyping();
+            emb.setColor('#F03A17');
+            emb.addField('Platform not found', 'Try with a valid one, for example `Playstation 4`');
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.send({embed:emb});
+            msg.channel.stopTyping(true);
         });
     } else if(!args[0]) {
         msg.channel.startTyping();
-        msg.channel.send({embed: {
-            color: 0x00DF6C,
-            author: {
-                name: "Internet Game Database [IGDB] Commands",
-                icon_url: "https://www.igdb.com/preview_image.png"
-            },
-            thumbnail: {
-                url: "https://www.igdb.com/preview_image.png"
-            },
-            fields: [
-                {
-                    name: "`-game`",
-                    value: "Search for a game in IGDB\nUsage: `"+process.env.PREFIX+"igdb -game Halo 4`"
-                },{
-                    name: "`-platform`",
-                    value: "Search for a platform in IGDB\nUsage: `"+process.env.PREFIX+"igdb -platform Playstation 4`"
-                }
-            ],
-            footer: {
-                icon_url: msg.author.avatarURL,
-                text: `${msg.author.tag}`
-            }
-        }});
+        emb.setColor('#00DF6C');
+        emb.setAuthor('Internet Game Database [IGDB] Commands', 'https://www.igdb.com/preview_image.png', 'https://igdb.com');
+        emb.setThumbnail('https://www.igdb.com/preview_image.png');
+        emb.addField('`-game`', "Search for a game in IGDB\nUsage: `"+process.env.PREFIX+"igdb -game Halo 4`");
+        emb.addField('`-platform`', "Search for a platform in IGDB\nUsage: `"+process.env.PREFIX+"igdb -platform Playstation 4`");
+        emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
     }
 }

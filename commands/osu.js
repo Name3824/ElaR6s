@@ -1,119 +1,88 @@
-if (!String.prototype.trim) {
-    String.prototype.trim = function () {
-      return this.toString().replace(/^\s+|\s+$/g, '');
-    };
-  }
 exports.run = (client, msg, args) => {
     const osu = require('node-osu');
-    var user = args.join(" ");
+    const user = args.join(" ");
+    const Discord = require('discord.js');
+    const emb = new Discord.RichEmbed();
     const osuApi = new osu.Api(process.env.OSU);
     function numberWithCommas(x) {
         const parts = x.toString().split(".");
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     }
+    function emoji(emo) {
+        delete require.cache[require.resolve(`../resources/emoji.js`)];
+        let emojia = require("../resources/emoji.js");
+        if (emojia[emo] === undefined) return "🅱";
+        return emojia[emo];
+    }
+    if (!String.prototype.trim) {
+        String.prototype.trim = function () {
+          return this.toString().replace(/^\s+|\s+$/g, '');
+        };
+    }
     if(user.startsWith("-osusig")) {
         username = user.replace('-osusig', '').trim();
-        if(!username) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Cookiezi`");
+        if(!username) {
+            msg.channel.startTyping();
+            emb.setColor('#F03A17');
+            emb.addField('osu! player not valid.', 'Use a valid one, for example `Cookiezi`');
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.send({embed:emb});
+            msg.channel.stopTyping();
+        }
         var url = 'https://lemmmy.pw/osusig/sig.php?uname=' + encodeURI(username);
         msg.channel.startTyping();
-        msg.channel.send({embed: {
-            color: 0xEA5F9C,
-            image: {
-                url: url
-            },
-            footer: {
-                icon_url: msg.author.avatarURL,
-                text: `${msg.author.tag}`
-            }
-        }});
+        emb.setColor('#EA5F9C');
+        emb.setImage(url);
+        emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
     } else if(user.startsWith("-stats")){
     username = user.replace('-stats', '').trim();
-    if(!username) return msg.channel.send("That's not a valid user. Try with a valid one, for example `Cookiezi`");
+    if(!username) {
+        msg.channel.startTyping();
+        emb.setColor('#F03A17');
+        emb.addField('osu! player not valid.', 'Use a valid one, for example `Cookiezi`');
+        emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        msg.channel.send({embed:emb});
+        msg.channel.stopTyping();
+    }
     osuApi.getUser({u: username}).then(user => {
         const pais = user.country;
         msg.channel.startTyping();
-        msg.channel.send({embed:{
-            color: 0xEA5F9C,
-            author: {
-                name: user.name+"'s profile",
-                icon_url: "https://a.ppy.sh/"+user.id
-            },
-            fields: [
-                {
-                    name: "Global Ranking",
-                    value: "#"+user.pp.rank,
-                    inline: true
-                },{
-                    name: "Local Ranking",
-                    value: "#"+user.pp.countryRank+" :flag_"+pais.toLowerCase()+":",
-                    inline: true
-                },{
-                    name: "Performance Points",
-                    value: Math.round(user.pp.raw)+"pp",
-                    inline: true
-                },{
-                    name: "Ranks",
-                    value: "<:osuSS:359800530383405057> "+user.counts.SS+" <:osuS:359808204022218753> "+user.counts.S+" <:osuA:359808219075313675> "+user.counts.A,
-                    inline: true
-                },{
-                    name: "Ranked Score",
-                    value: numberWithCommas(user.scores.ranked),
-                    inline: true
-                },{
-                    name: "Total Score",
-                    value: numberWithCommas(user.scores.total),
-                    inline: true
-                },{
-                    name: "Level",
-                    value: Math.round(user.level),
-                    inline: true
-                },{
-                    name: "Play Count",
-                    value: user.counts.plays,
-                    inline: true
-                },{
-                    name: "Accuracy",
-                    value: user.accuracyFormatted,
-                    inline: true
-                }
-            ],
-            footer: {
-                icon_url: msg.author.avatarURL,
-                text: `${msg.author.tag}`
-            },
-            thumbnail: {
-                url: "https://a.ppy.sh/"+user.id
-            }
-        }});
+        emb.setColor('#EA5F9C');
+        emb.setAuthor(user.name+"'s profile", 'https://a.ppy.sh/'+user.id, 'https://osu.ppy.sh/u/'+user.id);
+        if(user.pp.rank <= '10') {emb.addField('Global Ranking', '#'+user.pp.rank+' 🏆', true)}
+        if(user.pp.rank >= '10') {emb.addField('Global Ranking', '#'+user.pp.rank, true)}
+        emb.addField('Local Ranking :flag_'+pais.toLowerCase()+':', '#'+user.pp.countryRank, true);
+        emb.addField('Performance Points', Math.round(user.pp.raw)+'pp', true);
+        emb.addField('Ranks', emoji('osuSS')+' '+user.counts.SS+' '+emoji('osuS')+' '+user.counts.S+' '+emoji('osuA')+' '+user.counts.A, true);
+        emb.addField('Ranked Score', numberWithCommas(user.scores.ranked), true);
+        emb.addField('Total Score', numberWithCommas(user.scores.total), true);
+        emb.addField('Level', Math.round(user.level), true);
+        emb.addField('Play Count', user.counts.plays, true);
+        emb.addField('Accuracy', user.accuracyFormatted, true);
+        emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        emb.setThumbnail('https://a.ppy.sh/'+user.id);
+        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
-    })
+    }).catch(err => {
+        msg.channel.startTyping();
+        emb.setColor('#F03A17');
+        emb.addField('Error while fetching osu! player stats', err);
+        emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        msg.channel.send({embed:emb});
+        msg.channel.stopTyping();
+    });
     } else if(!args[0]) {
         msg.channel.startTyping();
-        msg.channel.send({embed: {
-            color: 0xEA5F9C,
-            author: {
-                name: "osu! Commands",
-                icon_url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png"
-            },
-            thumbnail: {
-                url: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png"
-            },
-            fields: [
-                {
-                    name: "`-stats`",
-                    value: "Search for a user's stats\nUsage: `"+process.env.PREFIX+"osu -stats Cookiezi`"
-                },{
-                    name: "`-osusig`",
-                    value: "Search for a user's osu!sig\nUsage: `"+process.env.PREFIX+"osu -osusig Cookiezi`"
-                }
-            ],
-            footer: {
-                icon_url: msg.author.avatarURL,
-                text: `${msg.author.tag}`
-            },
-        }});
+        emb.setColor('#EA5F9C');
+        emb.setAuthor('osu! Commands', 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png', 'https://osu.ppy.sh');
+        emb.setThumbnail('https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png');
+        emb.addField('`-stats`', "Search for a user's stats\nUsage: `"+process.env.PREFIX+"osu -stats Cookiezi`");
+        emb.addField('`-osusig`', "Search for a user's osu!sig\nUsage: `"+process.env.PREFIX+"osu -osusig Cookiezi`");
+        emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        msg.channel.send({embed:emb});
         msg.channel.stopTyping();
     }
 }
