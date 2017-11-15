@@ -11,6 +11,14 @@ exports.run = (client, msg, args) => {
     const Igdb = igdb(process.env.IGDB);
     if(query.startsWith('-game')) {
         game = query.replace('-game', '').trim();
+        if(!game) {
+            msg.channel.startTyping();
+            emb.setColor('#F03A17');
+            emb.addField('Game not found', 'Try with a valid one, for example `Halo 4`');
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.send({embed:emb});
+            msg.channel.stopTyping(true);
+        }
         Igdb.games({
             limit: 1,
             fields: '*',
@@ -28,16 +36,17 @@ exports.run = (client, msg, args) => {
             emb.addField('PEGI Rating:', obj.pegi.synopsis, true);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
-        }).catch(error => {
+        });
+    } else if(query.startsWith('-platform')) {
+        platform = query.replace('-platform', '').trim();
+        if(!platform) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.addField('Game not found', 'Try with a valid one, for example `Halo 4`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping(true);
-        });
-    } else if(query.startsWith('-platform')) {
-        platform = query.replace('-platform', '').trim();
+        }
         Igdb.platforms({
             limit: 1,
             fields: '*',
@@ -55,13 +64,6 @@ exports.run = (client, msg, args) => {
             emb.addField('Official '+obj.name+' Website:', '[Click here]('+obj.website+')', true);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
-        }).catch(error => {
-            msg.channel.startTyping();
-            emb.setColor('#F03A17');
-            emb.addField('Platform not found', 'Try with a valid one, for example `Playstation 4`');
-            emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
-            msg.channel.stopTyping(true);
         });
     } else if(!args[0]) {
         msg.channel.startTyping();
