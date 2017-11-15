@@ -3,6 +3,8 @@ exports.run = (client, msg, args) => {
     const gw2 = require('gw2-api');
     const api = new gw2.gw2();
     const Discord = require('discord.js');
+    const request = require('request');
+    const cheerio = require('cheerio');
     const emb = new Discord.RichEmbed();
     function emoji(emo) {
         delete require.cache[require.resolve(`../resources/emoji.js`)];
