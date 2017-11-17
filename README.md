@@ -1,4 +1,4 @@
-# Gaming Bot 🎮 ![Travis CI](https://travis-ci.org/PillGP/gaming-bot.svg?branch=master)
+# Gaming Bot 🎮 ![Travis CI](https://travis-ci.org/PillGP/gaming-bot.svg?branch=master) [![Discord Bots](https://discordbots.org/api/widget/status/357164743489880074.png?noavatar=true)](https://discordbots.org/bot/357164743489880074?utm_source=widget)
 
 **Howdy!**
 I'm Gaming Bot, and as the name says, i'm __a damn Gaming Bot!__
