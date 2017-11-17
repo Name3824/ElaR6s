@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fs = require('fs');
 const client = new Discord.Client();
+const emb = new Discord.RichEmbed();
 require('dotenv').config()
 client.login(process.env.LOGIN);
 
@@ -22,6 +23,11 @@ client.on("message", msg => {
       let commandFile = require(`./commands/${command}.js`);
       commandFile.run(client, msg, args);
     } catch (err) {
-      client.users.get(process.env.OWNER).send("<:tickNo:315009174163685377> **Error**\n```"+err+"```");
+      msg.channel.startTyping();
+      emb.setColor("#F03A17");
+      emb.addField('Invalid Command.', 'To see a list of valid commands, type `g?help`');
+      emb.setFooter(msg.author.tag, msg.author.avatarURL);
+      msg.channel.send({embed:emb});
+      msg.channel.stopTyping(true);
     }
 });
