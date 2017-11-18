@@ -25,7 +25,7 @@ client.on("message", msg => {
     } catch (err) {
       msg.channel.startTyping();
       emb.setColor("#F03A17");
-      emb.addField('Invalid Command.', 'To see a list of valid commands, type `g?help`');
+      msg.channel.send('Invalid Command.', 'To see a list of valid commands, type `g?help`');
       emb.setFooter(msg.author.tag, msg.author.avatarURL);
       msg.channel.send({embed:emb});
       msg.channel.stopTyping(true);
