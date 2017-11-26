@@ -10,7 +10,7 @@ exports.run = (client, msg) => {
     }
     msg.channel.startTyping();
     emb.setColor("#75C0AC");
-    emb.setAuthor('Stats of '+client.user.tag, client.user.avatarURL, 'https://g-bot.tk');
+    emb.setAuthor('Stats of '+client.user.tag, client.user.avatarURL, 'https://vghelper.tk');
     emb.addField('Servers', client.guilds.size, true);
     emb.addField('Channels', client.channels.size, true);
     emb.addField('Users', client.users.size, true);

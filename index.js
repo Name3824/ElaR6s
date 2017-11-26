@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const client = new Discord.Client();
 const emb = new Discord.RichEmbed();
-require('dotenv').config()
 client.login(process.env.LOGIN);
 
 fs.readdir("./events/", (err, files) => {
@@ -24,10 +23,7 @@ client.on("message", msg => {
       commandFile.run(client, msg, args);
     } catch (err) {
       msg.channel.startTyping();
-      emb.setColor("#F03A17");
-      msg.channel.send('Invalid Command.', 'To see a list of valid commands, type `'+process.env.PREFIX+'help`');
-      emb.setFooter(msg.author.tag, msg.author.avatarURL);
-      msg.channel.send({embed:emb});
-      msg.channel.stopTyping(true);
+      msg.channel.send('Invalid Command.\nTo see a list of valid commands, type `'+process.env.PREFIX+'help`');
+      msg.channel.stopTyping();
     }
 });
