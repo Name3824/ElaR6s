@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const fs = require('fs');
 const client = new Discord.Client();
 const emb = new Discord.RichEmbed();
+require('dotenv').config();
 client.login(process.env.LOGIN);
 
 fs.readdir("./events/", (err, files) => {
