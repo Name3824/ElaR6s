@@ -1,19 +1,44 @@
 exports.run = (client, guild) => {
     const snekfetch = require('snekfetch');
-    client.users.get(process.env.OWNER).send("I've left a guild!\n\n**Guild name:** `"+guild.name+"`\n**Guild ID:** `"+guild.id+"`\n**Guild Members:** `"+guild.memberCount+"`\n**Guild Owner:** `"+guild.owner.user.tag+" ("+guild.owner.user.id+")`\n**Total Nº of Guilds:** `"+client.guilds.size+"`");
+    const Discord = require('discord.js');
+    const emb = new Discord.RichEmbed();
+    const dbl = [];
+    const bls = [];
+    const dbpw = [];
+    function emoji(emo) {
+        delete require.cache[require.resolve(`../resources/emoji.js`)];
+        let emojia = require("../resources/emoji.js");
+        if (emojia[emo] === undefined) return "🅱";
+        return emojia[emo];
+    }
+    //
+    //
+    //
     snekfetch.post(`https://discordbots.org/api/bots/${client.user.id}/stats`)
     .set('Authorization', process.env.DISCORDBOTLIST)
     .send({ server_count: client.guilds.size })
-    .then(console.log('https://discordbots.org server count was successfully updated.'))
-    .catch(e => console.warn('https://discordbots.org server count wasnt successfully updated.\nPlease, contact a DBL administrator.\nError: '+e));
+    .then(dbl.push(['Discord Bot List '+emoji('tickYes')]))
+    .catch(e => dbl.push(['Discord Bot List '+emoji('tickNo')+'\n'+e]));
     snekfetch.post(`https://botlist.space/api/bots/${client.user.id}`)
     .set('Authorization', process.env.BOTLISTSPACE)
     .send({ server_count: client.guilds.size })
-    .then(console.log('https://botlist.space server count was successfully updated.'))
-    .catch(e => console.warn('https://botlist.space server count wasnt successfully updated.\nPlease, contact a BLS administrator.\nError: '+e));
+    .then(bls.push(['Bot List Space '+emoji('tickYes')]))
+    .catch(e => bls.push(['Bot List Space '+emoji('tickNo')+'\n'+e]));
     snekfetch.post(`https://bots.discord.pw/api/bots/${client.user.id}/stats`)
     .set('Authorization', process.env.DISCORDBOTS)
     .send({ server_count: client.guilds.size })
-    .then(console.log('https://bots.discord.pw server count was successfully updated.'))
-    .catch(e => console.warn('https://bots.discord.pw server count wasnt successfully updated.\nPlease, contact a DB administrator.\nError: '+e));
+    .then(dbpw.push(['Discord Bots '+emoji('tickYes')]))
+    .catch(e => dbpw.push(['Discord Bots '+emoji('tickNo')+'\n'+e]));
+    //
+    //
+    //
+    emb.setColor('#2040ff');
+    emb.setAuthor("I've left a guild!", 'https://emojipedia-us.s3.amazonaws.com/thumbs/120/apple/114/warning-sign_26a0.png');
+    emb.addField('Guild Name', '**'+guild.name+'**');
+    emb.addField('Guild ID', '**'+guild.id+'**');
+    emb.addField('Guild Members', '**'+guild.memberCount+'**');
+    emb.addField('Guild Owner', '**'+guild.owner.user.tag+' ('+guild.owner.user.id+')**');
+    emb.addField('Server Count', '**'+dbl[0]+'\n'+bls[0]+'\n'+dbpw[0]+'**');
+    emb.setFooter(client.guilds.size+' guilds and counting', client.user.avatarURL);
+    client.users.get(process.env.OWNER).send({embed:emb});
 }
