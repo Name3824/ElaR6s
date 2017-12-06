@@ -22,8 +22,6 @@ client.on("message", msg => {
       let commandFile = require(`./commands/${command}.js`);
       commandFile.run(client, msg, args);
     } catch (err) {
-      msg.channel.startTyping();
-      msg.channel.send('Invalid Command.\nTo see a list of valid commands, type `'+process.env.PREFIX+'help`');
-      msg.channel.stopTyping();
+      console.log(err);
     }
 });
