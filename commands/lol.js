@@ -11,6 +11,9 @@ exports.run = (client, msg, args) => {
         if (emojia[emo] === undefined) return "🅱";
         return emojia[emo];
     }
+
+    //
+
     if(lol.startsWith("-rotation")) {
         request('http://leagueoflegends.wikia.com/wiki/Free_champion_rotation', function (error, response, html) {
             if (!error && response.statusCode == 200) {
