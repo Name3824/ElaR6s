@@ -3,6 +3,11 @@ exports.run = (client, msg, args) => {
     const request = require('request');
     const cheerio = require('cheerio');
     const Discord = require('discord.js');
+    const API = require('lol-riot-api-module');
+    const api = new API({
+        key: process.env.RIOT,
+        region: 'euw'
+    });
     const emb = new Discord.RichEmbed();
     const rotation = [];
     function emoji(emo) {
