@@ -26,7 +26,7 @@ exports.run = (client, msg, args) => {
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         }
-        request(url+'/profile/'+s, function(err, response, body) {
+        request({url: url+'/player/'+s, headers: { 'auth': process.env.CLASHAPI }}, function(err, response, body) {
             if(!err && response.statusCode == 200) {
                 var r = JSON.parse(body);
                 msg.channel.startTyping();
@@ -57,7 +57,7 @@ exports.run = (client, msg, args) => {
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         }
-        request(url+'/clan/'+s, function(err, response, body) {
+        request({url: url+'/clan/'+s, headers: { 'auth': process.env.CLASHAPI }}, function(err, response, body) {
             if(!err && response.statusCode == 200) {
                 var r = JSON.parse(body);
                 msg.channel.startTyping();
