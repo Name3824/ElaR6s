@@ -7,7 +7,7 @@ exports.run = (client, guild) => {
     //
     //
     //
-    pb.pushNote('Guild (+)', 'Guild Name: '+guild.name+'\n Guild Count: '+client.guilds.size).then(res => {
+    pb.pushNote('Guild (+)', 'Guild Name: '+guild.name+'\nGuild Count: '+client.guilds.size).then(res => {
         console.log('Sent');
     });
     //
