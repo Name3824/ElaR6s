@@ -10,8 +10,14 @@ exports.run = (client, msg, args) => {
         if (emojia[emo] === undefined) return "🅱";
         return emojia[emo];
     }
+    function divider(coins) {
+        return parseInt(coins) / 100;
+    }
+    function lastTwo(coins) {
+        return parseInt(coins) % 100;
+    }
     if(argu.startsWith('-daily')) {
-        api.getDailyAchievements().then(function (res) {
+        api.getDailyAchievements().then(async function (res) {
             if (!res.pve) {
                 return;
             }
@@ -20,28 +26,28 @@ exports.run = (client, msg, args) => {
                 achievementIds.push(res.pve[i].id);
             }
             return api.getAchievements(achievementIds);
-        }).then(function (res) {
+        }).then(async function (res) {
             var quests = [];
-            msg.channel.startTyping();
-            emb.setAuthor('Daily GW2 Quests', 'https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png');
-            emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            emb.setColor('#951111');
+            await msg.channel.startTyping();
+            await emb.setAuthor('Daily GW2 Quests', 'https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png');
+            await emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            await emb.setColor('#951111');
             for (var i = 0, len = res.length; i < len; i++) {
                 quests.push(res[i].name);
             }
-            emb.addField('₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪', quests.join("\n"));
-            msg.channel.send({embed:emb});
-            msg.channel.stopTyping();
+            await emb.addField('₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪₪', quests.join("\n"));
+            await msg.channel.send({embed:emb});
+            await msg.channel.stopTyping();
         });
     } else if(argu.startsWith('-exchange')) {
-        api.getCommerceExchange('coins', '30000').then(function (res) {
-            msg.channel.startTyping();
-            emb.setAuthor("GW2 Currency Exchange", "https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png");
-            emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            emb.setColor('#951111');
-            emb.addField("1 "+emoji('gw2_gem')+"\n**"+res.coins_per_gem+"** "+emoji('gw2_copper_coin'));
-            msg.channel.send({embed:emb});
-            msg.channel.stopTyping();
+        api.getCommerceExchange('coins', '30000').then(async function (res) {
+            await msg.channel.startTyping();
+            await emb.setAuthor("GW2 Currency Exchange", "https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png");
+            await emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            await emb.setColor('#951111');
+            await emb.addField("1 "+emoji('gw2_gem'), "**"+divider(res.coins_per_gem)+"** "+emoji('gw2_silver_coin')+" **"+lastTwo(res.coins_per_gem)+"** "+emoji('gw2_copper_coin'));
+            await msg.channel.send({embed:emb});
+            await msg.channel.stopTyping();
         });
     } else if(!args[0]) {
         msg.channel.startTyping();

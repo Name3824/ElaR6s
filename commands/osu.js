@@ -47,32 +47,32 @@ exports.run = (client, msg, args) => {
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
     }
-    osuApi.getUser({u: username}).then(user => {
+    osuApi.getUser({u: username}).then(async function(user) {
         const pais = user.country;
-        msg.channel.startTyping();
-        emb.setColor('#EA5F9C');
-        emb.setAuthor(user.name+"'s profile", 'https://a.ppy.sh/'+user.id, 'https://osu.ppy.sh/u/'+user.id);
-        if(user.pp.rank <= '10') {emb.addField('Global Ranking', '#'+user.pp.rank+' 🏆', true)}
-        if(user.pp.rank >= '10') {emb.addField('Global Ranking', '#'+user.pp.rank, true)}
-        emb.addField('Local Ranking :flag_'+pais.toLowerCase()+':', '#'+user.pp.countryRank, true);
-        emb.addField('Performance Points', Math.round(user.pp.raw)+'pp', true);
-        emb.addField('Ranks', emoji('osuSS')+' '+user.counts.SS+' '+emoji('osuS')+' '+user.counts.S+' '+emoji('osuA')+' '+user.counts.A, true);
-        emb.addField('Ranked Score', numberWithCommas(user.scores.ranked), true);
-        emb.addField('Total Score', numberWithCommas(user.scores.total), true);
-        emb.addField('Level', Math.round(user.level), true);
-        emb.addField('Play Count', user.counts.plays, true);
-        emb.addField('Accuracy', user.accuracyFormatted, true);
-        emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        emb.setThumbnail('https://a.ppy.sh/'+user.id);
-        msg.channel.send({embed:emb});
-        msg.channel.stopTyping();
-    }).catch(err => {
-        msg.channel.startTyping();
-        emb.setColor('#F03A17');
-        emb.addField('Error while fetching osu! player stats', err);
-        emb.setFooter(msg.author.tag, msg.author.avatarURL);
-        msg.channel.send({embed:emb});
-        msg.channel.stopTyping();
+        await msg.channel.startTyping();
+        await emb.setColor('#EA5F9C');
+        await emb.setAuthor(user.name+"'s profile", 'https://a.ppy.sh/'+user.id, 'https://osu.ppy.sh/u/'+user.id);
+        if(user.pp.rank <= '10') { await emb.addField('Global Ranking', '#'+user.pp.rank+' 🏆', true) }
+        if(user.pp.rank >= '10') { await emb.addField('Global Ranking', '#'+user.pp.rank, true) }
+        await emb.addField('Local Ranking :flag_'+pais.toLowerCase()+':', '#'+user.pp.countryRank, true);
+        await emb.addField('Performance Points', Math.round(user.pp.raw)+'pp', true);
+        await emb.addField('Ranks', emoji('osuSS')+' '+user.counts.SS+' '+emoji('osuS')+' '+user.counts.S+' '+emoji('osuA')+' '+user.counts.A, true);
+        await emb.addField('Ranked Score', numberWithCommas(user.scores.ranked), true);
+        await emb.addField('Total Score', numberWithCommas(user.scores.total), true);
+        await emb.addField('Level', Math.round(user.level), true);
+        await emb.addField('Play Count', user.counts.plays, true);
+        await emb.addField('Accuracy', user.accuracyFormatted, true);
+        await emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        await emb.setThumbnail('https://a.ppy.sh/'+user.id);
+        await msg.channel.send({embed:emb});
+        await msg.channel.stopTyping();
+    }).catch(async function(err) {
+        await msg.channel.startTyping();
+        await emb.setColor('#F03A17');
+        await emb.addField('Error while fetching osu! player stats', err);
+        await emb.setFooter(msg.author.tag, msg.author.avatarURL);
+        await msg.channel.send({embed:emb});
+        await msg.channel.stopTyping();
     });
     } else if(!args[0]) {
         msg.channel.startTyping();

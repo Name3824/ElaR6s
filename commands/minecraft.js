@@ -19,17 +19,17 @@ exports.run = (client, msg, args) => {
             msg.channel.stopTyping();
         }
         var url = 'https://mcapi.de/api/image/favicon/'+ip
-        ping.pc({ server: ip }).then((data) => {
-            msg.channel.startTyping();
-            emb.setColor('#44FC37');
-            emb.setAuthor('Information about '+ip, url);
-            emb.addField('Version', data.version.name);
-            emb.addField('Protocol', data.version.protocol);
-            emb.addField('Players', data.players.online+" out of "+data.players.max);
-            emb.setThumbnail(url);
-            emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
-            msg.channel.stopTyping();
+        ping.pc({ server: ip }).then(async function(data) {
+            await msg.channel.startTyping();
+            await emb.setColor('#44FC37');
+            await emb.setAuthor('Information about '+ip, url);
+            await emb.addField('Version', data.version.name);
+            await emb.addField('Protocol', data.version.protocol);
+            await emb.addField('Players', data.players.online+" out of "+data.players.max);
+            await emb.setThumbnail(url);
+            await emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            await msg.channel.send({embed:emb});
+            await msg.channel.stopTyping();
         }).catch(console.error);
     } else if(query.startsWith("-user")) {
         user = query.replace('-user', '').trim();

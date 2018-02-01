@@ -9,13 +9,6 @@ exports.run = (client, msg, args) => {
         parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         return parts.join(".");
     }
-    function chests(higher, lower) {
-        return (higher - lower) + 1
-    }
-    function day(d) {
-        if(d = 1) return d+' day';
-        else if(d > 1) return d+' days';
-    }
     if(q.startsWith('-player')) {
         s = q.replace('-player', '').trim();
         if(!s[0]) {
@@ -26,25 +19,23 @@ exports.run = (client, msg, args) => {
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         }
-        request({url: url+'/player/'+s, headers: { 'auth': process.env.CLASHAPI }}, function(err, response, body) {
+        request({method:'GET', url: url+'/player/'+s, headers: { auth: process.env.CLASHAPI }}, async function(err, response, body) {
             if(!err && response.statusCode == 200) {
                 var r = JSON.parse(body);
-                msg.channel.startTyping();
-                emb.setColor('#69B6F7');
-                emb.setAuthor('Stats about '+r.name, url+r.arena.imageURL);
-                emb.setThumbnail(url+r.clan.badge.url);
-                emb.addField(r.arena.arena, '**'+r.arena.name+'**');
-                emb.addField('Trophies / Max Trophies', '**'+r.trophies+'** / **'+r.stats.maxTrophies+'**');
-                emb.addField('Clan ['+r.clan.tag+']', 'Clan name: **'+r.clan.name+'**\n'+r.name+"'s role: **"+r.clan.role+'**');
-                emb.addField('Level '+r.experience.level, '**'+numberWithCommas(r.experience.xp)+' / '+numberWithCommas(r.experience.xpRequiredForLevelUp)+'** experience');
-                emb.addField('Games ['+r.games.total+']', '**'+numberWithCommas(r.games.wins)+'** Wins / **'+numberWithCommas(r.games.losses)+'** Losses / **'+numberWithCommas(r.games.draws)+'** Draws / **'+numberWithCommas(r.stats.threeCrownWins)+'** Three Crown Wins');
-                emb.addField('Total Donations', '**'+r.stats.totalDonations+'** cards')
-                emb.addField('Chest Rotation', 'Legendary Chest: **'+chests(r.chestCycle.legendaryPos, r.chestCycle.position)+'** chests\nSuper Magical Chest: **'+chests(r.chestCycle.superMagicalPos, r.chestCycle.position)+'** chests\nEpic Chest: **'+chests(r.chestCycle.epicPos, r.chestCycle.position)+'** chests');
-                emb.addField('Shop Offers', 'Legendary Chest: **'+day(r.shopOffers.legendary)+'**\nEpic Chest: **'+day(r.shopOffers.epic)+'**\nArena Chest: **'+day(r.shopOffers.arena)+'**');
-                msg.channel.send({embed:emb});
-                msg.channel.stopTyping();
+                await msg.channel.startTyping();
+                await emb.setColor('#69B6F7');
+                await emb.setTitle('Stats about '+r.name);
+                await emb.setThumbnail(r.clan.badge.image);
+                await emb.addField(r.arena.arena, '**'+r.arena.name+'**');
+                await emb.addField('Trophies / Max Trophies', '**'+r.trophies+'** / **'+r.stats.maxTrophies+'**');
+                await emb.addField('Clan ['+r.clan.tag+']', 'Clan name: **'+r.clan.name+'**\n'+r.name+"'s role: **"+r.clan.role+'**');
+                await emb.addField('Games ['+r.games.total+']', '**'+numberWithCommas(r.games.wins)+'** Wins / **'+numberWithCommas(r.games.losses)+'** Losses / **'+numberWithCommas(r.games.draws)+'** Draws / **'+numberWithCommas(r.stats.threeCrownWins)+'** Three Crown Wins');
+                await emb.addField('Total Donations', '**'+r.stats.totalDonations+'** cards')
+                await emb.addField('Chest Rotation', 'Legendary Chest: **'+r.chestCycle.legendary+'** chests\nSuper Magical Chest: **'+r.chestCycle.superMagical+'** chests\nEpic Chest: **'+r.chestCycle.epic+'** chests\nMagical Chest: **'+r.chestCycle.magical+'** chests\nGiant Chest: **'+r.chestCycle.giant+'** chests');
+                await msg.channel.send({embed:emb});
+                await msg.channel.stopTyping();
             } else if(err) {
-                msg.channel.send('```'+err+'```');
+                await msg.channel.send('```'+err+'```');
             }
         });
     } else if(q.startsWith('-clan')) {
@@ -57,24 +48,24 @@ exports.run = (client, msg, args) => {
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         }
-        request({url: url+'/clan/'+s, headers: { 'auth': process.env.CLASHAPI }}, function(err, response, body) {
+        request({method: 'GET', url: url+'/clan/'+s, headers: { auth: process.env.CLASHAPI }}, async function(err, response, body) {
             if(!err && response.statusCode == 200) {
                 var r = JSON.parse(body);
-                msg.channel.startTyping();
-                emb.setColor('#69B6F7');
-                emb.setAuthor('Stats about '+r.name+' - '+r.typeName, url+r.badge.url);
-                emb.setThumbnail(url+r.badge.url);
-                emb.setDescription('*"'+r.description+'"* - '+r.name);
-                emb.addField('Members', '**'+r.memberCount+'** out of **50**');
-                emb.addField('Clan Trophies', '**'+r.score+'**');
-                emb.addField('Required Trophies', '**'+r.requiredScore+'**');
-                emb.addField('Donations Per Week', '**'+r.donations+'**');
-                emb.addField('Region', '**'+r.region.name+'**');
-                emb.addField('Clan Chest', '**'+r.clanChest.clanChestCrowns+' / '+r.clanChest.clanChestCrownsRequired+' ['+r.clanChest.clanChestCrownsPercent+'%]**');
-                msg.channel.send({embed:emb});
-                msg.channel.stopTyping();
+                await msg.channel.startTyping();
+                await emb.setColor('#69B6F7');
+                await emb.setAuthor('Stats about '+r.name+' - '+r.type, r.badge.image);
+                await emb.setThumbnail(r.badge.image);
+                await emb.setDescription('*"'+r.description+'"* - '+r.name);
+                await emb.addField('Members', '**'+r.memberCount+'** out of **50**');
+                await emb.addField('Clan Trophies', '**'+r.score+'**');
+                await emb.addField('Required Trophies', '**'+r.requiredScore+'**');
+                await emb.addField('Donations Per Week', '**'+r.donations+'**');
+                await emb.addField('Region', '**'+r.location.name+'**');
+                await emb.addField('Clan Chest', '**'+r.clanChest.crowns+' / '+'1600'+' [Level '+r.clanChest.level+']**');
+                await msg.channel.send({embed:emb});
+                await msg.channel.stopTyping();
             } else if(err) {
-                msg.channel.send('```'+err+'```');
+                await msg.channel.send('```'+err+'```');
             }
         })
     } else if(!args[0]) {
