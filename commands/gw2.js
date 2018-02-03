@@ -1,21 +1,23 @@
+const gw2 = require('gw2-api');
+const api = new gw2.gw2();
+const quests = [];
+const Discord = require('discord.js');
+const emb = new Discord.RichEmbed();
+function emoji(emo) {
+    delete require.cache[require.resolve(`../resources/emoji.js`)];
+    let emojia = require("../resources/emoji.js");
+    if (emojia[emo] === undefined) return "🅱";
+    return emojia[emo];
+}
+function divider(coins) {
+    return parseInt(coins) / 100;
+}
+function lastTwo(coins) {
+    return parseInt(coins) % 100;
+}
+
 exports.run = (client, msg, args) => {
     const argu = args.join(" ");
-    const gw2 = require('gw2-api');
-    const api = new gw2.gw2();
-    const Discord = require('discord.js');
-    const emb = new Discord.RichEmbed();
-    function emoji(emo) {
-        delete require.cache[require.resolve(`../resources/emoji.js`)];
-        let emojia = require("../resources/emoji.js");
-        if (emojia[emo] === undefined) return "🅱";
-        return emojia[emo];
-    }
-    function divider(coins) {
-        return parseInt(coins) / 100;
-    }
-    function lastTwo(coins) {
-        return parseInt(coins) % 100;
-    }
     if(argu.startsWith('-daily')) {
         api.getDailyAchievements().then(async function (res) {
             if (!res.pve) {
@@ -27,7 +29,6 @@ exports.run = (client, msg, args) => {
             }
             return api.getAchievements(achievementIds);
         }).then(async function (res) {
-            var quests = [];
             await msg.channel.startTyping();
             await emb.setAuthor('Daily GW2 Quests', 'https://orig00.deviantart.net/a943/f/2013/349/2/4/guild_wars_2___dock_icon_by_blakegedye-d6y3hha.png');
             await emb.setFooter(msg.author.tag, msg.author.avatarURL);

@@ -1,25 +1,21 @@
+const osu = require('node-osu');
+const Discord = require('discord.js');
+const emb = new Discord.RichEmbed();
+const osuApi = new osu.Api(process.env.OSU);
+function numberWithCommas(x) {
+    const parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+function emoji(emo) {
+    delete require.cache[require.resolve(`../resources/emoji.js`)];
+    let emojia = require("../resources/emoji.js");
+    if (emojia[emo] === undefined) return "🅱";
+    return emojia[emo];
+}
+
 exports.run = (client, msg, args) => {
-    const osu = require('node-osu');
     const user = args.join(" ");
-    const Discord = require('discord.js');
-    const emb = new Discord.RichEmbed();
-    const osuApi = new osu.Api(process.env.OSU);
-    function numberWithCommas(x) {
-        const parts = x.toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return parts.join(".");
-    }
-    function emoji(emo) {
-        delete require.cache[require.resolve(`../resources/emoji.js`)];
-        let emojia = require("../resources/emoji.js");
-        if (emojia[emo] === undefined) return "🅱";
-        return emojia[emo];
-    }
-    if (!String.prototype.trim) {
-        String.prototype.trim = function () {
-          return this.toString().replace(/^\s+|\s+$/g, '');
-        };
-    }
     if(user.startsWith("-osusig")) {
         username = user.replace('-osusig', '').trim();
         if(!username) {

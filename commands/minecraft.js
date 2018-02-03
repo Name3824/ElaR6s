@@ -1,13 +1,9 @@
+const ping = require('mc-hermes');
+const Discord = require('discord.js');
+const emb = new Discord.RichEmbed();
+
 exports.run = (client, msg, args) => {
-    if (!String.prototype.trim) {
-        String.prototype.trim = function () {
-          return this.toString().replace(/^\s+|\s+$/g, '');
-        };
-    }
     const query = args.join(" ");
-    const ping = require('mc-hermes');
-    const Discord = require('discord.js');
-    const emb = new Discord.RichEmbed();
     if(query.startsWith("-server")) {
         ip = query.replace('-server', '').trim();
         if(!ip) {

@@ -1,14 +1,15 @@
+const Discord = require('discord.js');
+const emb = new Discord.RichEmbed();
+const request = require('request');
+const url = 'http://api.cr-api.com';
+function numberWithCommas(x) {
+    const parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+
 exports.run = (client, msg, args) => {
-    const Discord = require('discord.js');
-    const emb = new Discord.RichEmbed();
-    const request = require('request');
-    const url = 'http://api.cr-api.com';
     const q = args.join(' ');
-    function numberWithCommas(x) {
-        const parts = x.toString().split(".");
-        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        return parts.join(".");
-    }
     if(q.startsWith('-player')) {
         s = q.replace('-player', '').trim();
         if(!s[0]) {

@@ -1,14 +1,10 @@
+const Discord = require('discord.js');
+const emb = new Discord.RichEmbed();
+const igdb = require('igdb-api-node').default;
+const Igdb = igdb(process.env.IGDB);
+
 exports.run = (client, msg, args) => {
-    if (!String.prototype.trim) {
-        String.prototype.trim = function () {
-          return this.toString().replace(/^\s+|\s+$/g, '');
-        };
-    }
-    const Discord = require('discord.js');
-    const emb = new Discord.RichEmbed();
     const query = args.join(" ");
-    const igdb = require('igdb-api-node').default;
-    const Igdb = igdb(process.env.IGDB);
     if(query.startsWith('-game')) {
         game = query.replace('-game', '').trim();
         if(!game) {

@@ -1,18 +1,18 @@
+const Discord = require('discord.js');
+const emb = new Discord.RichEmbed();
+function clean(text) {
+    if (typeof(text) === "string")
+      return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+    else return text;
+}
+function emoji(emo) {
+    delete require.cache[require.resolve(`../resources/emoji.js`)];
+    let emojia = require("../resources/emoji.js");
+    if (emojia[emo] === undefined) return "🅱";
+    return emojia[emo];
+}
+
 exports.run = (client, msg, args) => {
-    const Discord = require('discord.js');
-    const emb = new Discord.RichEmbed();
-    function clean(text) {
-        if (typeof(text) === "string")
-          return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
-        else
-            return text;
-    }
-    function emoji(emo) {
-        delete require.cache[require.resolve(`../resources/emoji.js`)];
-        let emojia = require("../resources/emoji.js");
-        if (emojia[emo] === undefined) return "🅱";
-        return emojia[emo];
-    }
       if(msg.author.id !== process.env.OWNER) return;
           try {
             const code = args.join(" ");
