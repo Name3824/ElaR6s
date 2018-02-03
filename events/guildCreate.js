@@ -1,9 +1,10 @@
+const snekfetch = require('snekfetch');
+const Discord = require('discord.js');
+const push = require('pushbullet-api');
+const pb = new push(process.env.PUSH);
+const emb = new Discord.RichEmbed();
+
 exports.run = (client, guild) => {
-    const snekfetch = require('snekfetch');
-    const Discord = require('discord.js');
-    const push = require('pushbullet-api');
-    const pb = new push(process.env.PUSH);
-    const emb = new Discord.RichEmbed();
     //
     //
     //
