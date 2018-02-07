@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 const request = require('request');
 const url = 'http://api.cr-api.com';
 function numberWithCommas(x) {
@@ -9,6 +8,7 @@ function numberWithCommas(x) {
 }
 
 exports.run = (client, msg, args) => {
+    const emb = new Discord.RichEmbed();
     const q = args.join(' ');
     if(q.startsWith('-player')) {
         s = q.replace('-player', '').trim();

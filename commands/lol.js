@@ -1,7 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 const rotation = [];
 function emoji(emo) {
     delete require.cache[require.resolve(`../resources/emoji.js`)];
@@ -11,6 +10,7 @@ function emoji(emo) {
 }
 
 exports.run = (client, msg, args) => {
+    const emb = new Discord.RichEmbed();
     const lol = args.join(" ");
     if(lol.startsWith("-rotation")) {
         request('http://leagueoflegends.wikia.com/wiki/Free_champion_rotation', async function (error, response, html) {

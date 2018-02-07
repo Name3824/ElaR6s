@@ -1,8 +1,8 @@
 const ping = require('mc-hermes');
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 
 exports.run = (client, msg, args) => {
+    const emb = new Discord.RichEmbed();
     const query = args.join(" ");
     if(query.startsWith("-server")) {
         ip = query.replace('-server', '').trim();

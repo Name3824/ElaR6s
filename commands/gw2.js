@@ -2,7 +2,6 @@ const gw2 = require('gw2-api');
 const api = new gw2.gw2();
 const quests = [];
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 function emoji(emo) {
     delete require.cache[require.resolve(`../resources/emoji.js`)];
     let emojia = require("../resources/emoji.js");
@@ -17,6 +16,7 @@ function lastTwo(coins) {
 }
 
 exports.run = (client, msg, args) => {
+    const emb = new Discord.RichEmbed();
     const argu = args.join(" ");
     if(argu.startsWith('-daily')) {
         api.getDailyAchievements().then(async function (res) {

@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 const igdb = require('igdb-api-node').default;
 const Igdb = igdb(process.env.IGDB);
 
 exports.run = (client, msg, args) => {
+    const emb = new Discord.RichEmbed();
     const query = args.join(" ");
     if(query.startsWith('-game')) {
         game = query.replace('-game', '').trim();

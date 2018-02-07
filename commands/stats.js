@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 function platform(platform) {
     if(platform === 'darwin') return 'Darwin';
     else if(platform === 'freebsd') return 'FreeBSD';
@@ -9,6 +8,7 @@ function platform(platform) {
 }
 
 exports.run = (client, msg) => {
+    const emb = new Discord.RichEmbed();
     msg.channel.startTyping();
     emb.setColor("#75C0AC");
     emb.setAuthor('Stats of '+client.user.tag, client.user.avatarURL, 'http://vgh.ftp.sh');

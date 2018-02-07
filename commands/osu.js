@@ -1,6 +1,5 @@
 const osu = require('node-osu');
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 const osuApi = new osu.Api(process.env.OSU);
 function numberWithCommas(x) {
     const parts = x.toString().split(".");
@@ -15,6 +14,7 @@ function emoji(emo) {
 }
 
 exports.run = (client, msg, args) => {
+    const emb = new Discord.RichEmbed();
     const user = args.join(" ");
     if(user.startsWith("-osusig")) {
         username = user.replace('-osusig', '').trim();

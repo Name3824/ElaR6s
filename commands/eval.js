@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
 function clean(text) {
     if (typeof(text) === "string")
       return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
@@ -13,6 +12,7 @@ function emoji(emo) {
 }
 
 exports.run = (client, msg, args) => {
+    const emb = new Discord.RichEmbed();
       if(msg.author.id !== process.env.OWNER) return;
           try {
             const code = args.join(" ");
