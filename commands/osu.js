@@ -49,7 +49,7 @@ exports.run = (client, msg, args) => {
         await emb.setColor('#EA5F9C');
         await emb.setAuthor(user.name+"'s profile", 'https://a.ppy.sh/'+user.id, 'https://osu.ppy.sh/u/'+user.id);
         if(user.pp.rank <= 10) { await emb.addField('Global Ranking', '#'+user.pp.rank+' 🏆', true) }
-        if(user.pp.rank >= 10) { await emb.addField('Global Ranking', '#'+user.pp.rank, true) }
+        if(user.pp.rank > 10) { await emb.addField('Global Ranking', '#'+user.pp.rank, true) }
         await emb.addField('Local Ranking :flag_'+pais.toLowerCase()+':', '#'+user.pp.countryRank, true);
         await emb.addField('Performance Points', Math.round(user.pp.raw)+'pp', true);
         await emb.addField('Ranks', emoji('osuSS')+' '+user.counts.SS+' '+emoji('osuS')+' '+user.counts.S+' '+emoji('osuA')+' '+user.counts.A, true);
