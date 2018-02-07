@@ -9,10 +9,12 @@ I'm built with [node.js](https://nodejs.org), [discord.js](https://discord.js.or
 |--------------|-------------------------------------------|
 | vg!cr        | Shows stats in Clash Royale               |
 | vg!gw2       | Shows stats in Guild Wars 2               |
+| vg!help      | Shows the help menu                       |
 | vg!igdb      | Shows stats in the Internet Game Database |
 | vg!lol       | Shows stats in League of Legends          |
 | vg!minecraft | Shows stats in Minecraft                  |
 | vg!osu       | Shows stats in osu!                       |
+| vg!rocket    | Shows stats in Rocket League              |
 | vg!stats     | Shows stats about the bot                 |
 
 If you want to add me to your guild to suite your gaming needs, click [here](https://discordapp.com/oauth2/authorize?client_id=357164743489880074&scope=bot&permissions=281664) to invite me!
