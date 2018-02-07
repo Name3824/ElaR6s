@@ -1,7 +1,6 @@
-const Discord = require('discord.js');
-const emb = new Discord.RichEmbed();
-
 exports.run = (client, msg) => {
+    const Discord = require('discord.js');
+    const emb = new Discord.RichEmbed();
     msg.channel.startTyping();
     emb.setColor('#2040ff');
     emb.setAuthor(client.user.tag+' Commands', client.user.avatarURL, 'http://vgh.ftp.sh');
