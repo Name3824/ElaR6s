@@ -17,14 +17,14 @@ exports.run = (client, msg, args) => {
         if(!playerData[0]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Region not defined', 'Try again with a valid region');
+            emb.addField('Platform not defined', 'Try again with a valid platform');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         } else if(!platforms.includes(playerData[0].toUpperCase())) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Invalid region', 'Try again with a valid region');
+            emb.addField('Invalid platform', 'Try again with a valid platform');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
