@@ -1,7 +1,14 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const Discord = require('discord.js');
+const API = require('lol-stats-api-module');
+const api = new API({
+    key: process.env.RGAPI,
+    region: 'euw'
+});
+ 
 const rotation = [];
+const regions = ['EUW', 'EUNE', 'BR', 'JP', 'KR', 'LAN', 'LAS', 'NA', 'OCE', 'PBE', 'TR', 'RU'];
 function emoji(emo) {
     delete require.cache[require.resolve(`../resources/emoji.js`)];
     let emojia = require("../resources/emoji.js");
@@ -47,12 +54,59 @@ exports.run = (client, msg, args) => {
                 await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
         });
+    } else if(lol.startsWith('-player')) {
+        playerdata = lol.replace('-player', '').trim();
+        playerData = playerdata.split(" ");
+        if(!playerData[0]) {
+            msg.channel.startTyping();
+            emb.setColor('#F03A17');
+            emb.addField('Region not defined', 'Try again with a valid region');
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.send({embed:emb});
+            msg.channel.stopTyping();
+        } else if(!regions.includes(playerData[0].toUpperCase())) {
+            msg.channel.startTyping();
+            emb.setColor('#F03A17');
+            emb.addField('Invalid region', 'Try again with a valid region');
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.send({embed:emb});
+            msg.channel.stopTyping();
+        } else if(!playerData[1]) {
+            msg.channel.startTyping();
+            emb.setColor('#F03A17');
+            emb.addField('Username not defined', 'Try again with a valid username');
+            emb.setFooter(msg.author.tag, msg.author.avatarURL);
+            msg.channel.send({embed:emb});
+            msg.channel.stopTyping();
+        } else if(regions.includes(playerData[0].toUpperCase())) {
+            platf = playerData[0];
+            plat = platf.toLowerCase();
+            player = playerdata.replace(platf, '').trim();
+            summoner = { name: player };
+            playerNoSpaces = player.replace(/\s+/g, '+').trim();
+            api.getSummoner(summoner, async function (err, data) {
+                if (err) return msg.channel.send("An error has occurred\n" + err.code + " " + err.message);
+                await msg.channel.startTyping();
+                await emb.setColor('#064955');
+                await emb.setAuthor('Summoner Info', 'https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343');
+                await emb.setDescription("Info about: [" + data.name + "](" + "http://" + plat + ".op.gg/summoner/userName=" + playerNoSpaces + ")");
+                await emb.setThumbnail("http://ddragon.leagueoflegends.com/cdn/" + '8.2.1' + "/img/profileicon/" + data.profileIconId + ".png");
+                await emb.addField('Summoner Level', data.summonerLevel, true);
+                await emb.addField('Summoner ID', data.id, true);
+                await emb.addField('Account ID', data.accountId, true);
+                await emb.addField('Icon ID', data.profileIconId, true);
+                await emb.setFooter(msg.author.tag, msg.author.avatarURL);
+                await msg.channel.send({embed:emb});
+                await msg.channel.stopTyping();
+            });
+        }
     } else if(!args[0]) {
         msg.channel.startTyping();
         emb.setColor('#064955');
         emb.setAuthor('League of Legends Commands', 'https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343', 'https://leagueoflegends.com');
         emb.setThumbnail('https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343');
         emb.addField('`-rotation`', "See the Weekly Champion Rotation\nUsage: `"+process.env.PREFIX+"lol -rotation`");
+        emb.addField('`-player`', "See a player's statistics\nUsage: `"+process.env.PREFIX+"lol -player euw Xung444`\n\nValid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
