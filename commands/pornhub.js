@@ -2,8 +2,8 @@ const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
     const query = args.join(' ')
-    if (!query) return message.channel.send("Usage: nsfw.pornhub <search query>")
-    if (!message.channel.nsfw) return message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
+    if (!query) return message.channel.send("🔞 **Usage : e!pornhub <query>**")
+    if (!message.channel.nsfw) return message.channel.send(":underage: You are not in NSFW channel.")
     const Pornsearch = require('pornsearch').default.search(query);
         Pornsearch.gifs(1)
             .then(gifs => {
