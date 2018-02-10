@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
         var randomname = Math.floor(Math.random() * (99999999999999999999 - 11111111111111111111 + 0)) + 11111111111111111111;
         var embed = new Discord.RichEmbed()
         .setImage("http://media.oboobs.ru/boobs_preview/" + MathLoL + ".jpg")
-            message.channel.send({embed});
+            message.channel.sendMessage({embed});
             })
         })
     }
