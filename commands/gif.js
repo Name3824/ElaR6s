@@ -8,6 +8,8 @@ exports.run = (client, message, args) => {
     color: 0xf94a53,
     title: "Error.",
     description: ":underage: You are not in NSFW channel"
+    }
+  }
 
     const subreddits = [
         "NSFW_GIF",
