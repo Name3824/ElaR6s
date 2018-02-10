@@ -39,7 +39,7 @@ exports.run = (client, msg, args) => {
             platf = playerData[0];
             plat = platform(platf.toUpperCase());
             player = playerdata.replace(platf, '').trim();
-            rocket.getPlayer(player, plat, async function (status, data) {
+            r6.getPlayer(player, plat, async function (data) {
                 if(status === 200) {
                     await msg.channel.startTyping();
                     await emb.setColor('#0592DF');
