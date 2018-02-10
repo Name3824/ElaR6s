@@ -66,8 +66,8 @@ exports.run = (client, msg, args) => {
         emb.setColor('#00DF6C');
         emb.setAuthor('Internet Game Database [IGDB] Commands', 'https://www.igdb.com/preview_image.png', 'https://igdb.com');
         emb.setThumbnail('https://www.igdb.com/preview_image.png');
-        emb.addField('`-game`', "Search for a game in IGDB\nUsage: `"+process.env.PREFIX+"igdb -game Halo 4`");
-        emb.addField('`-platform`', "Search for a platform in IGDB\nUsage: `"+process.env.PREFIX+"igdb -platform Playstation 4`");
+        emb.addField('`-game`', "Search for a game in IGDB\nUsage: `"+process.env.PREFIX+"igdb -game [game name]`");
+        emb.addField('`-platform`', "Search for a platform in IGDB\nUsage: `"+process.env.PREFIX+"igdb -platform [platform name]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();

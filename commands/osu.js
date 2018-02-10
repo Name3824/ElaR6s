@@ -75,8 +75,8 @@ exports.run = (client, msg, args) => {
         emb.setColor('#EA5F9C');
         emb.setAuthor('osu! Commands', 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png', 'https://osu.ppy.sh');
         emb.setThumbnail('https://upload.wikimedia.org/wikipedia/commons/d/d3/Osu%21Logo_%282015%29.png');
-        emb.addField('`-stats`', "Search for a user's stats\nUsage: `"+process.env.PREFIX+"osu -stats Cookiezi`");
-        emb.addField('`-osusig`', "Search for a user's osu!sig\nUsage: `"+process.env.PREFIX+"osu -osusig Cookiezi`");
+        emb.addField('`-stats`', "Search for a user's stats\nUsage: `"+process.env.PREFIX+"osu -stats [username]`");
+        emb.addField('`-osusig`', "Search for a user's osu!sig\nUsage: `"+process.env.PREFIX+"osu -osusig [username]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();

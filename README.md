@@ -8,6 +8,7 @@ I'm built with [node.js](https://nodejs.org), [discord.js](https://discord.js.or
 | Command      | Description                               |
 |--------------|-------------------------------------------|
 | vg!cr        | Shows stats in Clash Royale               |
+| vg!fortnite  | Shows stats in Fortnite                   |
 | vg!gw2       | Shows stats in Guild Wars 2               |
 | vg!help      | Shows the help menu                       |
 | vg!igdb      | Shows stats in the Internet Game Database |

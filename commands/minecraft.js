@@ -49,8 +49,8 @@ exports.run = (client, msg, args) => {
         emb.setColor('#44FC37');
         emb.setAuthor('Minecraft Commands', 'https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png', 'https://minecraft.net');
         emb.setThumbnail('https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png');
-        emb.addField('`-user`', "Search for a user's skin\nUsage: `"+process.env.PREFIX+"minecraft -user Dinnerbone`");
-        emb.addField('`-server`', "Search for a server's status\nUsage: `"+process.env.PREFIX+"minecraft -server mc.hypixel.net`");
+        emb.addField('`-user`', "Search for a user's skin\nUsage: `"+process.env.PREFIX+"minecraft -user [username]`");
+        emb.addField('`-server`', "Search for a server's status\nUsage: `"+process.env.PREFIX+"minecraft -server [server ip]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();

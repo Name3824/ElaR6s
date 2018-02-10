@@ -74,8 +74,8 @@ exports.run = (client, msg, args) => {
         emb.setColor('#69B6F7');
         emb.setAuthor('Clash Royale Commands', 'https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402', 'https://clashroyale.com');
         emb.setThumbnail('https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402');
-        emb.addField('`-player`', "Search for a player's stats through his tag\nUsage: `"+process.env.PREFIX+"cr -player 28LLY2JC9`");
-        emb.addField('`-clan`', "Search for a clan's stats through its tag\nUsage: `"+process.env.PREFIX+"cr -clan L28U2L`");
+        emb.addField('`-player`', "Search for a player's stats through his tag\nUsage: `"+process.env.PREFIX+"cr -player [player tag]`");
+        emb.addField('`-clan`', "Search for a clan's stats through its tag\nUsage: `"+process.env.PREFIX+"cr -clan [clan tag]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();        
