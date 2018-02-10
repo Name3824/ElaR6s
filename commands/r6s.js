@@ -9,7 +9,10 @@ function platform(query) {
 }
 
 exports.run = (client, msg, args) => {
-    const emb = new Discord.RichEmbed();
+    const embed = new Discord.RichEmbed()
+    .setTitle("Work In Progress")
+    msg.channel.send({embed})
+/*    const emb = new Discord.RichEmbed();
     const strings = args.join(" ");
     if(strings.startsWith('-player')) {
          r6.stats(args[1], args[0]).then(data => {
