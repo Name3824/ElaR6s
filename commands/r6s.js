@@ -11,7 +11,7 @@ function platform(query) {
 exports.run = (client, msg, args) => {
     const embed = new Discord.RichEmbed()
     .setTitle("Work In Progress")
-    msg.channel.send({embed})
+    msg.channel.send({embed});
 /*    const emb = new Discord.RichEmbed();
     const strings = args.join(" ");
     if(strings.startsWith('-player')) {
@@ -91,5 +91,5 @@ exports.run = (client, msg, args) => {
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
-    }
+    }*/
 }
