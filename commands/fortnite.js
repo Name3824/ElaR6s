@@ -42,10 +42,10 @@ exports.run = (client, msg, args) => {
             player = fullStats.replace(platf, '').trim();
             Fortnite.get(player, plat).then(async function (p) {
                 await msg.channel.startTyping();
-                await emb.setAuthor('Stats about '+p.displayName, 'https://i.imgur.com/IMjozOI.jpg');
+                await emb.setAuthor('Stats about '+p.displayName, 'https://res.cloudinary.com/teepublic/image/private/s--W2EuKnua--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1511850332/production/designs/2112154_1.jpg');
                 await emb.setColor('#FBD535');
-                await emb.setThumbnail('https://i.imgur.com/IMjozOI.jpg');
-                await emb.addField('General', `Score: ${p.stats.score}\nKills: ${p.stats.kills}\nMatches: ${p.stats.matches}\nTop 1: ${p.stats.top1}\nTop 3: ${p.stats.top3}\nTop 5: ${p.stats.top5}\nTop 25: ${p.stats.top25}\nK/D: ${p.stats.kd}\nTime Played: ${p.stats.timePlayed}`);
+                await emb.setThumbnail('https://res.cloudinary.com/teepublic/image/private/s--W2EuKnua--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1511850332/production/designs/2112154_1.jpg');
+                await emb.addField('General', `**Score**: ${p.stats.score}\n**Kills**: ${p.stats.kills}\n**Matches**: ${p.stats.matches}\n**Top 1**: ${p.stats.top1}\n**Top 3**: ${p.stats.top3}\n**Top 5**: ${p.stats.top5}\n**Top 25**: ${p.stats.top25}\n**K/D**: ${p.stats.kd}\n**Time Played**: ${p.stats.timePlayed}`);
                 await emb.setFooter(msg.author.tag, msg.author.avatarURL);
                 await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
@@ -54,8 +54,8 @@ exports.run = (client, msg, args) => {
     } else if(!args[0]) {
         msg.channel.startTyping();
         emb.setColor('#FBD535');
-        emb.setAuthor('Fortnite Commands', 'https://i.imgur.com/IMjozOI.jpg');
-        emb.setThumbnail('https://i.imgur.com/IMjozOI.jpg');
+        emb.setAuthor('Fortnite Commands', 'https://res.cloudinary.com/teepublic/image/private/s--W2EuKnua--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1511850332/production/designs/2112154_1.jpg');
+        emb.setThumbnail('https://res.cloudinary.com/teepublic/image/private/s--W2EuKnua--/t_Preview/b_rgb:ffffff,c_limit,f_jpg,h_630,q_90,w_630/v1511850332/production/designs/2112154_1.jpg');
         emb.addField('`-player`', "Search for a player's stats\nUsage: `"+process.env.PREFIX+"fortnite -player [platform] [username]`\n\nValid platforms: `pc, ps4, xbox`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
