@@ -29,6 +29,6 @@ message.channel.send({embed});
                 const embed = new Discord.RichEmbed()
                     .setColor(0xffa500)
                     .setImage(url)
-                message.channel.send({ embed });
+                message.channel.nsfw.send({ embed });
         })
 }
