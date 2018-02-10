@@ -10,8 +10,7 @@ exports.run = (client, message, args) => {
     var MathLoL = Math.round(MathRan);
     if (!message.channel.nsfw) {
         message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
-    } else {   
-        var randomname = Math.floor(Math.random() * (99999999999999999999 - 11111111111111111111 + 0)) + 11111111111111111111;
+    } else {
         request.get("http://media.obutts.ru/butts_preview/0" + MathLoL + ".jpg").then(url => {
                 const embed = new Discord.RichEmbed()
                     .setTitle("😏")
