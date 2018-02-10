@@ -17,12 +17,6 @@ exports.run = (client, message, args) => {
         "adultgifs"
     ]
 
-    run(message) {
-        if (!message.channel.nsfw) {
-            message.react('💢');
-            return message.channel.send("**Error**");
-        }
-
         var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
         randomPuppy(randSubreddit)
