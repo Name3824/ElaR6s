@@ -17,13 +17,22 @@ exports.run = (client, message, args) => {
         "adultgifs"
     ]
 
-    var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
+    run(message) {
+        if (!message.channel.nsfw) {
+            message.react('💢');
+            return message.channel.send("**Error**");
+        }
 
-    randomPuppy(sub)
+        var randSubreddit = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
+
+        randomPuppy(randSubreddit)
             .then(url => {
-                const embed = new Discord.RichEmbed()
-                    .setColor(0xffa500)
+                const embed = new Discord.MessageEmbed()
+                    .setFooter('NSFW.gif', 'https://a.safe.moe/O8TDd.png')
+                    .setDescription(`[Image URL](${url})`)   
                     .setImage(url)
-                message.channel.send({ embed });
-        })
+                    .setColor('#CEA0A6');
+                return message.channel.send({ embed });
+            })
+    }
 }
