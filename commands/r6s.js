@@ -2,13 +2,6 @@ const RainbowSix = require('rainbowsix-api-node');
 const r6 = new RainbowSix();
 
 exports.exec = (Bastion, message, args) => {
-  if (args.length < 2) {
-    /**
-     * The command was ran with invalid parameters.
-     * @fires commandUsage
-     */
-    return Bastion.emit('commandUsage', message, this.help);
-  }
   if (!/^(uplay|ps4|xone)$/.test(args[0] = args[0].toLowerCase())) {
     /**
      * Error condition is encountered.
