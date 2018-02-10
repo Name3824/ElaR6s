@@ -4,12 +4,7 @@ const fs = require("fs")
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-    if (!message.channel.nsfw) return message.channel.send({embed: {
-    color: 0xf94a53,
-    title: "Error.",
-    description: ":underage: You are not in NSFW channel"
-    }
-  }
+    if (!message.channel.nsfw) return message.channel.send(":underage: You are not in NSFW channel")
 
     const subreddits = [
         "NSFW_GIF",
