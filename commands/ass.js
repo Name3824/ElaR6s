@@ -17,7 +17,8 @@ exports.run = (client, message, args) => {
             var embed = new Discord.RichEmbed()
             .setTitle("😏")
             .setImage(`${randomname}.jpg`, r.body)
-            message.channel.send({embed});
+            message.channel.send({embed}).then(d => {
+                fs.unlink(`./${randomname}.jpg`)
             })
         })
     }
