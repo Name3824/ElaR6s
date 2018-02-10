@@ -46,7 +46,7 @@ exports.run = (client, msg, args) => {
                 await emb.setColor('#FBD535');
                 await emb.setThumbnail('https://i.imgur.com/IMjozOI.jpg');
                 await emb.addField('General', `Score: ${p.stats.score}\nKills: ${p.stats.kills}\nMatches: ${p.stats.matches}\nTop 1: ${p.stats.top1}\nTop 3: ${p.stats.top3}\nTop 5: ${p.stats.top5}\nTop 25: ${p.stats.top25}\nK/D: ${p.stats.kd}\nTime Played: ${p.stats.timePlayed}`);
-                await emb.setFooter(msg.author.id, msg.author.avatarURL);
+                await emb.setFooter(msg.author.tag, msg.author.avatarURL);
                 await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
             });
