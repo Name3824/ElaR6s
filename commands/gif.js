@@ -4,13 +4,13 @@ const fs = require("fs")
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-    if (!message.channel.nsfw) return 
+    if (!message.channel.nsfw) {
             const embed = new Discord.RichEmbed()
         .setTitle("Error.")
         .setDescription("🔞 You are not in NSFW channel")
         .setColor(0xf94a53)
 message.channel.send({embed})
-
+    }
     const subreddits = [
         "NSFW_GIF",
         "nsfw_gifs",
