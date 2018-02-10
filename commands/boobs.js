@@ -11,10 +11,9 @@ exports.run = (client, message, args) => {
         message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
     } else {   
         var randomname = Math.floor(Math.random() * (99999999999999999999 - 11111111111111111111 + 0)) + 11111111111111111111;
-        request.get("http://media.oboobs.ru/boobs_preview/" + MathLoL + ".jpg").then(r => {
-            fs.writeFile(`${randomname}.jpg`, r.body)
-            message.channel.sendFile(r.body).then(d => {
-                fs.unlink(`./${randomname}.jpg`)
+        var embed = new Discord.RichEmbed()
+        .setImage("http://media.oboobs.ru/boobs_preview/" + MathLoL + ".jpg")
+            message.channel.send({embed});
             })
         })
     }
