@@ -1,14 +1,21 @@
-const Discord = require('discord.js') 
-exports.run = (client, msg, args) => {
-  if(msg.channel.nsfw || msg.channel.type ==='dm'){
-    let embed = new Discord.RichEmbed()
-    .setColor(0x00AE86)
-    .setImage(("http://media.oboobs.ru/boobs_preview/0"+ Math.floor(Math.random() * (8317 - 1011) + 1011)+".jpg"))
-    msg.channel.send(embed)
+const Discord = require("discord.js");
+const request = require('snekfetch');
+const fs = require("fs")
+
+exports.run = (client, message, args) => {
+    var max = 5244;
+    var min = 1000;
+    var MathRan = Math.floor(Math.random() * (max - min + 0)) + min;
+    var MathLoL = Math.round(MathRan);
+    if (!message.channel.nsfw) {
+        message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
+    } else {   
+        var randomname = Math.floor(Math.random() * (99999999999999999999 - 11111111111111111111 + 0)) + 11111111111111111111;
+        request.get("http://media.obutts.ru/butts_preview/0" + MathLoL + ".jpg").then(r => {
+            fs.writeFile(`${randomname}.jpg`, r.body)
+            message.channel.sendFile(r.body).then(d => {
+                fs.unlink(`./${randomname}.jpg`)
+            })
+        })
+    }
 }
-  else{
-        msg.channel.send({embed: {
- color: Math.floor(Math.random() * (0xFFFFFF + 1)),
- description: ('Bu kanal NSFW(Not Safe For Work) kanalı değil! Ayarlardan bunu açabilirsin!')
- }})
- }
