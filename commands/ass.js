@@ -12,12 +12,11 @@ exports.run = (client, message, args) => {
         message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
     } else {   
         var randomname = Math.floor(Math.random() * (99999999999999999999 - 11111111111111111111 + 0)) + 11111111111111111111;
-        request.get("http://media.obutts.ru/butts_preview/0" + MathLoL + ".jpg").then(r => {
-            fs.writeFile(r.body)
-            var embed = new Discord.RichEmbed()
-            .setTitle("😏")
-            .setImage(r.body)
-            message.channel.send({embed});
+        request.get("http://media.obutts.ru/butts_preview/0" + MathLoL + ".jpg").then(url => {
+                const embed = new Discord.RichEmbed()
+                    .setTitle("😏")
+                    .setImage(url)
+                message.channel.send({ embed });
             })
         })
     }
