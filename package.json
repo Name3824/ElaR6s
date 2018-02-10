@@ -25,7 +25,8 @@
     "pushbullet-api": "0.0.2",
     "request": "^2.83.0",
     "rls-api": "^1.1.0",
-    "snekfetch": "^3.5.2"
+    "snekfetch": "^3.5.2",
+    "random-puppy": "^8.3"
   },
   "devDependencies": {
     "eslint-config-google": "^0.9.1"
