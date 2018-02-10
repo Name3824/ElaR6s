@@ -11,6 +11,9 @@ exports.run = (client, message, args) => {
         "Boobs_gif",
         "Boobs_Flashing_Gif",
         "BoobsGifs",
+        "BoobsFlashingGif",
+        "TEEN_BOOBS_GIFS",
+        "BIGBOOBSGIF",
         "BoobsGif"
     ]
 
