@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
         .setDescription("🔞 You are not in NSFW channel")
         .setColor(0xf94a53)
 message.channel.send({embed})
-    }
+
     const subreddits = [
         "NSFW_GIF",
         "nsfw_gifs",
