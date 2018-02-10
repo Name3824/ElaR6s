@@ -3,9 +3,9 @@ const r6 = new RainbowSix();
 const platforms = ['uplay', 'xone', 'ps4'];
 const Discord = require('discord.js');
 function platform(query) {
-    if(query == 'uplay') return '1';
-    else if(query == 'ps4') return '2';
-    else if(query == 'xone') return '3';
+    if(query == 'UPLAY') return '1';
+    else if(query == 'PS4') return '2';
+    else if(query == 'XBOX') return '3';
 }
 
 exports.run = (client, msg, args) => {
