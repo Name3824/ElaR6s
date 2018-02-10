@@ -1,29 +1,25 @@
-const randomPuppy = require('random-puppy');
+
+const Discord = require("discord.js");
 const request = require('snekfetch');
 const fs = require("fs")
-const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-    if (!message.channel.nsfw) return message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
-
-    const subreddits = [
-        "Ass_Gifs",
-        "Ass_gif",
-        "Big_Ass",
-        "AssGifs",
-        "CuteAss",
-        "TEEN_ASS_GIFS",
-        "BIGASSGIF",
-        "AssGif"
-    ]
-
-    var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
-
-    randomPuppy(sub)
-            .then(url => {
-                const embed = new Discord.RichEmbed()
-                    .setColor(0xffa500)
-                    .setImage(url)
-                message.channel.send({ embed });
+    var max = 5244;
+    var min = 1000;
+    var MathRan = Math.floor(Math.random() * (max - min + 0)) + min;
+    var MathLoL = Math.round(MathRan);
+    if (!message.channel.nsfw) {
+        message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
+    } else {   
+        var randomname = Math.floor(Math.random() * (99999999999999999999 - 11111111111111111111 + 0)) + 11111111111111111111;
+        request.get("http://media.obutts.ru/butts_preview/0" + MathLoL + ".jpg").then(r => {
+            fs.writeFile(`${randomname}.jpg`, r.body)
+            var embed = new Discord.RichEmbed()
+            .setTitle("😏")
+            .setImage(r.body)
+            message.channel.send({embed}).then(d => {
+                fs.unlink(`./${randomname}.jpg`)
+            })
         })
+    }
 }
