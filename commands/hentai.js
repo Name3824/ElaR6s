@@ -7,7 +7,8 @@ exports.run = (client, message, args) => {
 
     var subreddits = [
         'HENTAI_GIF',
-        'hentai_irl'
+        'Hentai_gifs',
+        'hentai'
     ]
     var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
 
