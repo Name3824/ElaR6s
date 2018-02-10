@@ -39,29 +39,71 @@ exports.run = (client, msg, args) => {
             platf = playerData[0];
             plat = platform(platf.toUpperCase());
             player = playerdata.replace(platf, '').trim();
-            r6.getPlayer(player, plat, async function (data) {
-                if(status === 200) {
-                    await msg.channel.startTyping();
-                    await emb.setColor('#0592DF');
-                    await emb.setAuthor('Stats about '+data.player.username, 'https://vignette.wikia.nocookie.net/rocketleague/images/f/f6/Rocketleague-logo.png/revision/latest?cb=20161207070401', 'https://rocketleaguestats.com/');
-                    await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                    await msg.channel.send({embed:emb});
-                    await msg.channel.stopTyping();
-                } else if(status === 404) {
-                    await msg.channel.startTyping();
-                    await emb.setColor('#F03A17');
-                    await emb.addField('User not found', 'Try again with a valid username / tag');
-                    await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                    await msg.channel.send({embed:emb});
-                    await msg.channel.stopTyping();
-                } else {
-                    await msg.channel.startTyping();
-                    await emb.setColor('#F03A17');
-                    await emb.addField('An error has occured', 'Report this to '+client.users.get(process.env.OWNER).tag+' with the code '+status);
-                    await emb.setFooter(msg.author.tag, msg.author.avatarURL);
-                    await msg.channel.send({embed:emb});
-                    await msg.channel.stopTyping();
-                }
+         r6.stats(args[1], args[0]).then(data => {
+                let stats = [
+      {
+        name: 'Player Name',
+        value: data.player.username
+      },
+      {
+        name: 'Level',
+        value: `${data.player.stats.progression.level}`,
+        inline: true
+      },
+      {
+        name: 'XP',
+        value: `${data.player.stats.progression.xp}`,
+        inline: true
+      }
+    ];
+    if (data.player.stats.ranked.has_played) {
+      stats.push(
+        {
+          name: 'Ranked',
+          value: `${args[1]} has played Ranked games for **${(data.player.stats.ranked.playtime / 60 / 60).toFixed(2)}** Hours.`
+        },
+        {
+          name: 'Wins',
+          value: `${data.player.stats.ranked.wins}`,
+          inline: true
+        },
+        {
+          name: 'Losses',
+          value: `${data.player.stats.ranked.losses}`,
+          inline: true
+        },
+        {
+          name: 'Kills',
+          value: `${data.player.stats.ranked.kills}`,
+          inline: true
+        },
+        {
+          name: 'Deaths',
+          value: `${data.player.stats.ranked.deaths}`,
+          inline: true
+        },
+        {
+          name: 'Win/Lose Ratio',
+          value: `${data.player.stats.ranked.wlr}`,
+          inline: true
+        },
+        {
+          name: 'Kill/Death Ratio',
+          value: `${data.player.stats.ranked.kd}`,
+          inline: true
+        }
+      );
+    }
+             msg.channel.send({
+                   embed: {
+        color: 0xffffff,
+        title: 'Rainbow 6',
+        url: `https://r6stats.com/stats/${args[0]}/${encodeURIComponent(args[1])}`,
+        fields: stats,
+        thumbnail: {
+          url: 'https://vignette1.wikia.nocookie.net/rainbowsix/images/0/06/Rainbow_(Clear_Background)_logo.png'
+        }
+      }
             });
         }
     } else if(!args[0]) {
