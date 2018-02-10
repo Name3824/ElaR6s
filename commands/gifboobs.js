@@ -10,11 +10,8 @@ exports.run = (client, message, args) => {
         "Boobs_Gifs",
         "Boobs_gif",
         "Boobs_Flashing_Gif",
-        "BigBoobsGif",
         "BoobsGifs",
-        "BoobsGif",
-        "Teen_Boobs_Gifs",
-        "BoobsTeensGif"
+        "BoobsGif"
     ]
 
     var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
