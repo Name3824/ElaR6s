@@ -1,11 +1,11 @@
 const RainbowSix = require('rainbowsix-api-node');
 const r6 = new RainbowSix();
-const platforms = ['uplay', 'xone', 'ps4'];
+const platforms = ['UPLAY', 'XONE', 'PS4'];
 const Discord = require('discord.js');
 function platform(query) {
     if(query == 'UPLAY') return '1';
     else if(query == 'PS4') return '2';
-    else if(query == 'XBOX') return '3';
+    else if(query == 'XONE') return '3';
 }
 
 exports.run = (client, msg, args) => {
