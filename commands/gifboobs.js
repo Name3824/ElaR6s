@@ -7,14 +7,14 @@ exports.run = (client, message, args) => {
     if (!message.channel.nsfw) return message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
 
     const subreddits = [
-        "Boobs_Gifs",
-        "Boobs_gif",
-        "Boobs_Flashing_Gif",
-        "BoobsGifs",
-        "BoobsFlashingGif",
-        "TEEN_BOOBS_GIFS",
-        "BIGBOOBSGIF",
-        "BoobsGif"
+        "Ass_Gifs",
+        "Ass_gif",
+        "Big_Ass",
+        "AssGifs",
+        "CuteAss",
+        "TEEN_ASS_GIFS",
+        "BIGASSGIF",
+        "AssGif"
     ]
 
     var sub = subreddits[Math.round(Math.random() * (subreddits.length - 1))];
