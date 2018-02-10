@@ -24,6 +24,7 @@
     "rainbowsix-api-node": "^0.0.1",
     "pushbullet-api": "0.0.2",
     "request": "^2.83.0",
+    "pornsearch": "2.3.0",
     "rls-api": "^1.1.0",
     "snekfetch": "^3.5.2",
     "random-puppy": "1.1.0"
