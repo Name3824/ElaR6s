@@ -12,33 +12,6 @@ exports.run = (client, msg, args) => {
     const emb = new Discord.RichEmbed();
     const strings = args.join(" ");
     if(strings.startsWith('-player')) {
-        playerdata = strings.replace('-player', '').trim();
-        playerData = playerdata.split(" ");
-        if(!playerData[0]) {
-            msg.channel.startTyping();
-            emb.setColor('#F03A17');
-            emb.addField('Platform not defined', 'Try again with a valid platform');
-            emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
-            msg.channel.stopTyping();
-        } else if(!platforms.includes(playerData[0].toUpperCase())) {
-            msg.channel.startTyping();
-            emb.setColor('#F03A17');
-            emb.addField('Invalid platform', 'Try again with a valid platform');
-            emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
-            msg.channel.stopTyping();
-        } else if(!playerData[1]) {
-            msg.channel.startTyping();
-            emb.setColor('#F03A17');
-            emb.addField('Username not defined', 'Try again with a valid username');
-            emb.setFooter(msg.author.tag, msg.author.avatarURL);
-            msg.channel.send({embed:emb});
-            msg.channel.stopTyping();
-        } else if(platforms.includes(playerData[0].toUpperCase())) {
-            platf = playerData[0];
-            plat = platform(platf.toUpperCase());
-            player = playerdata.replace(platf, '').trim();
          r6.stats(args[1], args[0]).then(data => {
                 let stats = [
       {
