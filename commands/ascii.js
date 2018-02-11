@@ -8,7 +8,7 @@ exports.run = (client, message, args) => {
     emb.setColor(message.guild.member(client.user.id).highestRole.color || 0x00AE86);
 
         let asciiwords = args.join(' ');
-        if(!asciiwords) return message.channel.send(emb);
+        if(!asciiwords) return message.channel.send({embed:emb});
         figlet(asciiwords, function(err, data) {
             if (err) {
                 client.log('Something went wrong...');
