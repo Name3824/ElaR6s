@@ -8,7 +8,7 @@ exports.run = (client, msg, args) => {
     if (!bottom) return msg.reply('Invalid, bottom text missing.');
 
 
-    const image = user.avatarURL();
+    const image = msg.user.avatarURL();
     const memeurl = `https://memegen.link/custom/${encodeURIComponent(top)}/${encodeURIComponent(bottom)}.jpg?alt=${encodeURIComponent(image)}&font=impact`;
     const meme = new Discord.MessageEmbed()
         .setImage(memeurl);
