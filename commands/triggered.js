@@ -7,3 +7,4 @@
     const pls = await snekfetch.get(`http://api.anidiots.guide/api/triggered/?avatar=${avatar}`).set("token", "Oe3S8aiv7D2gNWqj/oDv");
     await message.channel.send({ files: [{ attachment: pls.body, name: 'triggered.gif' }] });
 } 
+}
