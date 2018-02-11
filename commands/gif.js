@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
     randomPuppy(sub)
             .then(url => {
                 const embed = new Discord.RichEmbed()
-                    .setColor(0x68d696)
+                    .setColor(0x75C0AC)
                     .setImage(url)
                 message.channel.send({ embed });
         })
