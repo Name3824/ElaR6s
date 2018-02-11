@@ -4,7 +4,7 @@ const Discord = require("discord.js")
 
 exports.run = (client, message, args) => {
     const meme = args.join(" ");
-    const msg = await message.channel.send(`**${message.member.displayName}** slaps you...`);
+    const msg = message.channel.send(`**${message.member.displayName}** slaps you...`);
     let topScroll;
     let bottomScroll;
     if (meme.includes("; ")) {
@@ -20,12 +20,12 @@ exports.run = (client, message, args) => {
     params.append("text0", topScroll);
     params.append("text1", bottomScroll);
 
-    const { body } = await snekfetch.post(`https://api.imgflip.com/caption_image?${params}`);
+    const { body } = snekfetch.post(`https://api.imgflip.com/caption_image?${params}`);
     const emb = new Discord.MessageEmbed()
       emb.setColor(message.guild.member(client.user.id).highestRole.color || 0x00AE86)
       emb.setImage(body.data.url)
       emb.setFooter(`Powered by imgflip.com, requested by ${message.member.displayName}`, message.author.displayAvatarURL())
       emb.setTimestamp()
       message.channel.send({embed:emb});
-    await msg.delete();
+      msg.delete();
 }
