@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
     params.append("text1", bottomScroll);
 
     const { body } = snekfetch.post(`https://api.imgflip.com/caption_image?${params}`);
-    const emb = new Discord.MessageEmbed()
+    const emb = new Discord.RichEmbed()
       emb.setColor(message.guild.member(client.user.id).highestRole.color || 0x00AE86)
       emb.setImage(body.data.url)
       emb.setFooter(`Powered by imgflip.com, requested by ${message.member.displayName}`, message.author.displayAvatarURL())
