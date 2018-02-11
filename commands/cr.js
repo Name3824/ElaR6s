@@ -15,7 +15,7 @@ exports.run = (client, msg, args) => {
         if(!s[0]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Player tag not valid.', 'Use a valid one, for example `28LLY2JC9`');
+            emb.addField('Player tag not valid.', 'Example `28LLY2JC9`');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
@@ -25,14 +25,14 @@ exports.run = (client, msg, args) => {
                 var r = JSON.parse(body);
                 await msg.channel.startTyping();
                 await emb.setColor('#69B6F7');
-                await emb.setTitle('Stats about '+r.name);
+                await emb.setTitle('**Stats about** '+r.name);
                 await emb.setThumbnail(r.clan.badge.image);
                 await emb.addField(r.arena.arena, '**'+r.arena.name+'**');
-                await emb.addField('Trophies / Max Trophies', '**'+r.trophies+'** / **'+r.stats.maxTrophies+'**');
+                await emb.addField('Trophies / Max Trophies', '**'+r.trophies+'** / **'+r.stats.maxTrophies+'**<:trophycr:412196895524651010>');
                 await emb.addField('Clan ['+r.clan.tag+']', 'Clan name: **'+r.clan.name+'**\n'+r.name+"'s role: **"+r.clan.role+'**');
                 await emb.addField('Games ['+r.games.total+']', '**'+numberWithCommas(r.games.wins)+'** Wins / **'+numberWithCommas(r.games.losses)+'** Losses / **'+numberWithCommas(r.games.draws)+'** Draws / **'+numberWithCommas(r.stats.threeCrownWins)+'** Three Crown Wins');
-                await emb.addField('Total Donations', '**'+r.stats.totalDonations+'** cards')
-                await emb.addField('Chest Rotation', 'Legendary Chest: **'+r.chestCycle.legendary+'** chests\nSuper Magical Chest: **'+r.chestCycle.superMagical+'** chests\nEpic Chest: **'+r.chestCycle.epic+'** chests\nMagical Chest: **'+r.chestCycle.magical+'** chests\nGiant Chest: **'+r.chestCycle.giant+'** chests');
+                await emb.addField('Total Donations', '**'+r.stats.totalDonations+'** <:Cards0:412196582369263620>')
+                await emb.addField('Chest Rotation', '<:LegendaryChest:412177362688409601> : **'+r.chestCycle.legendary+'** chests\n<:Magical_super_chest:412177259802394624> : **'+r.chestCycle.superMagical+'** chests\n<:EpicChest:412177187244867586> : **'+r.chestCycle.epic+'** chests\n<:Magical_chest:412177312805814272> : **'+r.chestCycle.magical+'** chests\n<:Giant_chest:412177146782547970> : **'+r.chestCycle.giant+'** chests');
                 await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
             } else if(err) {
