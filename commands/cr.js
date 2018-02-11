@@ -10,12 +10,14 @@ function numberWithCommas(x) {
 exports.run = (client, msg, args) => {
     const emb = new Discord.RichEmbed();
     const q = args.join(' ');
-    if(q.startsWith('-player')) {
-        s = q.replace('-player', '').trim();
+    if(q.startsWith('player')) {
+        s = q.replace('player', '').trim();
         if(!s[0]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Player tag not valid.', 'Example `28LLY2JC9`');
+            emb.setTitle('Error.');
+            emb.addField('Player tag not valid.', 'Example `9U0R90J`');
+            emb.setImage('https://i.imgur.com/Hgm33vl.png');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
@@ -24,7 +26,7 @@ exports.run = (client, msg, args) => {
             if(!err && response.statusCode == 200) {
                 var r = JSON.parse(body);
                 await msg.channel.startTyping();
-                await emb.setColor('#69B6F7');
+                await emb.setColor('#75C0AC');
                 await emb.setTitle('**Stats about** '+r.name);
                 await emb.setThumbnail(r.clan.badge.image);
                 await emb.addField(r.arena.arena, '**'+r.arena.name+'**');
@@ -39,12 +41,14 @@ exports.run = (client, msg, args) => {
                 await msg.channel.send('```'+err+'```');
             }
         });
-    } else if(q.startsWith('-clan')) {
-        s = q.replace('-clan', '').trim();
+    } else if(q.startsWith('clan')) {
+        s = q.replace('clan', '').trim();
         if(!s[0]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Clan tag not valid.', 'Use a valid one, for example `L28U2L`');
+            emb.setTitle('Error.');
+            emb.addField('Clan tag not valid.', 'Example `VLGCU2Y`');
+            emb.setImage('https://i.imgur.com/olv7vkH.png');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
@@ -53,12 +57,12 @@ exports.run = (client, msg, args) => {
             if(!err && response.statusCode == 200) {
                 var r = JSON.parse(body);
                 await msg.channel.startTyping();
-                await emb.setColor('#69B6F7');
-                await emb.setAuthor('Stats about '+r.name+' - '+r.type, r.badge.image);
+                await emb.setColor('#75C0AC');
+                await emb.setAuthor('**Stats about** '+r.name+' - '+r.type, r.badge.image);
                 await emb.setThumbnail(r.badge.image);
                 await emb.setDescription('*"'+r.description+'"* - '+r.name);
                 await emb.addField('Members', '**'+r.memberCount+'** out of **50**');
-                await emb.addField('Clan Trophies', '**'+r.score+'**');
+                await emb.addField('Clan Trophies', '**'+r.score+'**<:trophycr:412196895524651010>');
                 await emb.addField('Required Trophies', '**'+r.requiredScore+'**');
                 await emb.addField('Donations Per Week', '**'+r.donations+'**');
                 await emb.addField('Region', '**'+r.location.name+'**');
@@ -72,10 +76,10 @@ exports.run = (client, msg, args) => {
     } else if(!args[0]) {
         msg.channel.startTyping();
         emb.setColor('#69B6F7');
-        emb.setAuthor('Clash Royale Commands', 'https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402', 'https://clashroyale.com');
+        emb.setAuthor('Correct usage of Clash Royale commands', 'https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402', 'https://clashroyale.com');
         emb.setThumbnail('https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402');
-        emb.addField('`-player`', "Search for a player's stats through his tag\nUsage: `"+process.env.PREFIX+"cr -player [player tag]`");
-        emb.addField('`-clan`', "Search for a clan's stats through its tag\nUsage: `"+process.env.PREFIX+"cr -clan [clan tag]`");
+        emb.addField("Search for a player's stats\nUsage: `"+process.env.PREFIX+"cr -player [player tag]`");
+        emb.addField("Search for a clan's stats\nUsage: `"+process.env.PREFIX+"cr -clan [clan tag]`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();        
