@@ -2,7 +2,7 @@ const Canvas = require("canvas");
 const snek = require("snekfetch");
 const fsn = require("fs-nextra");
 const GIFEncoder = require("gifencoder");
-exports.run = async (client, message, args) => { 
+exports.run = (client, message, args) => { 
   try {
     message.mentions.users.first() !== undefined ? target = message.mentions.users.first() : target = message.author
     const msg = await message.channel.send(`Triggering...${target.tag}`);
@@ -10,8 +10,6 @@ exports.run = async (client, message, args) => {
     const attachment = await getTriggered(stepped);
     await message.channel.send({ files: [{ attachment, name: "triggered.gif" }] });
     await msg.delete();
-  } catch (error) {
-    client.log(error);
   } 
 }
   
