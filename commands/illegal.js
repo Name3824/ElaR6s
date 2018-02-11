@@ -8,6 +8,8 @@ let illegal = `https://storage.googleapis.com/is-now-illegal.appspot.com/gifs/` 
 return message.reply(':x: **Please, specify a thing that trump will make illegal**'); }
 if (meow.length > 1) {
 return message.reply(':x: **Max 1 word**'); }
+if (meow.length < 10) {
+return message.reply(':x: **Max 10 words**'); }
  const emb = new Discord.RichEmbed();
  emb.setAuthor("Trump has now made " + meow + " illegal!", "http://blog.adsy.me/wp-content/uploads/2016/11/angry-side-face-trump-transparent.png");
  emb.setImage(illegal);
