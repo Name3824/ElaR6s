@@ -25,7 +25,7 @@ exports.run = (client, message, args) => {
       emb.setColor(message.guild.member(client.user.id).highestRole.color || 0x00AE86)
       emb.setImage(body.data.url)
       emb.setFooter(`Powered by imgflip.com, requested by ${message.member.displayName}`, message.author.displayAvatarURL())
-      .embsetTimestamp()
+      emb.setTimestamp()
       message.channel.send({embed:emb});
     await msg.delete();
 }
