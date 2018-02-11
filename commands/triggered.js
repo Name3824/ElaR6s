@@ -1,4 +1,5 @@
   const snekfetch = require('snekfetch');
+   const Discord = require('discord.js');
   exports.run = async (client, message, args) => {
     const mentioned = message.mentions.users.first()
     const avatar = mentioned.displayAvatarURL({format : 'png'})
