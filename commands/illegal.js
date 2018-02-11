@@ -9,12 +9,12 @@ for(i in word) {
     return message.reply('You cannot use numbers.')
   }
 }
-const embed = new Discord.MessageEmbed()
-.setAuthor(`Trump has now made ${args[0]} illegal!`)
-.setImage(`https://storage.googleapis.com/is-now-illegal.appspot.com/gifs/${word.join('')}.gif`)
-.setColor(message.guild.member(client.user.id).highestRole.color || 0x00AE86)
+const emb = new Discord.MessageEmbed()
+emb.setAuthor(`Trump has now made ${args[0]} illegal!`)
+emb.setImage(`https://storage.googleapis.com/is-now-illegal.appspot.com/gifs/${word.join('')}.gif`)
+emb.setColor(message.guild.member(client.user.id).highestRole.color || 0x00AE86)
 await post('https://is-now-illegal.firebaseio.com/queue/tasks.json').send({ task: 'gif', word: args[0]}).then(message.channel.send(`Waiting for Trump's approvement to make ${args[0]} illegal.`)).then(setTimeout(function() {
-  message.channel.send(embed);
+  message.channel.semb({embed:emb});
 }, 10000))
 
 };
