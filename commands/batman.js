@@ -2,7 +2,7 @@ const snekfetch = require("snekfetch");
 const { URLSearchParams } = require("url");
 const Discord = require("discord.js")
 
-exports.run = async (client, message, args) => {
+exports.run = (client, message, args) => {
     const meme = args.join(" ");
     const msg = await message.channel.send(`**${message.member.displayName}** slaps you...`);
     let topScroll;
