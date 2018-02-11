@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 var figlet = require('figlet');
-exports.run = async (client, message, args) => { 
+exports.run = (client, message, args) => {
     
     const errorEmbed = new Discord.MessageEmbed()
     .setAuthor('Error')
