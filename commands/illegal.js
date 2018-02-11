@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const { get, post } = require('snekfetch');
 exports.run = async (client, message, args) => {
-let word = args[0].split('')
+let word = args.join('')
 if(word.length > 10) return message.reply('Must be less than 10 characters')
 if(word.length < 1) return message.reply('Must be more than 1 character.')     
 for(i in word) {
