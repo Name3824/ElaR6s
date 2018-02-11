@@ -16,3 +16,4 @@ exports.run = (client, msg, args) => {
         embed: meme
     });
 };
+}
