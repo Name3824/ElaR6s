@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
     const canvas = new Canvas(256, 256);
     const ctx = canvas.getContext("2d");
     
-    imgTitle.src = await fsn.readFile("./assets/plate_triggered.png");
+    imgTitle.src = await fsn.readFile("./assets/ee191cb6-4ff0-46ac-97a9-752d50c4a2de.png");
     imgTriggered.src = await snek.get(triggered).then(res => res.body);
     
     const stream = encoder.createReadStream();
