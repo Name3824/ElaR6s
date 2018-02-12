@@ -78,8 +78,8 @@ exports.run = (client, msg, args) => {
         emb.setColor('#69B6F7');
         emb.setAuthor('Correct usage of Clash Royale commands', 'https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402', 'https://clashroyale.com');
         emb.setThumbnail('https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402');
-        emb.addField("Search for a player's stats\nUsage: `"+process.env.PREFIX+"cr player [player tag]`");
-        emb.addField("Search for a clan's stats\nUsage: `"+process.env.PREFIX+"cr clan [clan tag]`");
+        emb.addField("Search for a player's stats\nUsage:", "e!cr player [player tag]");
+        emb.addField("Search for a clan's stats\nUsage:", "e!cr clan [clan tag]");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();        
