@@ -1,7 +1,7 @@
-const request = require('request');
-const cheerio = require('cheerio');
+/*const request = require('request');
+const cheerio = require('cheerio');*/
 const Discord = require('discord.js');
-const API = require('lol-stats-api-module');
+/*const API = require('lol-stats-api-module');
 const api = new API({
     key: process.env.RGAPI,
     region: 'euw'
@@ -14,10 +14,10 @@ function emoji(emo) {
     let emojia = require("../resources/emoji.js");
     if (emojia[emo] === undefined) return "🅱";
     return emojia[emo];
-}
+} */
 
 exports.run = (client, msg, args) => {
-    const emb = new Discord.RichEmbed();
+/*    const emb = new Discord.RichEmbed();
     const lol = args.join(" ");
     if(lol.startsWith("-rotation")) {
         request('http://leagueoflegends.wikia.com/wiki/Free_champion_rotation', async function (error, response, html) {
@@ -111,4 +111,9 @@ exports.run = (client, msg, args) => {
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
     }
-}
+}*/
+   const emb = new Discord.RichEmbed();
+   emb.setColor("#75C0AC");
+   emb.setAuthor('Work In Progress');
+   msg.channel.send({embed:emb});
+     }
