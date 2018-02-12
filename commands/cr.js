@@ -27,7 +27,7 @@ exports.run = (client, msg, args) => {
                 var r = JSON.parse(body);
                 await msg.channel.startTyping();
                 await emb.setColor('#75C0AC');
-                await emb.setTitle('**Stats about** '+r.name);
+                await emb.setTitle('Stats about '+r.name);
                 await emb.setThumbnail(r.clan.badge.image);
                 await emb.addField(r.arena.arena, '**'+r.arena.name+'**');
                 await emb.addField('Trophies / Max Trophies', '**'+r.trophies+'** / **'+r.stats.maxTrophies+'**<:trophycr:412196895524651010>');
@@ -58,7 +58,7 @@ exports.run = (client, msg, args) => {
                 var r = JSON.parse(body);
                 await msg.channel.startTyping();
                 await emb.setColor('#75C0AC');
-                await emb.setAuthor('**Stats about** '+r.name+' - '+r.type, r.badge.image);
+                await emb.setAuthor('Stats about '+r.name+' - '+r.type, r.badge.image);
                 await emb.setThumbnail(r.badge.image);
                 await emb.setDescription('*"'+r.description+'"* - '+r.name);
                 await emb.addField('Members', '**'+r.memberCount+'** out of **50**');
