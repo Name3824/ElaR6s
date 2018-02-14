@@ -1,11 +1,4 @@
 exports.run = (Bastion, message, args) => {
-  if (args.length < 1) {
-    /**
-     * The command was ran with invalid parameters.
-     * @fires commandUsage
-     */
-    return Bastion.emit('commandUsage', message, this.help);
-  }
 
   args = args.join(' ').toLowerCase();
   const dit = '•';
@@ -105,6 +98,4 @@ exports.run = (Bastion, message, args) => {
       title: 'Morse Code',
       description: `**${args}**`
     }
-  }).catch(e => {
-    Bastion.log.error(e);
-}
+  })
