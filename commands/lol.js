@@ -1,5 +1,5 @@
 const request = require('request');
-const cheerio = require('cheerio');*/
+const cheerio = require('cheerio');
 const Discord = require('discord.js');
 const API = require('lol-stats-api-module');
 const api = new API({
