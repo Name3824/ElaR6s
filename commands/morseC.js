@@ -98,4 +98,4 @@ exports.run = (Bastion, message, args) => {
       title: 'Morse Code',
       description: `**${args}**`
     }
-  })
+  });
