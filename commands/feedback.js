@@ -17,7 +17,7 @@ module.exports.run = async (client, message, args) => {
         cooldown.delete(message.author.id && message.guild.id);
     }, 300000);
     let guild = message.guild;
-    const cnl = client.channels.get("400712231135870986");
+    const cnl = client.channels.get("396666302862721037");
     message.reply('Hey we got your feedback thank you for your suggestions. We hope you didn\'t send spam words:');
     const embed2 = new Discord.RichEmbed()
   .setAuthor(`Feedback from ${message.author.tag}`, message.author.displayAvatarURL)
