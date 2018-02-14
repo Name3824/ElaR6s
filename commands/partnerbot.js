@@ -6,7 +6,7 @@ exports.run = (client, msg) => {
     emb.setColor("#75C0AC");
     emb.setAuthor(client.user.tag+' 💙', client.user.avatarURL, 'http://mitsuhabot.ml');
     emb.addField('**Invite Mitsuha!**', '[Click Me](https://discordapp.com/oauth2/authorize?client_id=395546680482725888&scope=bot&permissions=57953281)', true);
-    emb.setImage('https://discordbots.org/api/widget/395546680482725888.svg?usernamecolor=660096&topcolor=ffffff&highlightcolor=FFFFFF&labelcolor=660096&middlecolor=ffffff&datacolor=00080');
+    emb.setImage('https://discordbots.org/api/widget/395546680482725888.svg');
     emb.setFooter('Prefix e!');
     msg.channel.send({embed:emb});
     msg.channel.stopTyping();
