@@ -1,4 +1,4 @@
-const osu = require('node-osu');
+/*const osu = require('node-osu');
 const Discord = require('discord.js');
 const osuApi = new osu.Api(process.env.OSU);
 function numberWithCommas(x) {
@@ -81,4 +81,4 @@ exports.run = (client, msg, args) => {
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
     }
-}
+}/*
