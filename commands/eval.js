@@ -21,7 +21,7 @@ exports.run = (client, msg, args) => {
               evaled = require("util").inspect(evaled);
               msg.channel.startTyping();
               emb.setColor('#41B589');
-              emb.setTitle('Eval | '+emoji('tickYes'));
+              emb.setTitle('Eval | ✔️');
               emb.addField('Input', '```'+args.join(" ")+'```');
               emb.addField('Output', '```'+clean(evaled)+'```');
               emb.setFooter(msg.author.tag, msg.author.avatarURL);
@@ -30,7 +30,7 @@ exports.run = (client, msg, args) => {
           } catch (err) {
               msg.channel.startTyping();
               emb.setColor('#A22665');
-              emb.setTitle('Eval | '+emoji('tickNo'));
+              emb.setTitle('Eval | ❌');
               emb.addField('Input', '```'+args.join(" ")+'```');
               emb.addField('Output', '```'+clean(err)+'```');
               emb.setFooter(msg.author.tag, msg.author.avatarURL);
