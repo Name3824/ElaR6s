@@ -105,7 +105,7 @@ exports.run = (client, msg, args) => {
         emb.setColor('#064955');
         emb.setAuthor('Correct Usage of League of Legends Commands', 'https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343', 'https://leagueoflegends.com');
         emb.setThumbnail('https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343');
-        emb.addField("See a player's statistics\nUsage:" "lol player [region] [username]\n\nValid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`");
+        emb.addField("See a player's statistics\nUsage:", "lol player [region] [username]\n\nValid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
