@@ -7,7 +7,8 @@ exports.run = (client, msg) => {
     emb.addField('**Stats Games 🎮**', '-`lol` -`r6s` -`rocket` -`minecraft` -`cr` -`fortnite`', true);
     emb.addField('**Fun 🎉**', '-`meme` -`battle` -`illegal` -`ascii`', true);
     emb.addField('**Nsfw 💦**', '-`ass` -`boobs` -`pussy` -`pornhub` -`neko` -`hentai` -`gif`', true);
-    emb.setFooter(msg.author.tag, msg.author.avatarURL);
+    emb.addField('**Utility 🤘**', '-`invite` -`partnerbot`', true);
+    emb.setFooter('Prefix e! | e!partnerbot');
     msg.channel.send({embed:emb});
     msg.channel.stopTyping();
 }
