@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
             let winner = message.author.username
             const emb = new Discord.RichEmbed();
                 emb.setAuthor(`Battle Arena`);
-                emb.setThumbnail('http://i54.tinypic.com/2e0pcsi.png');
+                emb.setThumbnail('https://cdn1.iconfinder.com/data/icons/unigrid-military/61/002_military_defense_defend_swords_shield-512.png');
                 emb.addField('__User__', `${message.author.username}`, inline = true);
                 emb.addField('__Opponent__', `${battler.username}`, inline = true);
                 emb.addField("__User's HP__", `${b1health}HP`, inline = true);
@@ -25,7 +25,7 @@ exports.run = async (client, message, args) => {
             let winner = battler.username
             const embed = new Discord.MessageEmbed();
                 emb.setAuthor(`Battle Arena`);
-                emb.setThumbnail('http://i54.tinypic.com/2e0pcsi.png');
+                emb.setThumbnail('https://cdn1.iconfinder.com/data/icons/unigrid-military/61/002_military_defense_defend_swords_shield-512.png');
                 emb.addField('__User__', `${message.author.username}`, inline = true);
                 emb.addField('__Opponent__', `${battler.username}`, inline = true);
                 emb.addField("__User's HP__", `${b1health}HP`, inline = true);
@@ -39,7 +39,7 @@ exports.run = async (client, message, args) => {
             let winner = 'draw'
             const embed = new Discord.MessageEmbed();
                 emb.setAuthor(`Battle Arena`);
-                emb.setThumbnail('http://i54.tinypic.com/2e0pcsi.png');
+                emb.setThumbnail('https://cdn1.iconfinder.com/data/icons/unigrid-military/61/002_military_defense_defend_swords_shield-512.png');
                 emb.addField('__User__', `${message.author.username}`, inline = true);
                 emb.addField('__Opponent__', `${battler.username}`, inline = true);
                 emb.addField("__User's HP__", `${b1health}HP`, inline = true);
