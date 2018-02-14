@@ -3,12 +3,12 @@ const imdb = require('imdb');
 const nameToImdb = require("name-to-imdb");
 module.exports.run = async (client, message, args, level) => {
     let args2 = args.join(' ')
-  let msg = await message.channel.send('Grabbing info...')
+  let msg = await message.channel.send('**Searching..🔍**')
   nameToImdb({ name: args2 }, function(err, res, inf) { 
     let name = res
     if(err) {
         message.channel.sendEmbed(new Discord.RichEmbed()
-            .addField('Error!', `Please make sure the search term is correct!`)
+            .addField('Error.', `Please make sure the search term is correct!`)
             .setColor(0xff5454)
         );
         return;
@@ -16,7 +16,7 @@ module.exports.run = async (client, message, args, level) => {
     imdb(name, function(err, data) {
         if(err || !data.title) {
             message.channel.sendEmbed(new Discord.RichEmbed()
-                .addField('Error!', `An error occured`)
+                .addField('Error.', `An error occured`)
                 .setColor(0xff5454)
             );
             return;
@@ -35,8 +35,8 @@ module.exports.run = async (client, message, args, level) => {
             .addField('Metascore:', `${data.metascore}/100`, true)
             .addField('Writer:', `${data.writer}`, true)
             .setThumbnail(data.poster)
-            .setColor(embedcolor)
-            .setFooter("Powered by Uzumaki-Clan");
+            .setColor("#75C0AC")
+            .setFooter("Powered With ImDb");
           msg.edit({embed});
         }
     });
