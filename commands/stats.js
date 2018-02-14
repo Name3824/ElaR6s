@@ -18,7 +18,7 @@ exports.run = (client, msg) => {
     emb.addField('Discord.js Version', Discord.version, true);
     emb.addField('Node.js Version', process.version, true);
     emb.addField('PID', process.pid, true);
-    emb.addField('Uptime', (Math.round(client.uptime / (1000 * 60 * 60))) + " hours, " + (Math.round(client.uptime / (1000 * 60)) % 60) + " minutes, and " + (Math.round(client.uptime / 1000) % 60) + " seconds"), true);
+    emb.addField('Uptime', (Math.round(client.uptime / (1000 * 60 * 60))) + " hours, " + (Math.round(client.uptime / (1000 * 60)) % 60) + " minutes, and " + (Math.round(client.uptime / 1000) % 60) + " seconds", true);
     emb.addField('Process Platform', platform(process.platform), true);
     emb.setThumbnail(client.user.avatarURL);
     msg.channel.send({embed:emb});
