@@ -19,4 +19,3 @@ try {
       await message.channel.send({ files: [{ attachment: result, name: 'beautiful.jpg' }] });
       await msg.delete();
  }
-}
