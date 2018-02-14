@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
         return message.reply('**[COOLDOWN]** Feedback command has **5 Minutes** Cooldown!');
     }
     if (args.length < 1) {
-        return message.reply('You must supply me full feedback!');
+        return message.reply('**You must supply me full feedback!**');
     }
     cooldown.add(message.author.id && message.guild.id);
 
@@ -18,20 +18,20 @@ module.exports.run = async (client, message, args) => {
     }, 300000);
     let guild = message.guild;
     const cnl = client.channels.get("396666302862721037");
-    message.reply('Hey we got your feedback thank you for your suggestions. We hope you didn\'t send spam words:');
+    message.reply('**Hey we got your feedback thank you for your suggestions. We hope you didn\'t send spam words:**');
     const embed2 = new Discord.RichEmbed()
   .setAuthor(`Feedback from ${message.author.tag}`, message.author.displayAvatarURL)
   .addField('Feedback:', `**Feedback's Author:** ${message.author.tag}\n**Server:** ${guild.name}\n**Full Feedback:** ${args}`)
   .setThumbnail(message.author.displayAvatarURL)
-  .setFooter("Powered by Uzumaki-Clan")
-  .setColor(16711728);
+  .setFooter("Thanks.")
+  .setColor("#75C0AC");
     message.channel.send({embed: embed2});
     const embed = new Discord.RichEmbed()
   .setAuthor(`Feedback from ${message.author.tag}`, message.author.displayAvatarURL)
   .addField('Feedback:', `**Feedback's Author:** ${message.author.tag}\n**Server:** ${guild.name}\n**Full Feedback:** ${args}`)
   .setThumbnail(message.author.displayAvatarURL)
-  .setFooter("Powered by Uzumaki-Clan")
-  .setColor(16711728);
+  .setFooter("Thanks.")
+  .setColor("#75C0AC");
     cnl.send({embed})
   .catch(e => logger.error(e))
 // In your command
