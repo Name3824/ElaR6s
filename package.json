@@ -12,6 +12,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "discord.js": "^11.2.1",
+    "unirest": "^0.5.1",
     "canvas": "^1.6.9",
     "canvas-constructor": "^0.3.0",
     "canvas-progress-bar": "^1.0.3",
