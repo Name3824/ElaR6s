@@ -1,7 +1,7 @@
-/*const request = require('request');
+const request = require('request');
 const cheerio = require('cheerio');*/
 const Discord = require('discord.js');
-/*const API = require('lol-stats-api-module');
+const API = require('lol-stats-api-module');
 const api = new API({
     key: process.env.RGAPI,
     region: 'euw'
@@ -14,10 +14,10 @@ function emoji(emo) {
     let emojia = require("../resources/emoji.js");
     if (emojia[emo] === undefined) return "🅱";
     return emojia[emo];
-} */
+}
 
 exports.run = (client, msg, args) => {
-/*    const emb = new Discord.RichEmbed();
+    const emb = new Discord.RichEmbed();
     const lol = args.join(" ");
     if(lol.startsWith("-rotation")) {
         request('http://leagueoflegends.wikia.com/wiki/Free_champion_rotation', async function (error, response, html) {
@@ -54,27 +54,27 @@ exports.run = (client, msg, args) => {
                 await msg.channel.send({embed:emb});
                 await msg.channel.stopTyping();
         });
-    } else if(lol.startsWith('-player')) {
-        playerdata = lol.replace('-player', '').trim();
+    } else if(lol.startsWith('player')) {
+        playerdata = lol.replace('player', '').trim();
         playerData = playerdata.split(" ");
         if(!playerData[0]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Region not defined', 'Try again with a valid region');
+            emb.addField('Region not defined', 'Try again');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         } else if(!regions.includes(playerData[0].toUpperCase())) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Invalid region', 'Try again with a valid region');
+            emb.addField('Invalid region', 'Try again');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
         } else if(!playerData[1]) {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
-            emb.addField('Username not defined', 'Try again with a valid username');
+            emb.addField('Username not defined', 'Try again');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
@@ -103,17 +103,12 @@ exports.run = (client, msg, args) => {
     } else if(!args[0]) {
         msg.channel.startTyping();
         emb.setColor('#064955');
-        emb.setAuthor('League of Legends Commands', 'https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343', 'https://leagueoflegends.com');
+        emb.setAuthor('Correct Usage of League of Legends Commands', 'https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343', 'https://leagueoflegends.com');
         emb.setThumbnail('https://vignette1.wikia.nocookie.net/leagueoflegends/images/1/12/League_of_Legends_Icon.png/revision/latest?cb=20150402234343');
-        emb.addField('`-rotation`', "See the Weekly Champion Rotation\nUsage: `"+process.env.PREFIX+"lol -rotation`");
-        emb.addField('`-player`', "See a player's statistics\nUsage: `"+process.env.PREFIX+"lol -player [region] [username]`\n\nValid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`");
+        emb.addField("See a player's statistics\nUsage:" "lol player [region] [username]\n\nValid regions: `euw, eune, br, kr, jp, na, pbe, lan, las, oce, tr, ru`");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
     }
-}*/
-   const emb = new Discord.RichEmbed();
-   emb.setColor("#75C0AC");
-   emb.setAuthor('Work In Progress');
-   msg.channel.send({embed:emb});
-     }
+}
+
