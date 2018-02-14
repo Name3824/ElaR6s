@@ -5,9 +5,9 @@ exports.run = (client, msg) => {
     emb.setColor("#75C0AC");
     emb.setAuthor(client.user.tag+' Commands', client.user.avatarURL, 'http://mitsuhabot.ml');
     emb.addField('**Stats Games 🎮**', '-`lol` -`r6s` -`rocket` -`minecraft` -`cr` -`fortnite`', true);
-    emb.addField('**Fun 🎉**', '-`meme` -`battle` -`illegal` -`ascii`', true);
+    emb.addField('**Fun 🎉**', '-`meme` -`battle` -`illegal` -`ascii` -`react`', true);
     emb.addField('**Nsfw 💦**', '-`ass` -`boobs` -`pussy` -`pornhub` -`neko` -`hentai` -`gif`', true);
-    emb.addField('**Utility 🤘**', '-`invite` -`partnerbot`', true);
+    emb.addField('**Utility 🤘**', '-`invite` -`partnerbot` -`feedback` -`imdb`', true);
     emb.setFooter('Prefix e!');
     msg.channel.send({embed:emb});
     msg.channel.stopTyping();
