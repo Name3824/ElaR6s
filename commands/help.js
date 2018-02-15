@@ -7,7 +7,7 @@ exports.run = (client, msg) => {
     emb.addField('**Stats Games 🎮**', '-`lol` -`r6s` -`rocket` -`minecraft` -`cr` -`fortnite` -`s-pokemon`', true);
     emb.addField('**Fun 🎉**', '-`meme` -`battle` -`illegal` -`ascii` -`react`', true);
     emb.addField('**Nsfw 💦**', '-`ass` -`boobs` -`pussy` -`pornhub` -`neko` -`hentai` -`gif`', true);
-    emb.addField('**Utility 🤘**', '-`invite` -`partnerbot` -`feedback` -`imdb` -`weather` -`emojilist`', true);
+    emb.addField('**Utility 🤘**', '-`invite` -`partnerbot` -`feedback` -`imdb` -`weather` -`emojilist` -`servers`', true);
     emb.setFooter('Prefix e!');
     msg.channel.send({embed:emb});
     msg.channel.stopTyping();
