@@ -21,6 +21,7 @@
     "fs-nextra": "^0.3.2",
     "redditimage": "^0.0.1",
     "discord-emoji": "^1.1.1",
+    "get-twitter-info": "^2.0.2",
     "gifencoder": "^1.1.0",
     "dotenv": "^4.0.0",
     "fortnite.js": "^1.3.0",
