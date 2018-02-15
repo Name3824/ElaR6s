@@ -1,5 +1,0 @@
-let reddit = require('redditimage');
-exports.run = (client, message, args) => {
-    reddit('Pokeporn').then(image => message.author.send(image));
-                         message.delete()
-}
