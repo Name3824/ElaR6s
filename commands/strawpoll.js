@@ -1,25 +1,29 @@
-const Discord = require("discord.js");
-var unirest = require('unirest');
-module.exports.run = async (client, message, args) => {
-    try {
-        var title = message.content.substr(0, message.content.indexOf("|"));
-        var args = message.content.split('|')[1];
-        var opts = args.split(',');
-        
-        unirest.post('https://strawpoll.me/api/v2/polls')
-        .headers({'Content-Type': 'application/json;charset=UTF-8'})
-        .send({
-            title: title,
-            options: opts,
-            multi: false,
-            dupcheck: 'normal',
-            captcha: false
-        })
-        .end(function(response) {
-            console.log(response.body);
-            message.channel.send(`Created poll with title ${response.body.title} at https://strawpoll.me/${response.body.id}`);
+const sf = require('snekfetch');
+const cooldown = require('../functions/cooldown.js');
+const discord = require('discord.js');
+
+exports.run = async (bot, msg, args) => {
+    if (cooldown(msg, 'strawpoll', 60, 'This command has a cooldown of **1 Minute**!')) {
+        if (!args[0] || !args[1] || !args[2] || !args.join().includes('"')) {
+            return msg.channel.send('Please give at least 2 options and a title.');
+        }
+        let title = args.join(' ').split('"')[1];
+        if (args.slice(title.split(' ').length).join(' ').split(',').length < 2) {
+            return msg.channel.send('Please give at least 2 options');
+        }
+        let poll = await sf.post('https://strawpoll.me/api/v2/polls').send({
+            title,
+            options: args.slice(title.split(' ').length).join(' ').split(','),
+            multi: false
         });
-    } catch(err) {
-        message.channel.send('Wrong use of the command!\nCommand Usage: //poll question|option1, option2, option3, etc.');
+        msg.delete();
+        const embed = new discord.RichEmbed()
+            .setTitle('Strawpoll | \'' + title + '\'')
+            .setDescription(`[Click here for the strawpoll](http://strawpoll.me/${poll.body.id})`)
+            .setColor('#eacd10')
+            .addField('Strawpoll created from:', msg.author.tag)
+            .addField('Choices:', poll.body.options.join('\n'));
+
+        msg.channel.send({embed});
     }
-}
+};
