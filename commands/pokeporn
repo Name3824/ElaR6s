@@ -1,5 +1,4 @@
 let reddit = require('redditimage');
-const config = require('./config.json')
 exports.run = (client, message, args) => {
     reddit('Pokeporn').then(image => message.author.send(image));
                          message.delete()
