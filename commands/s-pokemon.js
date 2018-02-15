@@ -7,8 +7,8 @@ if(args[0] === "versions"){
     emb.setColor('#75C0AC');
     emb.setAuthor('Version Of Pokemons', 'https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807');
     emb.addField('sm', 'Sun And Moon', true);
-    emb.addField('xy_gba', 'Pokemon Omega Ruby & Alpha Sapphire GBA', true);
-    emb.addField('xy', 'X & Y');
+    emb.addField('xy_gba', 'Omega Ruby & Alpha Sapphire GBA', true));
+    emb.addField('xy', 'X & Y', true));
     emb.addField('oras', 'Omega Ruby & Alpha Sapphire', true);
     emb.addField('bw', 'Black & White Animated', true);
     emb.addField('bw_no', ' Black & White', true);
@@ -97,7 +97,12 @@ message.channel.send({file: `http://www.pokestadium.com/sprites/yellow/${sprite}
 if(args[0] === "y_gray"){
 message.channel.send({file: `http://www.pokestadium.com/sprites/yellow/gray/${sprite}.png`});
 }else {
-message.reply('Game not found, you can get a list of game codes by typing `>sprite games`!');
+    emb.setColor('#75C0AC');
+    emb.setAuthor('Correct Usage of Pokemon Commands', 'https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807');
+ emb.setThumbnail('https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807');
+  emb.addField("Search a pokemon\nUsage:", "e!s-pokemon [version] [pokemon]");
+  emb.setFooter(message.author.tag, message.author.avatarURL);
+message.reply({embed:emb});
 }
 
 }
