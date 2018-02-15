@@ -1,9 +1,33 @@
 exports.run = (client, message, args) => { 
 
 let sprite = message.content.split(' ').slice(2);
-
-if(args[0] === "games"){
-message.channel.send('**sm** = Sun & Moon\n\n**xy** = X & Y\n**oras** = Omega Ruby & Alpha Sapphire\n**xy_gba** = Pokemon Omega Ruby & Alpha Sapphire GBA\n\n**bw** = Black & White Animated\n**bw_no** = Black & White\n\n**dp** = Diamond, Pearl & Platinum\n**hg** = HeartGold\n**ss** = SoulSilver\n\n**rs** = Ruby & Saphhire\n**em** = Emerald Animated\n**frlg** = FireRed & LeafGreen\n\n**gold** = Gold\n**silver** = Silver\n**crystal** = Crystal Animated\n\n**rg** = Red & Green(JP) Colored\n**rg_gray** = Red & Green(JP)\n**rb** = Red & Blue(EN) Colored\n**rb_gray** = Red & Blue(EN)\n**yellow** = Yellow Colored GBC\n**y_gb** = Yellow Colored GB\n**y_gray** = Yellow');
+ const emb = new Discord.RichEmbed();
+if(args[0] === "versions"){
+  emb.setAuthor('Version Of Pokemons', 'https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807');
+    emb.addField('sm', 'Sun And Moon');
+    emb.addField('xy_gba', 'Pokemon Omega Ruby & Alpha Sapphire GBA');
+    emb.addField('xy', 'X & Y');
+    emb.addField('oras', 'Omega Ruby & Alpha Sapphire');
+    emb.addField('bw', 'Black & White Animated');
+    emb.addField('bw_no', ' Black & White');
+    emb.addField('dp', 'Diamond, Pearl & Platinum');
+    emb.addField('hg', 'HeartGold');
+    emb.addField('ss', 'SoulSilver');
+    emb.addField('rs', 'Ruby & Saphhire');
+    emb.addField('em', 'Emerald Animated');
+    emb.addField('frlg', 'FireRed & LeafGreen');
+    emb.addField('gold', 'Gold');
+    emb.addField('silver', 'Silver');
+    emb.addField('crystal', 'Crystal Animated');
+    emb.addField('rg', 'Red & Green(JP) Colored');
+    emb.addField('rg_gray', 'Red & Green(JP)');
+    emb.addField('rb', 'Red & Blue(EN) Colored');
+    emb.addField('rb_gray', 'Red & Blue(EN)');
+    emb.addField('yellow', 'Yellow Colored GBC');
+    emb.addField('y_gb', 'Yellow Colored GB');
+    emb.addField('y_gray', 'Yellow');
+    emb.setFooter('e!s-pokemon [version] [pokemon]');
+message.channel.send({embed:emb});
 }else
 if(args[0] === "sm"){
 message.channel.send({file: `http://www.pkparaiso.com/imagenes/sol-luna/sprites/animados/${sprite}.gif`});
