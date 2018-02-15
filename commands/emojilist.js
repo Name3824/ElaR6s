@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 exports.run = (client, msg, args) => {
       const emojiList = msg.guild.emojis.map(e => e.toString()).join(" ");
       const embed = new Discord.RichEmbed()
