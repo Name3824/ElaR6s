@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 exports.run = (client, message, args) => { 
 
 let sprite = message.content.split(' ').slice(2);
