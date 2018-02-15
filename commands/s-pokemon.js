@@ -28,7 +28,7 @@ if(args[0] === "versions"){
     emb.addField('yellow', 'Yellow Colored GBC', true);
     emb.addField('y_gb', 'Yellow Colored GB', true);
     emb.addField('y_gray', 'Yellow', true);
-    emb.setFooter('e!s-pokemon [version] [pokemon]', true);
+    emb.setFooter('e!s-pokemon [version] [pokemon]');
 message.channel.send({embed:emb});
 }else
 if(args[0] === "sm"){
