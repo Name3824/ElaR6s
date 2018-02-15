@@ -24,6 +24,7 @@
     "dotenv": "^4.0.0",
     "fortnite.js": "^1.3.0",
     "dankmemes": "^1.0.0",
+    "weather-js": "^2.0.0",
     "moment": "^2.20.1",
     "igdb-api-node": "^3.0.2",
     "ip": "^1.1.5",
