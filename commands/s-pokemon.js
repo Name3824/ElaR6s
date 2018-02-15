@@ -104,5 +104,4 @@ message.channel.send({file: `http://www.pokestadium.com/sprites/yellow/gray/${sp
   emb.setFooter(message.author.tag, message.author.avatarURL);
 message.reply({embed:emb});
 }
-
 }
