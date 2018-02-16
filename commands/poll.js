@@ -64,7 +64,7 @@ function react(reactnum, pollreact, message) {
   }
 }
 
-exports.run = (message) => {
+exports.run = (message, args) => {
   let word = "";
   let options = "";
   let thing = 1;
