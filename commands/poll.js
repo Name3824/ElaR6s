@@ -84,8 +84,7 @@ exports.run = (client, message, args) => {
       thumbnail: {
         url: client.user.avatarURL
       },
-      fields: [
-        {
+      fields: [{
           name: word.split(/,/)[0],
           value: options
         }
