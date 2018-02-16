@@ -11,4 +11,5 @@ exports.run = (client, msg) => {
     emb.setFooter('Prefix e!');
     msg.channel.send({embed:emb});
     msg.channel.stopTyping();
+    msg.react('414108671166119946');
 }
