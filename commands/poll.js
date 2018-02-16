@@ -64,7 +64,7 @@ function react(reactnum, pollreact, message) {
   }
 }
 
-exports.run = (message, args) => {
+exports.run = (client, message, args) => {
   let word = "";
   let options = "";
   let thing = 1;
@@ -78,11 +78,11 @@ exports.run = (message, args) => {
         options+="**"+optionfinder(i,word)+"**"+"\n";
       }
     }
-    channel.send({embed: {
-      color: embedColor,
+    message.channel.send({embed: {
+      color: 0xffffff,
       title: 'Poll',
       thumbnail: {
-        url: bot.user.avatarURL
+        url: client.user.avatarURL
       },
       fields: [
         {
@@ -91,13 +91,13 @@ exports.run = (message, args) => {
         }
       ],
       footer: {
-        text: prefix+'poll'
+        text: 'poll'
       }
     }}).then(msg => react(0, pollreact, msg));
     poll = 1;
     pollreact = word.split(/,/).length - 1;
     message.delete(10);
   } else {
-    channel.send("Too many options! There can only be a maximum of 10.");
+    message.channel.send("Too many options! There can only be a maximum of 10.");
   }
 }
