@@ -90,9 +90,6 @@ exports.run = (client, message, args) => {
           value: options
         }
       ],
-      footer: {
-        text: 'poll'
-      }
     }}).then(msg => react(0, pollreact, msg));
     poll = 1;
     pollreact = word.split(/,/).length - 1;
