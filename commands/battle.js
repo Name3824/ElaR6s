@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
                 emb.addField("__User's HP__", `${b1health}HP`, inline = true);
                 emb.addField("__Opponent's HP__", `${b2health}HP`, inline = true);
                 emb.setFooter(`That was a great fight! ${winner} win🏆`);
-                emb.setColor(message.guild.member(client.user.id).highestRole.color || 0xffee07);
+                emb.setColor(message.guild.member(client.user.id).highestRole.color || 0xffd954);
             message.channel.send({embed:emb});
         }
 
@@ -31,7 +31,7 @@ exports.run = async (client, message, args) => {
                 emb.addField("__User's HP__", `${b1health}HP`, inline = true);
                 emb.addField("__Opponent's HP__", `${b2health}HP`, inline = true);
                 emb.setFooter(`That was a great fight! ${winner} win🏆`);
-                emb.setColor(message.guild.member(client.user.id).highestRole.color || 0xffee07);
+                emb.setColor(message.guild.member(client.user.id).highestRole.color || 0xffd954);
             message.channel.send({embed:emb});
         }
 
@@ -45,7 +45,7 @@ exports.run = async (client, message, args) => {
                 emb.addField("__User's HP__", `${b1health}HP`, inline = true);
                 emb.addField("__Opponent's HP__", `${b2health}HP`, inline = true);
                 emb.setFooter(`That was a great fight! But it was a draw...`);
-                emb.setColor(message.guild.member(client.user.id).highestRole.color || 0xffee07);
+                emb.setColor(message.guild.member(client.user.id).highestRole.color || 0xffd954);
             message.channel.send({embed:emb});
         }
 }
