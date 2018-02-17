@@ -8,7 +8,7 @@ exports.run = (client, msg) => {
     emb.addField('**Fun 🎉**', '-`meme` -`battle` -`illegal` -`ascii` -`react`', true);
     emb.addField('**Nsfw 💦**', '-`ass` -`boobs` -`pussy` -`pornhub` -`neko` -`hentai` -`gif`', true);
     emb.addField('**Utility 🤘**', '-`invite` -`partnerbot` -`feedback` -`imdb` -`weather` -`emojilist` -`servers` -`emoteinfo`', true);
-    emb.setFooter('Prefix e!');
+    emb.setFooter('Prefix g!');
     msg.channel.send({embed:emb});
     msg.channel.stopTyping();
     msg.react('414108671166119946');
