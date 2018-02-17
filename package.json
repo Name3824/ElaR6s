@@ -29,6 +29,7 @@
     "weather-js": "^2.0.0",
     "moment": "^2.20.1",
     "igdb-api-node": "^3.0.2",
+    "dblapi.js": "1.1.0",
     "ip": "^1.1.5",
     "lol-riot-api-module": "^3.0.3",
     "lol-stats-api-module": "^1.0.6",
