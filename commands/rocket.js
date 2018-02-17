@@ -72,7 +72,7 @@ exports.run = (client, msg, args) => {
         }
     } else if(!args[0]) {
         msg.channel.startTyping();
-        emb.setColor("#ffee07");
+        emb.setColor("#ffd954");
         emb.setAuthor('Correct Usage of Rocket League Commands', 'https://vignette.wikia.nocookie.net/rocketleague/images/f/f6/Rocketleague-logo.png/revision/latest?cb=20161207070401', 'https://rocketleaguestats.com/');
         emb.setThumbnail('https://i.imgur.com/HzLyjWn.png');
         emb.addField("Search for a player's stats\nUsage:", "b!rocket player [platform] [username]`\n\nValid platforms: `pc, ps4, xbox`");
