@@ -10,7 +10,7 @@ function platform(platform) {
 exports.run = (client, msg) => {
     const emb = new Discord.RichEmbed();
     msg.channel.startTyping();
-    emb.setColor("#75C0AC");
+    emb.setColor("#ffee07");
     emb.setAuthor('Stats of '+client.user.tag, client.user.avatarURL, 'http://mitsuhabot.ml');
     emb.addField('Servers', client.guilds.size, true);
     emb.addField('Channels', client.channels.size, true);
