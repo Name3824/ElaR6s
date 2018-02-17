@@ -22,7 +22,7 @@ exports.run = (client, message, args) => {
                     .setColor("#68ca55")
                     .addField('Success!', "Now playing BlueAnimeIvana in " + message.member.voiceChannel)
 
-                message.channel.sendEmbed(embed);
+                message.channel.send(embed);
                 message.member.voiceChannel.join().then(connection => {
                     require('http').get("http://streaming.radionomy.com/BlueAnimeIvana?lang=en-US%2cen%3bq%3d0.9", (res) => {
                         connection.playStream(res);
