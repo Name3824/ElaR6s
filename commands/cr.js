@@ -75,7 +75,7 @@ exports.run = (client, msg, args) => {
         })
     } else if(!args[0]) {
         msg.channel.startTyping();
-        emb.setColor("#75C0AC");
+        emb.setColor("#ffee07");
         emb.setAuthor('Correct usage of Clash Royale commands', 'https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402', 'https://clashroyale.com');
         emb.setThumbnail('https://vignette.wikia.nocookie.net/clashroyale/images/b/b2/League8.png/revision/latest?cb=20170317224402');
         emb.addField("Search for a player's stats\nUsage:", "e!cr player [player tag]");
