@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
 let sprite = message.content.split(' ').slice(2);
  const emb = new Discord.RichEmbed();
 if(args[0] === "versions"){
-    emb.setColor('#ffee07');
+    emb.setColor('#ffd954');
     emb.setAuthor('Version Of Pokemons', 'https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807');
     emb.addField('sm', 'Sun And Moon', true);
     emb.addField('xy_gba', 'Omega Ruby & Alpha Sapphire GBA', true);
@@ -97,7 +97,7 @@ message.channel.send({file: `http://www.pokestadium.com/sprites/yellow/${sprite}
 if(args[0] === "y_gray"){
 message.channel.send({file: `http://www.pokestadium.com/sprites/yellow/gray/${sprite}.png`});
 }else {
-    emb.setColor('#ffee07');
+    emb.setColor('#ffd954');
     emb.setAuthor('Correct Usage of Pokemon Commands', 'https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807');
  emb.setThumbnail('https://vignette.wikia.nocookie.net/youtubepoop/images/4/4c/Pokeball.png/revision/latest?cb=20150418234807');
   emb.addField("Search a pokemon\nUsage:", "b!s-pokemon [version] [pokemon]\n\nFor version `g!s-pokemon versions`");
