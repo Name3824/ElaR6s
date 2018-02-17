@@ -43,5 +43,5 @@ exports.run = (client, guild) => {
     //
     //
     emb.setFooter(client.guilds.size+' guilds and counting', client.user.avatarURL);
-    client.users.get(process.env.OWNER).send({embed:emb});
+    client.channel.get('9393939939').send({embed:emb});
 }
