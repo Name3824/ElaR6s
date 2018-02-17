@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args, level) => {
             .addField('Metascore:', `${data.metascore}/100`, true)
             .addField('Writer:', `${data.writer}`, true)
             .setThumbnail(data.poster)
-            .setColor("#75C0AC")
+            .setColor("#ffee07")
             .setFooter("Powered With ImDb");
           msg.edit({embed});
         }
