@@ -56,7 +56,7 @@ exports.run = (client, msg, args) => {
         }
     } else if(!args[0]) {
         msg.channel.startTyping();
-        emb.setColor("#ffee07");
+        emb.setColor("#ffd954");
         emb.setAuthor('Correct Usage Of Fortnite Commands', 'https://cdn.atr.cloud/monthly_2017_10/FortniteClient-Win64-Shipping_123.ico_256x256.png.9db57869789ecc4d9c5f72c5a9ba9e30.thumb.png.d8d082ccd47b246fc3773e854b1b2ead.png');
         emb.setThumbnail('https://cdn.atr.cloud/monthly_2017_10/FortniteClient-Win64-Shipping_123.ico_256x256.png.9db57869789ecc4d9c5f72c5a9ba9e30.thumb.png.d8d082ccd47b246fc3773e854b1b2ead.png');
         emb.addField("Search for a player's stats\nUsage:", "b!fortnite player [platform] [username]\n\nValid platforms: `pc, ps4, xbox`");
