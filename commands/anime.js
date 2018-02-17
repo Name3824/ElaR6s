@@ -1,4 +1,5 @@
-  exports.run = (client, message, args) => {
+const Discord = require('discord.js');  
+exports.run = (client, message, args) => {
   const voiceChannel = message.member.voiceChannel;
             if (!voiceChannel) {
                 const embed = new Discord.RichEmbed()
