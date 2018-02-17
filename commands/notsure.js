@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
     const embed = new Discord.RichEmbed()
       .setColor(message.guild.member(client.user.id).highestRole.color || 0x00AE86)
       .setImage(body.data.url)
-      .setFooter(`Powered by imgflip.com, requested by ${message.member.displayName}`, message.author.displayAvatarURL())
+      .setFooter(`Powered by imgflip.com, requested by ${message.member.displayName}`, message.author.avatarURL())
       .setTimestamp();
       message.channel.send(embed)
     await msg.delete();
