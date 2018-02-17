@@ -49,8 +49,8 @@ exports.run = (client, msg, args) => {
         emb.setColor("#75C0AC");
         emb.setAuthor('Correct Usage Of Minecraft Commands', 'https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png', 'https://minecraft.net');
         emb.setThumbnail('https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png');
-        emb.addField("Search for a user's skin\nUsage:", "e!minecraft user [username]");
-        emb.addField("Search for a server's status\nUsage:", "e!minecraft server [server ip]");
+        emb.addField("Search for a user's skin\nUsage:", "g!minecraft user [username]");
+        emb.addField("Search for a server's status\nUsage:", "g!minecraft server [server ip]");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
