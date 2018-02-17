@@ -46,7 +46,7 @@ exports.run = (client, msg, args) => {
         msg.channel.stopTyping();
     } else if(!args[0]) {
         msg.channel.startTyping();
-        emb.setColor("#ffee07");
+        emb.setColor("#ffd954");
         emb.setAuthor('Correct Usage Of Minecraft Commands', 'https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png', 'https://minecraft.net');
         emb.setThumbnail('https://media.discordapp.net/attachments/264445053596991498/366656518524895232/unknown.png');
         emb.addField("Search for a user's skin\nUsage:", "b!minecraft user [username]");
