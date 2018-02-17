@@ -1,6 +1,5 @@
-
 const Discord = require('discord.js')
-exports.run = async (client, message, args) => {      
+exports.run = (client, message, args) => {      
             message.mentions.members.first() !== undefined ? person = message.mentions.members.first() : person = message.member
             const embed = new Discord.MessageEmbed()
             .setImage(person.user.avatarURL({size: 2048}))
