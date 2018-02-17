@@ -2,7 +2,7 @@ exports.run = (client, msg) => {
     const Discord = require('discord.js');
     const emb = new Discord.RichEmbed();
     msg.channel.startTyping();
-    emb.setColor("#ffee07");
+    emb.setColor("#ffd954");
     emb.setAuthor(client.user.tag+' Commands', client.user.avatarURL, 'http://mitsuhabot.ml');
     emb.addField('**Stats Games 🎮**', '-`lol` -`r6s` -`rocket` -`minecraft` -`cr` -`fortnite` -`s-pokemon`', true);
     emb.addField('**Fun 🎉**', '-`meme` -`battle` -`illegal` -`ascii` -`react`', true);
