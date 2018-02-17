@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
         .setDescription(`**${current.skytext}**`)
         .setAuthor(`Weather for ${current.observationpoint}`)
         .setThumbnail(current.imageUrl)
-        .setColor("#75C0AC")
+        .setColor("#ffee07")
         .addField('Timezone',`UTC${location.timezone}`, true)
         .addField('Degree Type',location.degreetype, true)
         .addField('Temperatu',`${current.temperature} Degrees`, true)
