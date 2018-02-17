@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
                 message.channel.sendEmbed(embed)
                 return
             }
-            if (args[1] === "1") {
+            if (args[1] === "lego") {
                 const embed = new Discord.RichEmbed()
                     .setColor("#68ca55")
                     .addField('Success!', "Now playing BlueAnimeIvana in " + message.member.voiceChannel)
@@ -28,6 +28,5 @@ exports.run = (client, message, args) => {
                         connection.playStream(res);
                     })
                 })
-                return
             }
 }
