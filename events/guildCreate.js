@@ -12,5 +12,5 @@ let percent = Math.floor(bots / users * 10000) / 100;
   emb.addField('Members', `${guild.memberCount - guild.members.filter(m=>m.user.bot).size} (${guild.members.filter(m=>m.user.bot).size} bots)`, true);
   emb.addField('Percent', `${percent}%`);
   emb.addField('ID', `${guild.id}`, true);
-client.channels.get('404280160452608000').send({embed});
+client.channels.get('404280160452608000').send({embed:emb});
 }
