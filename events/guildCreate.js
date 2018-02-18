@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 exports.run = (client, guild) => {
 let users = guild.memberCount
 let bots = guild.members.filter(m=>m.user.bot).size
