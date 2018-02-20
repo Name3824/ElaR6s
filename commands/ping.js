@@ -3,11 +3,11 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   /*msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);*/
   const embed = {
   "title": "Ping command results",
-  "description": `Pong! Here are the results of the \b!ping\` command`,
-  "color": 4875195,
+  "description": `**Pong!**:ping_pong:`,
+  "color": "#ffd954",
   "timestamp": new Date(),
   "footer": {
-    "text": `b!ping`
+    "text": `b!invite | b!help`
   },
   "author": {
     "name": `${client.user.username}`
@@ -15,7 +15,7 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   "fields": [
     {
       "name": "Latency",
-      "value": `${msg.createdTimestamp - message.createdTimestamp}ms`,
+      "value": `${Date.now() - startTime}ms`,
       "inline": true
     },
     {
