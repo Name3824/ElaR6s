@@ -15,7 +15,7 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   "fields": [
     {
       "name": "Latency",
-      "value": `${msg.createdTimestamp - msg.createdTimestamp}ms`,
+      "value": `${msg.createdTimestamp - message.createdTimestamp}ms`,
       "inline": true
     },
     {
