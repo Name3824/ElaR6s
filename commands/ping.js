@@ -2,7 +2,6 @@ const Discord = require('discord.js')
 exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   /*msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);*/
   const embed = {
-  "title": "Ping command results",
   "description": `**Pong!**:ping_pong:`,
   "color": 0xffd954,
   "timestamp": new Date(),
@@ -17,6 +16,11 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
     "name": `${client.user.username}`
   },
   "fields": [
+    {
+      "name": "Bot Ping",
+      "value": `${client.ping}`,
+      "inline": true
+    },
     {
       "name": "API Latency",
       "value": `${Math.round(client.ping)}ms`,
