@@ -7,7 +7,7 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   "timestamp": new Date(),
   "footer": {
     "icon_url": msg.author.avatarURL(),
-    "text": `${client.config.prefix}ping`
+    "text": `b!ping`
   },
   "thumbnail": {
     "url": msg.author.avatarURL()
@@ -19,7 +19,7 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   "fields": [
     {
       "name": "Latency",
-      "value": `${msg.createdTimestamp - message.createdTimestamp}ms`,
+      "value": `${msg.createdTimestamp - msg.createdTimestamp}ms`,
       "inline": true
     },
     {
