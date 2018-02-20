@@ -1,8 +1,8 @@
-exports.run = (client, message, args) => { // eslint-disable-line no-unused-vars
+exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   /*msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);*/
   const embed = {
   "title": "Ping command results",
-  "description": `Pong! Here are the results of the \`${client.config.prefix}ping\` command`,
+  "description": `Pong! Here are the results of the \b!ping\` command`,
   "color": 4875195,
   "timestamp": new Date(),
   "footer": {
