@@ -25,5 +25,5 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
     }
   ]
 };
-msg.edit({ embed });
+msg.channel.send({ embed });
 };
