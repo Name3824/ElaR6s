@@ -7,17 +7,16 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   "color": "#ffd954",
   "timestamp": new Date(),
   "footer": {
+    "icon_url": client.user.avatarURL,
     "text": `b!invite | b!help`
+   },
+  "thumbnail": {
+    "url": client.user.avatarURL
   },
   "author": {
     "name": `${client.user.username}`
   },
   "fields": [
-    {
-      "name": "Latency",
-      "value": `${Date.now() - startTime}ms`,
-      "inline": true
-    },
     {
       "name": "API Latency",
       "value": `${Math.round(client.ping)}ms`,
