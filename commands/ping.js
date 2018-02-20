@@ -9,12 +9,8 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
     "icon_url": msg.author.avatarURL(),
     "text": `b!ping`
   },
-  "thumbnail": {
-    "url": msg.author.avatarURL()
-  },
   "author": {
-    "name": `${client.user.username}`,
-    "icon_url": msg.author.avatarURL()
+    "name": `${client.user.username}`
   },
   "fields": [
     {
