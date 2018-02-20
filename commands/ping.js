@@ -1,3 +1,4 @@
+const Discord = require('discord.js')
 exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   /*msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);*/
   const embed = {
