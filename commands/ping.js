@@ -6,7 +6,6 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   "color": 4875195,
   "timestamp": new Date(),
   "footer": {
-    "icon_url": msg.author.avatarURL(),
     "text": `b!ping`
   },
   "author": {
