@@ -4,7 +4,7 @@ exports.run = (client, msg, args) => { // eslint-disable-line no-unused-vars
   const embed = {
   "title": "Ping command results",
   "description": `**Pong!**:ping_pong:`,
-  "color": "#ffd954",
+  "color": 0xffd954,
   "timestamp": new Date(),
   "footer": {
     "icon_url": client.user.avatarURL,
