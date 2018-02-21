@@ -46,8 +46,4 @@ exports.run = (client, message) => {
             message.channel.send({
                 embed: bitly
             })
-      .catch(e => logger.error(e));
-        }).catch(err => {
-            console.error(err);
-        });
     }
