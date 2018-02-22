@@ -1,5 +1,4 @@
-exports.run = async (client, msg) => {
-    var regex = new RegExp("\d")
+exports.run = (client, msg) => {
 
     var errnum = new client.methods.Embed()
     .addField('Sorry', 'Argument can only be 18 Numbers')
@@ -30,5 +29,5 @@ exports.run = async (client, msg) => {
       .addField("Sorry", `I am not in the guild \'${gid}\'`)
       .setColor(0x3155BC)
       msg.channel.send('', {embed: err})
-     }
-});
+    }
+}
