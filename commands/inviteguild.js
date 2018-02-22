@@ -30,4 +30,5 @@ exports.run = async (client, msg) => {
       .addField("Sorry", `I am not in the guild \'${gid}\'`)
       .setColor(0x3155BC)
       msg.channel.send('', {embed: err})
-}
+     }
+});
