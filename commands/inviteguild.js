@@ -1,10 +1,11 @@
+const Discord = require('discord.js');
 exports.run = (client, msg) => {
 
-    var errnum = new client.methods.Embed()
+    var errnum = new Discord.RichEmbed()
     .addField('Sorry', 'Argument can only be 18 Numbers')
     .setColor(0xb20000)
 
-    var errem = new client.methods.Embed()
+    var errem = new Discord.RichEmbed()
     .addField('Sorry', 'I require a guild id to operate.')
     .setColor(0xb20000)
 
@@ -25,7 +26,7 @@ exports.run = (client, msg) => {
       })
 
     } else if (!client.guilds.has(gid)) {
-      var err = new client.methods.Embed()
+      var err = new Discord.RichEmbed()
       .addField("Sorry", `I am not in the guild \'${gid}\'`)
       .setColor(0x3155BC)
       msg.channel.send('', {embed: err})
