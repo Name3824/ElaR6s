@@ -11,9 +11,9 @@ exports.run = (client, message, args) => {
 					} else {
 					const embed = new Discord.RichEmbed()
 						embed.setTitle(contenu.username)
-						embed.setAuthor(bot.user.username, bot.user.avatarURL)
+						embed.setAuthor(client.user.username, client.user.avatarURL)
 						embed.setColor(0x00AE86)
-						embed.setFooter(bot.user.username, bot.user.avatarURL);
+						embed.setFooter(client.user.username, client.user.avatarURL);
 						embed.setImage('https://i.imgur.com/lHU6JcZ.png')
 						embed.setTimestamp()
 						embed.addField(contenu.username, contenu.shortdesc)
