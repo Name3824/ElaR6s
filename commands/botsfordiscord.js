@@ -12,11 +12,11 @@ exports.run = (client, message, args) => {
 						embed.setThumbnail(client.user.avatarURL)
 						embed.setDescription("**Error**\n<a:bfdslide:415024565438251008> Your Mention or object is not a bot of botsfordiscord.com")
                                                 embed.setColor("#ffd954")
-						message.channel.send("Not a bot, or not listed (or not approved by mods)");
+						message.channel.send({embed});
 					} else {
 					const embed = new Discord.RichEmbed()
 						embed.setAuthor(a.name, a.avatar)
-            embed.setThumbnail(a.avatar)
+                                            embed.setThumbnail(a.avatar)
 						embed.setColor("#ffd954")
 						embed.setFooter("Powered by https://botsfordiscord.com");
 						embed.setTimestamp()
