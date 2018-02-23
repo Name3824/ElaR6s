@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const moment = require('moment');
 exports.run = (client, message, args) => {
 		let member = message.mentions.members.first() || message.guild.members.get(args) || message.member
                 let botid = member.user.id
