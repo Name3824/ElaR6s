@@ -17,4 +17,5 @@ embed.addField('Member Count', message.guild.memberCount, true)
 embed.setThumbnail(message.guild.iconURL)
 embed.setFooter(`Bumped by ${message.author.tag}`)
 bumped.send({embed})
-})
+  })
+}
