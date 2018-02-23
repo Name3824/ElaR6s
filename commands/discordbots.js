@@ -16,12 +16,12 @@ exports.run = (client, message, args) => {
 					} else {
 					const embed = new Discord.RichEmbed()
 						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".png")
-						embed.setThumbnail("https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
+						embed.setThumbnail("https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".png")
 						embed.setColor("#ffd954")
 						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
 						embed.setTimestamp()
 						embed.addField(contenu.username, contenu.shortdesc, true)
-						embed.addField("Certified ? <:dblCertifiedDev:401725450470031362>", contenu.certifiedBot === true ? "Yes <:tickYes:315009125694177281>" : "No <:tickNo:315009174163685377>", false)
+						embed.addField("Certified ? <:dblCertifiedDev:401725450470031362>", contenu.certifiedBot === true ? "Yes <:tickYes:315009125694177281>" : "No <:tickNo:315009174163685377>", true)
 						embed.addField("Server count", contenu.server_count, true)
 						embed.addField("Library", contenu.lib, true)
 						embed.addField("Added on", contenu.date, true)
