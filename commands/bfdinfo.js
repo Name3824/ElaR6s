@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
 						embed.setColor("#ffd954")
 						embed.setFooter("Powered by https://botsfordiscord.com");
 						embed.setTimestamp()
-						embed.addField(a.uname, a.shortDesc, true)
+						embed.addField(a.name, a.shortDesc, true)
 						embed.addField("Verified ?", a.verified === true ? "Yes ✔️" : "No ❌", false)
 						embed.addField("Approved ?", a.approved === true ? "Yes ✔️" : "No ❌", false)
             embed.addField("Server count", a.count, true)
