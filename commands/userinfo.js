@@ -34,4 +34,5 @@ if(args[0] === "dbl"){
 message.channel.send({embed});
     }
   })
+ }
 }
