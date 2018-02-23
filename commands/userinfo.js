@@ -1,7 +1,13 @@
 const Discord = require('discord.js');
 const req = require("request");
 exports.run = (client, message, args) => { 
-
+					const emb = new Discord.RichEmbed()
+						emb.setAuthor(client.user.tag, client.user.avatarURL)
+						emb.setThumbnail(client.user.avatarURL)
+						emb.setDescription("**Error**\n<a:dblspin:393548363879940108> Work In Progress")
+						emb.setColor("#ffd954")
+						message.channel.send({embed:emb});
+/*
 if(args[0] === "dbl"){
 	let member = message.mentions.members.first() || message.guild.members.get(args) || message.member
                 let botid = member.user.id
@@ -34,5 +40,5 @@ if(args[0] === "dbl"){
 message.channel.send({embed:emb});
     }
   })
- }
+ }/*
 }
