@@ -47,3 +47,4 @@ exports.run = (client, message) => {
                 embed: bitly
             })
         }
+}
