@@ -2,7 +2,7 @@ const d = require('discord.js')
 exports.run = (client, message, args) => {
 const embed = new d.RichEmbed();
         message.channel.send(`**Successfully Bumped __${message.guild.name}__**`)
-        let bumped = client.channels.get('401829829441486848')
+        let bumped = client.channels.get('402027256467161098')
         lonk = message.channel.createInvite()
         var resolvedProm = Promise.resolve(lonk);
         var thenProm = resolvedProm.then(function(value) {
