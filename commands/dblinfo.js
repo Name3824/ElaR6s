@@ -11,6 +11,7 @@ exports.run = (client, message, args) => {
 					} else {
 					const embed = new Discord.RichEmbed()
 						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
+						embed.setThumbnail("https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
 						embed.setColor("#ffd954")
 						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
 						embed.setTimestamp()
