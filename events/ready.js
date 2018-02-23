@@ -8,4 +8,10 @@ exports.run = (client) => {
    client.dbl = new DBL(process.env.DISCORDBOTLIST, client);
    client.dbl.postStats(client.guilds.size)
     .then(() => console.log('Updated discordbots.org stats.'));
+    
+    	snekfetch.post(`https://botsfordiscord.com/api/v1/bots/411860199473938433`)
+  .set('Authorization', process.env.BTD)
+  .send({ server_count: client.guilds.size })
+  .then(() => console.log('Updated discordbots.org stats.'))
+.catch(err => console.error(`Whoops something went wrong: ${err.body}`));
 }
