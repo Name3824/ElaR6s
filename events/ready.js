@@ -12,7 +12,7 @@ exports.run = (client) => {
     
     	snekfetch.post(`https://botsfordiscord.com/api/v1/bots/411860199473938433`)
   .set('Authorization', process.env.BTD)
-  .send({ server_count: client.guilds.size })
+  .send({ count: client.guilds.size })
   .then(() => console.log('Updated discordbots.org stats.'))
 .catch(err => console.error(`Whoops something went wrong: ${err.body}`));
 }
