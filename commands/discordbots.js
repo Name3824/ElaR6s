@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
 						message.channel.send({embed});
 					} else {
 					const embed = new Discord.RichEmbed()
-						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
+						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".png")
 						embed.setThumbnail("https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
 						embed.setColor("#ffd954")
 						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
