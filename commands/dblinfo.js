@@ -10,20 +10,18 @@ exports.run = (client, message, args) => {
 						message.channel.send("Not a bot, or not listed (or not approved by mods)");
 					} else {
 					const embed = new Discord.RichEmbed()
-						embed.setTitle(contenu.username)
-						embed.setAuthor(client.user.username, client.user.avatarURL)
+						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
 						embed.setColor(0x00AE86)
-						embed.setFooter(client.user.username, client.user.avatarURL);
-						embed.setImage('https://i.imgur.com/lHU6JcZ.png')
+						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
 						embed.setTimestamp()
-						embed.addField(contenu.username, contenu.shortdesc)
-						embed.addField("Certified ?", contenu.certifiedBot === true ? "Yes ✅" : "No ❎")
-						embed.addField("Server count", contenu.server_count)
-						embed.addField("Lib used", contenu.lib)
-						embed.addField("Added on", contenu.date)
-						embed.addField("Prefix", contenu.prefix)
-						embed.addField("Links", "[Invitation](" + contenu.invite + ")\n[DBL.org](https://discordbots.org/bot/" + botid + " )\n[Github](" + contenu.github + ")\n[Website](" + contenu.website + ")")
-						embed.addField("Upvotes", contenu.points)
+						embed.addField(contenu.username, contenu.shortdesc, true)
+						embed.addField("Certified ?", contenu.certifiedBot === true ? "Yes ✔️" : "No ❌", true)
+						embed.addField("Server count", contenu.server_count, true)
+						embed.addField("Library", contenu.lib, true)
+						embed.addField("Added on", contenu.date, true)
+						embed.addField("Prefix", contenu.prefix, true)
+						embed.addField("Links", "[Invite](" + contenu.invite + "), [DBL.org](https://discordbots.org/bot/" + botid + " ), [Github](" + contenu.github + "), [Website](" + contenu.website + "), [Support Server](https://discordapp.com/invite" + contenu.support + ")", true)
+						embed.addField("Upvotes", contenu.points, true)
 message.channel.send({embed});
     }
   })
