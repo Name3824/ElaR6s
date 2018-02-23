@@ -11,17 +11,17 @@ exports.run = (client, message, args) => {
 					} else {
 					const embed = new Discord.RichEmbed()
 						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
-						embed.setColor(0x00AE86)
+						embed.setColor("#ffd954")
 						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
 						embed.setTimestamp()
 						embed.addField(contenu.username, contenu.shortdesc, true)
-						embed.addField("Certified ?", contenu.certifiedBot === true ? "Yes ✔️" : "No ❌", true)
+						embed.addField("Certified ?", contenu.certifiedBot === true ? "Yes ✔️" : "No ❌", false)
 						embed.addField("Server count", contenu.server_count, true)
 						embed.addField("Library", contenu.lib, true)
 						embed.addField("Added on", contenu.date, true)
 						embed.addField("Prefix", contenu.prefix, true)
-						embed.addField("Links", "[Invite](" + contenu.invite + "), [DBL.org](https://discordbots.org/bot/" + botid + " ), [Github](" + contenu.github + "), [Website](" + contenu.website + "), [Support Server](https://discordapp.com/invite" + contenu.support + ")", true)
 						embed.addField("Upvotes", contenu.points, true)
+						embed.addField("Links", "[Invite](" + contenu.invite + "), [DBL.org](https://discordbots.org/bot/" + botid + " ), [Github](" + contenu.github + "), [Website](" + contenu.website + "), [Support Server](https://discordapp.com/invite" + contenu.support + ")", true)
 message.channel.send({embed});
     }
   })
