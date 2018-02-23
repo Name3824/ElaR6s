@@ -4,6 +4,7 @@ var figlet = require('figlet');
 exports.run = (client, message, args) => {
     if (talkedRecently.has(message.author.id)) {
         message.channel.send("Lol test")
+        }
   return;
 
 // Adds the user to the set so that they can't talk for 2.5 seconds
