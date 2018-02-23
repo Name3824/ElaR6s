@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
          const embed = new d.RichEmbed();
           embed.setColor("#ffd954")
             embed.setAuthor('Denied', "https://vignette.wikia.nocookie.net/f1wikia/images/7/7e/Red_x.png/revision/latest?cb=20120910155654")
-            embed.setDescription("**Try again in 24h**\nBumped in **https://discord.gg/2PQg2t3**")
+            embed.setDescription("**Try again in 12h**\nBumped in **https://discord.gg/2PQg2t3**")
          message.react("⏲");
 } else {
 const embed = new d.RichEmbed();
@@ -32,5 +32,5 @@ bumped.send({embed})
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecently.delete(message.author.id);
-        }, 86400000‬);
+        }, ‪720000‬);
 }
