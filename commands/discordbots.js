@@ -6,8 +6,13 @@ exports.run = (client, message, args) => {
                 let botid = member.user.id
             req('https://discordbots.org/api/bots/' + botid, (e, r, b)=> {
 						let contenu = JSON.parse(b)
-					if(contenu.error === "Not found")  {
-						message.channel.send("Not a bot, or not listed (or not approved by mods)");
+					if(contenu.error === "Not found")  {393548363879940108
+					const embed = new Discord.RichEmbed()
+						embed.setAuthor(client.user.tag, client.user.avatarURL)
+						embed.setThumbnail(client.user.avatarURL)
+						embed.setDescription("**Error**\nYour Mention or object is not a bot of discordbots.org")
+						embed.setColor("#ffd954")
+						message.channel.send({embed});
 					} else {
 					const embed = new Discord.RichEmbed()
 						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".jpg")
@@ -16,7 +21,7 @@ exports.run = (client, message, args) => {
 						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
 						embed.setTimestamp()
 						embed.addField(contenu.username, contenu.shortdesc, true)
-						embed.addField("Certified ?", contenu.certifiedBot === true ? "Yes ✔️" : "No ❌", false)
+						embed.addField("Certified ? <:dblCertifiedDev:401725450470031362>", contenu.certifiedBot === true ? "Yes <:tickYes:315009125694177281>" : "No <:tickNo:315009174163685377>", false)
 						embed.addField("Server count", contenu.server_count, true)
 						embed.addField("Library", contenu.lib, true)
 						embed.addField("Added on", contenu.date, true)
