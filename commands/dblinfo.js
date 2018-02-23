@@ -1,7 +1,8 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
-let botid = member.user.id
-					req('https://discordbots.org/api/bots/' + botid, (e, r, b)=> {
+		let member = message.mentions.members.first()
+                let botid = member.user.id
+            req('https://discordbots.org/api/bots/' + botid, (e, r, b)=> {
 						let contenu = JSON.parse(b)
 					if(contenu.error === "Not found")  {
 						message.channel.send("Not a bot, or not listed (or not approved by mods)");
@@ -23,5 +24,5 @@ let botid = member.user.id
 						embed.addField("Upvotes", contenu.points)
 message.channel.send({embed});
     }
-  }
+  })
 }
