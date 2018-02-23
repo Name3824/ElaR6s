@@ -17,7 +17,7 @@ if(args[0] === "dbl"){
 						message.channel.send({embed});
 					} else {
 					const embed = new Discord.RichEmbed()
-						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+lol.avatar+".png")
+						embed.setAuthor(lol.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+lol.avatar+".png")
 						embed.setThumbnail("https://cdn.discordapp.com/avatars/"+botid+"/"+lol.avatar+".png")
 						embed.setColor("#ffd954")
 						embed.setFooter("Powered By discordbots.org");
