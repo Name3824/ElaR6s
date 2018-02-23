@@ -16,8 +16,8 @@ exports.run = (client, message, args) => {
 						embed.setFooter("Powered by https://botsfordiscord.com");
 						embed.setTimestamp()
 						embed.addField(a.name, a.shortDesc, true)
-						embed.addField("Verified ?", a.verified === true ? "Yes ✔️" : "No ❌", false)
-						embed.addField("Approved ?", a.approved === true ? "Yes ✔️" : "No ❌", false)
+						embed.addField("Verified ?", a.verified === true ? "Yes <:bfdverified:414604185951272963>" : "No <:bfdno:414604345770770432>", false)
+						embed.addField("Approved ?", a.approved === true ? "Yes <:bfdyes:414604312296030208>" : "No <:bfdno:414604345770770432>", false)
             embed.addField("Server count", a.count, true)
 						embed.addField("Prefix", a.prefix, true)
 						embed.addField("Links", "[Invite](" + a.invite + "), [Avatar](" + a.avatar + ")", true)
