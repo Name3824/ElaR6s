@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const snekfetch = require("snekfetch");
 const DBL = require("dblapi.js");
 exports.run = (client) => {
     console.log('Preparing...');
