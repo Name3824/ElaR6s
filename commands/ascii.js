@@ -1,6 +1,16 @@
+const talkedRecently = new Set();
 const Discord = require('discord.js')
 var figlet = require('figlet');
 exports.run = (client, message, args) => {
+    if (talkedRecently.has(message.author.id))
+  return;
+
+// Adds the user to the set so that they can't talk for 2.5 seconds
+talkedRecently.add(message.author.id);
+setTimeout(() => {
+  // Removes the user from the set after 2.5 seconds
+  talkedRecently.delete(message.author.id);
+}, 2500);
     
   const emb = new Discord.RichEmbed();
     emb.setAuthor('Error');
