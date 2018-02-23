@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const req = require("request");
 exports.run = (client, message, args) => { 
 
  const emb = new Discord.RichEmbed();
