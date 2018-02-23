@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 var figlet = require('figlet');
 exports.run = (client, message, args) => {
     if (talkedRecently.has(message.author.id)) {
-            message.channel.send("Wait 1 minute before getting typing this again. - " + message.author);
+            message.react("⏲");
     } else {
          
   const emb = new Discord.RichEmbed();
@@ -27,5 +27,5 @@ exports.run = (client, message, args) => {
         setTimeout(() => {
           // Removes the user from the set after a minute
           talkedRecently.delete(message.author.id);
-        }, 60000);
+        }, 2500);
     }
