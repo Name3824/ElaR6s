@@ -6,8 +6,10 @@ exports.run = (client, message, args) => {
           embed.setColor("#ffd954")
             embed.setAuthor('Denied', "https://vignette.wikia.nocookie.net/f1wikia/images/7/7e/Red_x.png/revision/latest?cb=20120910155654")
             embed.setDescription("**Try again in 12h**\nBumped in **https://discord.gg/2PQg2t3**")
+        message.channel.send({embed})
          message.react("⏲");
 } else {
+    
 const embed = new d.RichEmbed();
         message.channel.send(`**Successfully Bumped __${message.guild.name}__** \nBumped in **https://discord.gg/2PQg2t3** :tada:`)
         let bumped = client.channels.get('416670351762784257')
