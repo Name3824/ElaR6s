@@ -21,12 +21,13 @@ exports.run = (client, message, args) => {
 						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
 						embed.setTimestamp()
 						embed.addField(contenu.username, contenu.shortdesc, true)
-						embed.addField("Certified ? <:dblCertifiedDev:401725450470031362>", contenu.certifiedBot === true ? "Yes <:tickYes:315009125694177281>" : "No <:tickNo:315009174163685377>", true)
+						embed.addField("Certified ? <:dblCertified:392249976639455232>", contenu.certifiedBot === true ? "Yes <:tickYes:315009125694177281>" : "No <:tickNo:315009174163685377>", true)
 						embed.addField("Server count", contenu.server_count, true)
 						embed.addField("Library", contenu.lib, true)
 						embed.addField("Added on", contenu.date, true)
 						embed.addField("Prefix", contenu.prefix, true)
 						embed.addField("Upvotes", contenu.points, true)
+						embed.addField("Owner(s)", contenu.owners, true)
 						embed.addField("Links", "[Invite](" + contenu.invite + "), [DBL.org](https://discordbots.org/bot/" + botid + " ), [Github](" + contenu.github + "), [Website](" + contenu.website + "), [Support Server](https://discordapp.com/invite/" + contenu.support + ")", true)
 message.channel.send({embed});
     }
