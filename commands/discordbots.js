@@ -28,6 +28,7 @@ exports.run = (client, message, args) => {
 						embed.addField("Prefix", contenu.prefix, true)
 						embed.addField("Upvotes", contenu.points, true)
 						embed.addField("Owner(s)", "<@"+contenu.owners+">", true)
+						embed.addField("Tag(s)", contenu.tags, true)
 						embed.addField("Links", "[Invite](" + contenu.invite + "), [DBL.org](https://discordbots.org/bot/" + botid + " ), [Github](" + contenu.github + "), [Website](" + contenu.website + "), [Support Server](https://discordapp.com/invite/" + contenu.support + ")", true)
 message.channel.send({embed});
     }
