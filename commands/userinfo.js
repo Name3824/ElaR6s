@@ -40,3 +40,4 @@ message.channel.send({embed});
 	      }
       })
 }
+}
