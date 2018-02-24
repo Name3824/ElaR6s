@@ -6,11 +6,11 @@ exports.run = (client, message, args) => {
                 let botid = member.user.id
             req('https://discordbots.fr/api/v1/bot/' + botid, (e, r, b)=> {
 						let a = JSON.parse(b)
-					if(a.error === "Not found")  {
+					if(a.error === "ce bot n`existe pas ")  {
 						const embed = new Discord.RichEmbed()
 						embed.setAuthor(client.user.tag, client.user.avatarURL)
 						embed.setThumbnail(client.user.avatarURL)
-						embed.setDescription("**Error**\n<:poiehhh:384308683787730945> Your Mention or object is not a bot of discordbots.fr")
+						embed.setDescription("**Error**\n Your Mention or object is not a bot of discordbots.fr")
                                                 embed.setColor("#ffd954")
 						message.channel.send({embed});
 					} else {
