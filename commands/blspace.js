@@ -25,7 +25,7 @@ exports.run = (client, message, args) => {
 						embed.addField("Prefix", a.prefix, true)
             embed.addField("ID", a.id, true)
             embed.addField("Views", a.views, true)
-            embed.addField("Library", a.library, true
+            embed.addField("Library", a.library, true)
             embed.addField("Premium ?", a.premium === true ? "Yes <:bfdverified:414604185951272963>" : "No <:bfdno:414604345770770432>", true)
 						embed.addField("Approved ?", a.approved === true ? "Yes <:bfdyes:414604312296030208>" : "No <:bfdno:414604345770770432>", true)
             embed.addField("Featured ?", a.featured === true ? "Yes <:bfdverified:414604185951272963>" : "No <:bfdno:414604345770770432>", true)
