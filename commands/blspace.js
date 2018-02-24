@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
 						embed.setAuthor(a.name, a.avatar)
                                             embed.setThumbnail(a.avatar)
 						embed.setColor("#ffd954")
-						embed.setFooter("Powered by https://botsfordiscord.com");
+						embed.setFooter("Powered by https://botlist.space");
 						embed.setTimestamp()
 						embed.addField(a.name, a.shortDesc, true)
 		         embed.addField("Server count", a.count, true)
