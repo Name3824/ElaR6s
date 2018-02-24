@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
                 let botid = member.user.id
             req('https://botsfordiscord.com/api/v1/bots/' + botid, (e, r, b)=> {
 						let a = JSON.parse(b)
-					if(a.error === "This API revision does not exist.")  {
+					if(a.error === "Bot Not Found")  {
 						const embed = new Discord.RichEmbed()
 						embed.setAuthor(client.user.tag, client.user.avatarURL)
 						embed.setThumbnail(client.user.avatarURL)
