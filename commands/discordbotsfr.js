@@ -4,7 +4,7 @@ const req = require("request");
 exports.run = (client, message, args) => {
 		let member = message.mentions.members.first() || message.guild.members.get(args) || message.member
                 let botid = member.user.id
-            req('https://botlist.space/api/bots/' + botid, (e, r, b)=> {
+            req('https://discordbots.fr/api/v1/bot/' + botid, (e, r, b)=> {
 						let a = JSON.parse(b)
 					if(a.error === "Not found")  {
 						const embed = new Discord.RichEmbed()
@@ -26,9 +26,7 @@ exports.run = (client, message, args) => {
             embed.addField("ID", a.id, true)
             embed.addField("Shard", a.shard, true)
             embed.addField("Library", a.lib, true)
-            embed.addField("Premium ?", a.premium === true ? "Yes <:bfdverified:414604185951272963>" : "No <:bfdno:414604345770770432>", true)
-						embed.addField("Approved ?", a.approved === true ? "Yes <:hibikiYes:384308708064100363>" : "No <:hibikiNo:384308695192043520>", true)
-            embed.addField("Featured ?", a.featured === true ? "Yes <:bfdverified:414604185951272963>" : "No <:bfdno:414604345770770432>", true)
+	    embed.addField("Approved ?", a.approved === true ? "Yes <:hibikiYes:384308708064100363>" : "No <:hibikiNo:384308695192043520>", true)
             embed.addField("Links", "[Invite](" + a.invite + "), [Avatar](" + a.avatar + ")", true)
 message.channel.send({embed});
     }
