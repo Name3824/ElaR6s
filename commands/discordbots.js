@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
 					const embed = new Discord.RichEmbed()
 						embed.setAuthor(client.user.tag, client.user.avatarURL)
 						embed.setThumbnail(client.user.avatarURL)
-						embed.setDescription("**Error**\n<a:dblspin:393548363879940108> Your Mention or object is not a bot of discordbots.org")
+						embed.setDescription("**Error**\n<a:dblspin:393548363879940108> Your Mention or object is not a bot of discordbots.org\n**Usage:\nb!discordbots @mention of bot")
 						embed.setColor("#ffd954")
 						message.channel.send({embed});
 					} else {
