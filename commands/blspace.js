@@ -15,8 +15,7 @@ exports.run = (client, message, args) => {
 						message.channel.send({embed});
 					} else {
 					const embed = new Discord.RichEmbed()
-						embed.setAuthor(a.name, a.avatar)
-                                            embed.setThumbnail(a.avatar)
+						embed.setAuthor(a.name)
 						embed.setColor("#ffd954")
 						embed.setFooter("Powered by https://botlist.space");
 						embed.setTimestamp()
@@ -29,7 +28,7 @@ exports.run = (client, message, args) => {
             embed.addField("Premium ?", a.premium === true ? "Yes <:bfdverified:414604185951272963>" : "No <:bfdno:414604345770770432>", true)
 						embed.addField("Approved ?", a.approved === true ? "Yes <:bfdyes:414604312296030208>" : "No <:bfdno:414604345770770432>", true)
             embed.addField("Featured ?", a.featured === true ? "Yes <:bfdverified:414604185951272963>" : "No <:bfdno:414604345770770432>", true)
-            embed.addField("Links", "[Invite](" + a.invite + "), [Avatar](" + a.avatar + ")", true)
+            embed.addField("Links", "[Invite](" + a.invite + ")", true)
 message.channel.send({embed});
     }
   })
