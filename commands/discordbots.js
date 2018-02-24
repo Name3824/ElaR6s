@@ -3,7 +3,7 @@ const moment = require('moment');
 const req = require("request");
 exports.run = (client, message, args) => {
 		let member = message.mentions.members.first() || message.guild.members.get(args) || message.member
-                let botid = member.user.id
+                let botid = member.user.id || client.user.find('name', message.replace('discordbots', '')).id
             req('https://discordbots.org/api/bots/' + botid, (e, r, b)=> {
 						let contenu = JSON.parse(b)
 					if(contenu.error === "Not found")  {
