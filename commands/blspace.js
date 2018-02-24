@@ -16,7 +16,8 @@ exports.run = (client, message, args) => {
 						message.channel.send({embed});
 					} else {
 					const embed = new Discord.RichEmbed()
-						embed.setAuthor(a.name)
+						embed.setAuthor(a.name, "https://cdn.discordapp.com/avatars/"+botid+"/"+a.avatar+".png")
+						embed.setThumbnail("https://cdn.discordapp.com/avatars/"+botid+"/"+a.avatar+".png")
 						embed.setColor("#ffd954")
 						embed.setFooter("Powered by https://botlist.space");
 						embed.setTimestamp()
