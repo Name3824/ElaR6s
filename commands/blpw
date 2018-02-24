@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const moment = require('moment');
 const req = require("request");
 exports.run = (client, message, args) => {
-     let botid = member.user.id
+                        let botid = member.user.id
 					req({
 					url:"https://bots.discord.pw/api/bots/" + botid,
 					headers:{
@@ -29,4 +29,3 @@ exports.run = (client, message, args) => {
 				}
 					}
 				}
-}
