@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
 						embed.setAuthor(contenu.username, "https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".png")
 						embed.setThumbnail("https://cdn.discordapp.com/avatars/"+botid+"/"+contenu.avatar+".png")
 						embed.setColor("#ffd954")
-						embed.setFooter("Thanks Jus De Patate#0190 for this command ^^");
+						embed.setFooter("Thanks Jus De Patate#0190 for helped in this command");
 						embed.setTimestamp()
 						embed.addField(contenu.username, contenu.shortdesc, true)
 						embed.addField("Certified ? <:dblCertified:392249976639455232>", contenu.certifiedBot === true ? "Yes <:tickYes:315009125694177281>" : "No <:tickNo:315009174163685377>", true)
