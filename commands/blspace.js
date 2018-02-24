@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
                 let botid = member.user.id
             req('https://botlist.space/api/bots/' + botid, (e, r, b)=> {
 						let a = JSON.parse(b)
-					if(a.error === "{…}")  {
+					if(a.error.code === 404)  {
 						const embed = new Discord.RichEmbed()
 						embed.setAuthor(client.user.tag, client.user.avatarURL)
 						embed.setThumbnail(client.user.avatarURL)
