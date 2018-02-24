@@ -35,7 +35,6 @@ if(args[0] === "dbl"){
 						embed.addField("Admin ? ", contenu.admin === true ? "Yes <:tickYes:315009125694177281>" : "No <:tickNo:315009174163685377>", true)
 						embed.addField("Socials", "[Github](" + contenu.invite.length != 0 ? contenu.tags.join(", ") : "No Github Account." + "), [Instagram](" + contenu.invite.length != 0 ? contenu.tags.join(", ") : "No Instagram Account." + "), [Reddit](" + contenu.github.length != 0 ? contenu.tags.join(", ") : "No Reddit Account" + "), [Twitter](" + contenu.website.length != 0 ? contenu.tags.join(", ") : "No Twitter Account" + "), [Youtube](" + contenu.support.length != 0 ? contenu.tags.join(", ") : "No Youtube Account" + ")", true)
 message.channel.send({embed});
-					}
+			}
            }
-     })
 }
