@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
  const emb = new Discord.RichEmbed();
 	let member = message.mentions.members.first() || message.guild.members.get(args) || message.member
                 let botid = member.user.id
-            req('https://discordbots.org/api/bots/' + botid, (e, r, b)=> {
+            req('https://discordbots.org/api/users/' + botid, (e, r, b)=> {
 						let contenu = JSON.parse(b)
 					if(contenu.error === "Not found")  {
 					const embed = new Discord.RichEmbed()
