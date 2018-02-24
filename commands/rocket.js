@@ -18,7 +18,7 @@ exports.run = (client, msg, args) => {
             msg.channel.startTyping();
             emb.setColor('#F03A17');
             emb.setTitle('Error.');
-            emb.addField('Platform not defined', 'Try agai');
+            emb.addField('Platform not defined', 'Try again');
             emb.setFooter(msg.author.tag, msg.author.avatarURL);
             msg.channel.send({embed:emb});
             msg.channel.stopTyping();
@@ -76,6 +76,7 @@ exports.run = (client, msg, args) => {
         emb.setAuthor('Correct Usage of Rocket League Commands', 'https://vignette.wikia.nocookie.net/rocketleague/images/f/f6/Rocketleague-logo.png/revision/latest?cb=20161207070401', 'https://rocketleaguestats.com/');
         emb.setThumbnail('https://i.imgur.com/HzLyjWn.png');
         emb.addField("Search for a player's stats\nUsage:", "b!rocket player [platform] [username]\nValid platforms: `pc, ps4, xbox` \n**For pc account take the id from** https://steamidfinder.com/");
+        emb.setImage("https://i.imgur.com/53lO3ST.png");
         emb.setFooter(msg.author.tag, msg.author.avatarURL);
         msg.channel.send({embed:emb});
         msg.channel.stopTyping();
