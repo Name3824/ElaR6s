@@ -11,5 +11,3 @@ exports.run = (client, message) => {
       return message.reply({embed}).then(message => message.delete(30000))
       }
     }
-}
-}
