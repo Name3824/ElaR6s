@@ -124,7 +124,7 @@ exports.exec = (Bastion, message, args) => {
           url: 'https://vignette1.wikia.nocookie.net/rainbowsix/images/0/06/Rainbow_(Clear_Background)_logo.png'
         }
       }
-    })
+    }
   })
   })
 };
