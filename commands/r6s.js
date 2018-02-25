@@ -126,5 +126,5 @@ exports.exec = (Bastion, message, args) => {
       }
     })
   })
-  });
+  })
 };
