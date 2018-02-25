@@ -12,3 +12,4 @@ exports.run = (client, message) => {
       }
     }
 }
+}
