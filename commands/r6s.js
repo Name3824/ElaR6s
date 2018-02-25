@@ -123,6 +123,8 @@ exports.exec = (Bastion, message, args) => {
         thumbnail: {
           url: 'https://vignette1.wikia.nocookie.net/rainbowsix/images/0/06/Rainbow_(Clear_Background)_logo.png'
         }
+        }
+      }
       }
     }
   })
