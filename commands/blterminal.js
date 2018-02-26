@@ -6,7 +6,7 @@ let member = message.mentions.members.first() || message.guild.members.get(args)
 let botid = member.user.id
 					req({
 					url:"https://ls.terminal.ink/api/v1/bots/" + botid,
-					headers:{
+					header:{
 					   "Authorization":process.env.TERMINAL
 					}}, (e, r, b) =>{
 						a = JSON.parse(b)
