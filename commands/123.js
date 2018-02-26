@@ -1,16 +1,6 @@
 exports.run = (client, msg, args) => { 
-async function() {
-    const mainmsg = await msg.channel.send("", {embed: {
-      color: Math.floor(Math.random()*16777216),
-      author: {
-                name: "Commande d'help",
-                icon_url: msg.guild.avatarURL
-               },
-    
-          description: "📋 Affiche ce message\n👤Role disponible\n🎵Commande musique\n📡Information sur le serveur\n❓Information sur toi\n🛑 pour quitter",
-              }
-            }
-          )
+(async function() {
+    const mainmsg = await msg.channel.send("lol")
   
               //await mainmsg.react("📋");
               //await mainmsg.react("👤");
@@ -36,9 +26,6 @@ async function() {
                }
                await reaction.remove(msg.author.id);
   
-              });
-               }())
+              })
+               })
               }
-            }
-
-             });
