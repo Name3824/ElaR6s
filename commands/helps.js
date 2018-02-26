@@ -1,5 +1,4 @@
     exports.run = (client, msg, args) => {
-    if (msg.content.startsWith(prefix + "help")) {
     (async function() {
     const mainmsg = await msg.channel.send("", {embed: {
       color: Math.floor(Math.random()*16777216),
