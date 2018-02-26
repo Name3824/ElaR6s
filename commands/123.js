@@ -36,7 +36,7 @@ exports.run = async (client, msg, args) => {
                }
                await reaction.remove(msg.author.id);
   
-              })
+              });
                }())
               }
             }
