@@ -224,8 +224,8 @@
                }
                await reaction.remove(msg.author.id);
   
-              });
-               }());
+              })
+               }())
               }
             }
   
