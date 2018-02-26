@@ -30,5 +30,5 @@ mainMessage.delete()
  await reaction.remove(message.author.id)
     })
 });
- }());
+ });
 }
