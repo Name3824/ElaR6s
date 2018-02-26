@@ -1,5 +1,5 @@
 exports.run = async (client, msg, args) => { 
-(async function() {
+async function() {
     const mainmsg = await msg.channel.send("", {embed: {
       color: Math.floor(Math.random()*16777216),
       author: {
