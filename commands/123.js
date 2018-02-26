@@ -1,4 +1,4 @@
-exports.run = async (client, msg, args) => { 
+exports.run = (client, msg, args) => { 
 async function() {
     const mainmsg = await msg.channel.send("", {embed: {
       color: Math.floor(Math.random()*16777216),
