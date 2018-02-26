@@ -1,4 +1,4 @@
-    exports.run = (client, message, args) => {
+    exports.run = (client, msg, args) => {
     if (msg.content.startsWith(prefix + "help")) {
     (async function() {
     const mainmsg = await msg.channel.send("", {embed: {
