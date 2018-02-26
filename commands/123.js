@@ -12,12 +12,17 @@ const panier = mainMessage.createReactionCollector((reaction, user) => user.id =
 panier.on('collect', async(reaction) => 
 {
  if (reaction.emoji.name === "1️⃣") {
-const embed = new Discord.RichEmbed()
-embed.setAuthor(client.user.tag, client.user.avatarURL)
-embed.setThumbnail(client.user.avatarURL)
-embed.setDescription("<:oof:402924395779194880> **Test**\n**Usage**:\n**Pagina.1**")
-embed.setColor("#ffd954")
-mainMessage.edit({embed});
+mainMessage.edit("", {embed: {
+      color: Math.floor(Math.random()*16777216),
+      author: {
+                name: "Commande d'help",
+                icon_url: message.guild.avatarURL
+               },
+    
+          description: "📋 Affiche ce message\n👤Role disponible\n🎵Commande musique\n📡Information sur le serveur\n❓Information sur toi\n🛑 pour quitter",
+              }
+            }
+)
 
  }
 if (reaction.emoji.name === "2️⃣") {
