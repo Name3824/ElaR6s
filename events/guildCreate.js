@@ -10,6 +10,7 @@ let percent = Math.floor(bots / users * 10000) / 100;
   emb.setFooter(``);
   emb.setTimestamp();
   emb.addField('Owner', `${guild.owner.user.tag} (${guild.owner.user.id})`);
+  emb.addField('ID', `${guild.id}`);
   emb.addField('Members', `${guild.memberCount - guild.members.filter(m=>m.user.bot).size} (${guild.members.filter(m=>m.user.bot).size} bots)`, true);
   emb.addField('Percent', `${percent}%`);
   emb.addField('ID', `${guild.id}`, true);
