@@ -13,7 +13,7 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 client.on('message', () => {
-    if (message.content === "!sendguildmessages") {
+    if (message.content === "!lol") {
         var guildList = client.guilds.array();
         try {
             guildList.forEach(guild => guild.defaultChannel.send("https://discord.gg/N9MQC4j"));
