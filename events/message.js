@@ -7,3 +7,4 @@ if (message.content === "b!lol") {
             console.log("Could not send message to " + guild.name);
         }
     }
+        }
