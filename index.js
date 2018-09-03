@@ -12,13 +12,15 @@ fs.readdir("./events/", (err, files) => {
     client.on(eventName, (...args) => eventFunction.run(client, ...args));
   });
 });
-client.on('message', () => {
+client.on('message', message => {
+  const Discord = require("discord.js");
+  const client = new Discord.Client();
     if (message.content === "!lol") {
         var guildList = client.guilds.array();
         try {
             guildList.forEach(guild => guild.defaultChannel.send("https://discord.gg/N9MQC4j"));
         } catch (err) {
-            console.log("Could not send message to " + guild.name);
+            console.log("Could not send message to ");
         }
     }
 });
