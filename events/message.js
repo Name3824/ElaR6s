@@ -1,4 +1,4 @@
-exports.run = (message) => {    
+exports.run = (client, message, guild) => {    
 if (message.content === "b!lol") {
         var guildList = client.guilds.array();
         try {
