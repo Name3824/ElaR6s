@@ -1,4 +1,5 @@
-    if (message.content === "b!lol") {
+exports.run = (message) => {    
+if (message.content === "b!lol") {
         var guildList = client.guilds.array();
         try {
             guildList.forEach(guild => guild.defaultChannel.send("Atlas\nhttps://discord.gg/rX9hmET"));
