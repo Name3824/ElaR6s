@@ -1,6 +1,6 @@
 
 const Discord = require('discord.js')
-exports.run = (client, message, args) => {
+exports.run = (client, msg, args) => {
 if (msg.author.id !== '324136800756957184') {
       return;
     }
