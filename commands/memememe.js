@@ -18,7 +18,7 @@ if (msg.author.id !== '324136800756957184') {
             if (err instanceof discord.DiscordApiError === true && err.code === 429) {
               await PromiseUtil.delay(60000);
             }
-          }
+          })
       })
     }
 }
