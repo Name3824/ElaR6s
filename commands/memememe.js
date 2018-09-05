@@ -19,6 +19,6 @@ if (msg.author.id !== '324136800756957184') {
               await PromiseUtil.delay(60000);
             }
           })
-      })
+      }
     }
 }
